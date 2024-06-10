@@ -11,7 +11,7 @@ struct Homepage: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                ImageCard()
+                ImageCard(imageName: "frozenMargarita", title: "Frozen Margarita", headline: "A perfect drink to enjoy the hot weather")
                     .padding(.horizontal, 20)
                 RecipesCarousel()
                     .padding(.leading, 20)
