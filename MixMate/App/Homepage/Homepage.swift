@@ -9,11 +9,14 @@ import SwiftUI
 
 struct Homepage: View {
     var body: some View {
-        VStack {
-            ImageCard()
-                .padding(.horizontal, 20)
-            RecipesCarousel()
-                .padding(.leading, 20)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                ImageCard()
+                    .padding(.horizontal, 20)
+                RecipesCarousel()
+                    .padding(.leading, 20)
+            }
+            .padding(.top)
         }
         
     }
