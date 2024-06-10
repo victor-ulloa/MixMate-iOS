@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct Homepage: View {
+    
+    let cocktail = Cocktail(name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: "")
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                ImageCard(imageName: "frozenMargarita", title: "Frozen Margarita", headline: "A perfect drink to enjoy the hot weather")
+                ImageCard(cocktail: cocktail)
                     .padding(.horizontal, 20)
                 RecipesCarousel()
                     .padding(.leading, 20)

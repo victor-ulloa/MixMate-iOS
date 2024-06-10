@@ -9,23 +9,21 @@ import SwiftUI
 
 struct ImageCard: View {
     
-    var imageName: String
-    var title: String
-    var headline: String
+    let cocktail: Cocktail
     
     var body: some View {
         ZStack (alignment: .leading) {
-            Image(imageName)
+            Image(cocktail.imageName)
                 .resizable()
                 .frame(height: 200)
                 .scaledToFit()
                 .shadow(radius: 5)
             VStack (alignment: .leading) {
-                Text(title)
+                Text(cocktail.name)
                     .font(.title)
                     .foregroundStyle(Color.white)
                 
-                Text(headline)
+                Text(cocktail.shortDescription)
                     .font(.subheadline)
                     .foregroundStyle(Color.white)
             }
@@ -36,5 +34,5 @@ struct ImageCard: View {
 }
 
 #Preview {
-    ImageCard(imageName: "frozenMargarita", title: "Frozen Margarita", headline: "A perfect drink to enjoy the hot weather")
+    ImageCard(cocktail: Cocktail(name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: ""))
 }
