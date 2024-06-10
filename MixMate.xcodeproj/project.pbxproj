@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5782A6602C168ECB000015CB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5782A65F2C168ECB000015CB /* Preview Content.xcassets */; };
 		5782A6622C168F15000015CB /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6612C168F15000015CB /* Homepage.swift */; };
+		5782A6652C16962A000015CB /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6642C16962A000015CB /* ImageCard.swift */; };
+		5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6662C16987E000015CB /* RecipesCarousel.swift */; };
+		5782A6692C1698CF000015CB /* RecipesCarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */; };
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* Begin PBXFileReference section */
 		5782A65F2C168ECB000015CB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
 		5782A6612C168F15000015CB /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
+		5782A6642C16962A000015CB /* ImageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCard.swift; sourceTree = "<group>"; };
+		5782A6662C16987E000015CB /* RecipesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCarousel.swift; sourceTree = "<group>"; };
+		5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCarouselItem.swift; sourceTree = "<group>"; };
 		57EA6D4B2C1414A200AE66DD /* MixMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -45,6 +51,7 @@
 		5782A65B2C168E40000015CB /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5782A6632C16960F000015CB /* Components */,
 				57EA6D502C1414A200AE66DD /* MainView.swift */,
 				57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */,
 				5782A65A2C168DE3000015CB /* Homepage */,
@@ -72,6 +79,16 @@
 				5782A65F2C168ECB000015CB /* Preview Content.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5782A6632C16960F000015CB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5782A6642C16962A000015CB /* ImageCard.swift */,
+				5782A6662C16987E000015CB /* RecipesCarousel.swift */,
+				5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		57EA6D422C1414A200AE66DD = {
@@ -174,7 +191,10 @@
 			files = (
 				5782A6622C168F15000015CB /* Homepage.swift in Sources */,
 				57EA6D512C1414A200AE66DD /* MainView.swift in Sources */,
+				5782A6692C1698CF000015CB /* RecipesCarouselItem.swift in Sources */,
+				5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */,
 				57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */,
+				5782A6652C16962A000015CB /* ImageCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
