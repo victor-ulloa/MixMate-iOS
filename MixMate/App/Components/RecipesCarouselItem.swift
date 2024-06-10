@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct RecipesCarouselItem: View {
-    var color: Color
+    
+    var cocktail: Cocktail
+    
     var body: some View {
-        RoundedRectangle(cornerRadius: 25)
-            .fill(color)
-            .frame(width: 150, height: 200)
-            .shadow(radius: 5)
+        ZStack {
+            RoundedRectangle(cornerRadius: 25)
+                .fill(.gray)
+                .frame(width: 150, height: 200)
+                .shadow(radius: 5)
+        }
     }
 }
 
 #Preview {
-    RecipesCarouselItem(color: .blue)
+    RecipesCarouselItem(cocktail: Cocktail(name: "Espresso Marini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageName: "", imageURL: ""))
 }

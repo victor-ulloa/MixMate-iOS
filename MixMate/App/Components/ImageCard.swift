@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ImageCard: View {
     
-    @State var imageName: String
-    @State var title: String
-    @State var headline: String
+    var imageName: String
+    var title: String
+    var headline: String
     
     var body: some View {
         ZStack (alignment: .leading) {

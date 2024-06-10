@@ -10,11 +10,15 @@ import SwiftUI
 struct RecipesCarousel: View {
     let colors: [Color] = [.red, .green, .blue, .yellow, .orange, .purple]
     
+    let cocktails: [Cocktail] = [
+        Cocktail(name: "Espresso Marini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageName: "", imageURL: "")
+    ]
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 15) {
-                ForEach(0..<colors.count, id: \.self) { index in
-                    RecipesCarouselItem(color: colors[index])
+                ForEach(cocktails) { cocktail in
+                    RecipesCarouselItem(cocktail: cocktail)
                 }
             }
             .padding(.vertical)
