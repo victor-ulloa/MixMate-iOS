@@ -24,10 +24,10 @@ struct RecipesCarouselItem: View {
                     .multilineTextAlignment(.leading)
                     .frame(width: 130, alignment: .leading)
             }
-            .padding()
+            .padding(.bottom, 10)
             .padding(.leading, 10)
-            
         }
+        .padding(.leading, 20)
     }
 }
 
