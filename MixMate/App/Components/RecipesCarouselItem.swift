@@ -19,7 +19,7 @@ struct RecipesCarouselItem: View {
                 .shadow(radius: 5)
             
             VStack {
-                Text(cocktail.name)
+                Text(cocktail.name ?? "")
                     .font(.title3)
                     .multilineTextAlignment(.leading)
                     .frame(width: 130, alignment: .leading)
@@ -32,5 +32,5 @@ struct RecipesCarouselItem: View {
 }
 
 #Preview {
-    RecipesCarouselItem(cocktail: Cocktail(name: "Espresso Martini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageName: "", imageURL: ""))
+    RecipesCarouselItem(cocktail: Cocktail(id: 1, name: "Espresso Martini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageName: "", imageURL: ""))
 }

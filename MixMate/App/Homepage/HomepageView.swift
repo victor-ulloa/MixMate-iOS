@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct Homepage: View {
+struct HomepageView: View {
     
-    let cocktail = Cocktail(name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: "")
+    let viewModel = HomepageViewModel()
+    
+    let cocktail = Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: "")
     
     var body: some View {
         NavigationStack {
@@ -45,5 +47,5 @@ struct Homepage: View {
 }
 
 #Preview {
-    Homepage()
+    HomepageView()
 }
