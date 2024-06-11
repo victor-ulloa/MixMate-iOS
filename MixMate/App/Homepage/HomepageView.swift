@@ -9,16 +9,16 @@ import SwiftUI
 
 struct HomepageView: View {
     
-    let viewModel = HomepageViewModel()
-    
-    let cocktail = Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: "")
+    @StateObject var viewModel = HomepageViewModel()
     
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 25){
-                    ImageCard(cocktail: cocktail)
-                        .padding(.horizontal, 20)
+                    if let cocktail = viewModel.cocktails.first {
+                        ImageCard(cocktail: cocktail)
+                            .padding(.horizontal, 20)
+                    }
                     RecipesCarousel(title: "Recomendations")
                     RecipesCarousel(title: "Recomendations")
                 }

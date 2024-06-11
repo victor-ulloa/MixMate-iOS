@@ -15,18 +15,16 @@ final class HomepageViewModel: ObservableObject {
         Task {
             await fetchCocktails()
         }
-        
     }
     
     func fetchCocktails() async {
         do {
-            let response: [Cocktail] = try await Supabase.shared.instance.from("cocktails").select().execute().value
-            print(response)
+            let fetchedCocktails: [Cocktail] = try await Supabase.shared.instance.from("cocktails").select().execute().value
+            DispatchQueue.main.async { [weak self] in
+                self?.cocktails = fetchedCocktails
+            }
         } catch {
             print("Error: \(error)")
         }
-        
-        
     }
-    
 }
