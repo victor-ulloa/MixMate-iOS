@@ -12,12 +12,30 @@ struct ImageCard: View {
     let cocktail: Cocktail
     
     var body: some View {
-        ZStack (alignment: .leading) {
-            Image(cocktail.imageName ?? "")
-                .resizable()
-                .frame(height: 200)
-                .scaledToFit()
-                .shadow(radius: 5)
+        ZStack (alignment: .center) {
+            if let imageURL = cocktail.imageURL, !imageURL.isEmpty {
+                AsyncImage(url: URL(string: cocktail.imageURL ?? "")) { image in
+                    image
+                        .resizable()
+                        .frame(height: 200)
+                        .scaledToFit()
+                        .shadow(radius: 5)
+                } placeholder: {
+                    Color.gray
+                        .frame(height: 200)
+                        .frame(maxWidth: .infinity)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .shadow(radius: 5)
+                }
+            } else {
+                Image(cocktail.imageName ?? "")
+                    .resizable()
+                    .frame(height: 200)
+                    .scaledToFit()
+                    .shadow(radius: 5)
+            }
+            
+                
             VStack (alignment: .leading) {
                 Text(cocktail.name ?? "")
                     .font(.title)
@@ -29,6 +47,7 @@ struct ImageCard: View {
             }
             .padding(.horizontal, 20)
         }
+        .frame(maxWidth: .infinity)
 
     }
 }
