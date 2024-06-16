@@ -7,16 +7,18 @@
 
 import SwiftUI
 
-struct Homepage: View {
+struct HomepageView: View {
     
-    let cocktail = Cocktail(name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: "")
+    @StateObject var viewModel = HomepageViewModel()
     
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 25){
-                    ImageCard(cocktail: cocktail)
-                        .padding(.horizontal, 20)
+                    if let cocktail = viewModel.cocktails.first {
+                        ImageCard(cocktail: cocktail)
+                            .padding(.horizontal, 20)
+                    }
                     RecipesCarousel(title: "Recomendations")
                     RecipesCarousel(title: "Recomendations")
                 }
@@ -45,5 +47,5 @@ struct Homepage: View {
 }
 
 #Preview {
-    Homepage()
+    HomepageView()
 }
