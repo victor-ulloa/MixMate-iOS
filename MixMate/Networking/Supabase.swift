@@ -21,4 +21,14 @@ final class Supabase {
         instance = SupabaseClient(supabaseURL: url, supabaseKey: key)
     }
     
+    func fetchCocktails() async -> [Cocktail]? {
+        do {
+            let fetchedCocktails: [Cocktail] = try await instance.from(Constants.kCocktailsTable).select().execute().value
+            return fetchedCocktails
+        } catch {
+            print("Error: \(error)")
+        }
+        return nil
+    }
+    
 }

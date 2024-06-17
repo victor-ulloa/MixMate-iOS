@@ -13,18 +13,11 @@ final class HomepageViewModel: ObservableObject {
     
     init() {
         Task {
-            await fetchCocktails()
-        }
-    }
-    
-    func fetchCocktails() async {
-        do {
-            let fetchedCocktails: [Cocktail] = try await Supabase.shared.instance.from(Constants.kCocktailsTable).select().execute().value
-            DispatchQueue.main.async { [weak self] in
-                self?.cocktails = fetchedCocktails
+            if let cocktails = await Supabase.shared.fetchCocktails() {
+                DispatchQueue.main.async { [weak self] in
+                    self?.cocktails = cocktails
+                }
             }
-        } catch {
-            print("Error: \(error)")
         }
     }
 }
