@@ -9,6 +9,8 @@ import Foundation
 
 final class InventoryViewModel: ObservableObject {
     
-    @Published var inventory: Inventory?
+    @Published var selectedCategoryItemList: Inventory?
+    
+    
     
 }
