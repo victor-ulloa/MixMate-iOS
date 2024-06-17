@@ -15,8 +15,12 @@ struct CategoryView: View {
     
     var body: some View {
         List {
-            Text(category.getLabel())
+            Text("Vodka")
+            Text("Rum")
+            Text("Whiskey")
+            Text("Gin")
         }
+        .navigationTitle(category.getLabel())
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
@@ -25,7 +29,7 @@ struct CategoryView: View {
                     Image(systemName: "plus")
                 }
                 .sheet(isPresented: $showingAddItem, onDismiss: didDismiss, content: {
-                    Text("ADD SCREEN")
+                    AddItemView(isPresented: $showingAddItem)
                 })
             }
         }

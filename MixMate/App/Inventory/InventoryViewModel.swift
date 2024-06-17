@@ -11,6 +11,4 @@ final class InventoryViewModel: ObservableObject {
     
     @Published var inventory: Inventory?
     
-    
-    
 }

@@ -10,8 +10,6 @@ import Foundation
 struct InventoryItem: Codable, Hashable {
     
     let name: String
-    let quantity: Double
     let type: InventoryItemType
-    let unit: String
     
 }
