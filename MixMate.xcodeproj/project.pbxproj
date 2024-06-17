@@ -32,7 +32,7 @@
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
-		57F1A9A32C20F8030023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A12C20F8030023B8DB /* Preview Content.xcassets */; };
+		57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +56,7 @@
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		57EA6D522C1414A300AE66DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		57F1A9A12C20F8030023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
+		57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,12 +165,12 @@
 		57EA6D4D2C1414A200AE66DD /* MixMate */ = {
 			isa = PBXGroup;
 			children = (
-				57F1A9A22C20F8030023B8DB /* Preview Content */,
 				57EA6D522C1414A300AE66DD /* Assets.xcassets */,
 				5782A65B2C168E40000015CB /* App */,
 				575823772C181DCB000EEC7A /* Helpers */,
 				5782A65C2C168E48000015CB /* Models */,
 				5782A65D2C168E4E000015CB /* Networking */,
+				57F1A9A22C20F8030023B8DB /* Preview Content */,
 			);
 			path = MixMate;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 		57F1A9A22C20F8030023B8DB /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				57F1A9A12C20F8030023B8DB /* Preview Content.xcassets */,
+				57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */,
-				57F1A9A32C20F8030023B8DB /* Preview Content.xcassets in Resources */,
+				57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
