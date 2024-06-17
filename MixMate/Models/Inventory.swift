@@ -9,6 +9,7 @@ import Foundation
 
 struct Inventory {
 
+    let id: Int
     let item: [InventoryItem]
 
 }

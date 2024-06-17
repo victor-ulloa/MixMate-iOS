@@ -17,7 +17,7 @@ struct InventoryView: View {
                 
                 ForEach(InventoryItemType.allCases, id: \.rawValue) { itemType in
                     NavigationLink {
-                        Text(itemType.getLabel())
+                        CategoryView(category: itemType)
                     } label: {
                         InventoryCategoryCard(imageName: itemType.getImageName(), label: itemType.getLabel())
                     }
