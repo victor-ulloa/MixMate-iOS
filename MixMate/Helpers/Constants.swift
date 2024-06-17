@@ -24,7 +24,7 @@ enum InventoryItemType: String, Codable, CaseIterable {
     case mixer
     case juice
     case syrup
-    case bitter
+    case bitters
     case herbsAndSpices
     case others // eggs, milk, salt, suggar, coffee, tea, etc.
     
@@ -40,7 +40,7 @@ enum InventoryItemType: String, Codable, CaseIterable {
             return "frozenMargarita"
         case .syrup:
             return "frozenMargarita"
-        case .bitter:
+        case .bitters:
             return "frozenMargarita"
         case .herbsAndSpices:
             return "frozenMargarita"
@@ -61,7 +61,7 @@ enum InventoryItemType: String, Codable, CaseIterable {
             return "Juices"
         case .syrup:
             return "Syrups"
-        case .bitter:
+        case .bitters:
             return "Bitters"
         case .herbsAndSpices:
             return "Herbs and Spices"

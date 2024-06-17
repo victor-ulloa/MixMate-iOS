@@ -14,7 +14,6 @@ struct InventoryView: View {
     var body: some View {
         NavigationStack {
             List {
-                
                 ForEach(InventoryItemType.allCases, id: \.rawValue) { itemType in
                     NavigationLink {
                         CategoryView(category: itemType)

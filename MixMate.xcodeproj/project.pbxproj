@@ -33,6 +33,7 @@
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
+		57F1A99D2C20E5100023B8DB /* InventoryListItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A99C2C20E5100023B8DB /* InventoryListItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		57EA6D522C1414A300AE66DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57F1A99C2C20E5100023B8DB /* InventoryListItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryListItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				575823642C17BC8D000EEC7A /* Cocktail.swift */,
 				57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */,
 				57B5A4992C1FB23700C5917C /* Inventory.swift */,
+				57F1A99C2C20E5100023B8DB /* InventoryListItems.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				57B5A4A02C1FD68000C5917C /* AddItemView.swift in Sources */,
 				5782A6622C168F15000015CB /* HomepageView.swift in Sources */,
 				57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */,
+				57F1A99D2C20E5100023B8DB /* InventoryListItems.swift in Sources */,
 				57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */,
 				57B5A4932C1FA8C600C5917C /* InventoryView.swift in Sources */,
 				57B5A4A42C1FD72700C5917C /* SearchBar.swift in Sources */,
