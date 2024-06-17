@@ -15,7 +15,7 @@ struct MainView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            HomepageView()
+            InventoryView()
                 .tabItem {
                     Image(systemName: "shippingbox")
                     Text("Inventory")

@@ -22,6 +22,14 @@
 		5782A6652C16962A000015CB /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6642C16962A000015CB /* ImageCard.swift */; };
 		5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6662C16987E000015CB /* RecipesCarousel.swift */; };
 		5782A6692C1698CF000015CB /* RecipesCarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */; };
+		57B5A4932C1FA8C600C5917C /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4922C1FA8C600C5917C /* InventoryView.swift */; };
+		57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */; };
+		57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */; };
+		57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4992C1FB23700C5917C /* Inventory.swift */; };
+		57B5A49C2C1FBF3A00C5917C /* InventoryCategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */; };
+		57B5A49E2C1FC68E00C5917C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A49D2C1FC68E00C5917C /* CategoryView.swift */; };
+		57B5A4A02C1FD68000C5917C /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A49F2C1FD68000C5917C /* AddItemView.swift */; };
+		57B5A4A42C1FD72700C5917C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4A32C1FD72700C5917C /* SearchBar.swift */; };
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
@@ -37,6 +45,14 @@
 		5782A6642C16962A000015CB /* ImageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCard.swift; sourceTree = "<group>"; };
 		5782A6662C16987E000015CB /* RecipesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCarousel.swift; sourceTree = "<group>"; };
 		5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCarouselItem.swift; sourceTree = "<group>"; };
+		57B5A4922C1FA8C600C5917C /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
+		57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
+		57B5A4992C1FB23700C5917C /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryCard.swift; sourceTree = "<group>"; };
+		57B5A49D2C1FC68E00C5917C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		57B5A49F2C1FD68000C5917C /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		57B5A4A32C1FD72700C5917C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		57EA6D4B2C1414A200AE66DD /* MixMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -80,10 +96,11 @@
 		5782A65B2C168E40000015CB /* App */ = {
 			isa = PBXGroup;
 			children = (
-				5782A6632C16960F000015CB /* Components */,
 				57EA6D502C1414A200AE66DD /* MainView.swift */,
 				57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */,
+				5782A6632C16960F000015CB /* Components */,
 				5782A65A2C168DE3000015CB /* Homepage */,
+				57B5A48F2C1FA87300C5917C /* Inventory */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -92,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				575823642C17BC8D000EEC7A /* Cocktail.swift */,
+				57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */,
+				57B5A4992C1FB23700C5917C /* Inventory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,8 +137,21 @@
 				5782A6642C16962A000015CB /* ImageCard.swift */,
 				5782A6662C16987E000015CB /* RecipesCarousel.swift */,
 				5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */,
+				57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */,
+				57B5A4A32C1FD72700C5917C /* SearchBar.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		57B5A48F2C1FA87300C5917C /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				57B5A4922C1FA8C600C5917C /* InventoryView.swift */,
+				57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */,
+				57B5A49D2C1FC68E00C5917C /* CategoryView.swift */,
+				57B5A49F2C1FD68000C5917C /* AddItemView.swift */,
+			);
+			path = Inventory;
 			sourceTree = "<group>";
 		};
 		57EA6D422C1414A200AE66DD = {
@@ -232,13 +264,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B5A4A02C1FD68000C5917C /* AddItemView.swift in Sources */,
 				5782A6622C168F15000015CB /* HomepageView.swift in Sources */,
+				57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */,
+				57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */,
+				57B5A4932C1FA8C600C5917C /* InventoryView.swift in Sources */,
+				57B5A4A42C1FD72700C5917C /* SearchBar.swift in Sources */,
 				57EA6D512C1414A200AE66DD /* MainView.swift in Sources */,
 				575823652C17BC8D000EEC7A /* Cocktail.swift in Sources */,
+				57B5A49E2C1FC68E00C5917C /* CategoryView.swift in Sources */,
 				5782A6692C1698CF000015CB /* RecipesCarouselItem.swift in Sources */,
 				575823762C17D74C000EEC7A /* HomepageViewModel.swift in Sources */,
 				575823792C181DE0000EEC7A /* Constants.swift in Sources */,
 				5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */,
+				57B5A49C2C1FBF3A00C5917C /* InventoryCategoryCard.swift in Sources */,
+				57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */,
 				575823742C17D516000EEC7A /* Supabase.swift in Sources */,
 				57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */,
 				5782A6652C16962A000015CB /* ImageCard.swift in Sources */,

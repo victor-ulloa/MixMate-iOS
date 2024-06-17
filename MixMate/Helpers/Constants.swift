@@ -11,5 +11,64 @@ struct Constants {
     
     //    MARK: - Supabase Table keys
     static let kCocktailsTable = "cocktails"
+    static let kInventoryTable = "Inventory"
     
 }
+
+
+// MARK: - Enums
+
+enum InventoryItemType: String, Codable, CaseIterable {
+    case spirit
+    case liqueur
+    case mixer
+    case juice
+    case syrup
+    case bitter
+    case herbsAndSpices
+    case others // eggs, milk, salt, suggar, coffee, tea, etc.
+    
+    func getImageName() -> String {
+        switch self {
+        case .spirit:
+            return "frozenMargarita"
+        case .liqueur:
+            return "frozenMargarita"
+        case .mixer:
+            return "frozenMargarita"
+        case .juice:
+            return "frozenMargarita"
+        case .syrup:
+            return "frozenMargarita"
+        case .bitter:
+            return "frozenMargarita"
+        case .herbsAndSpices:
+            return "frozenMargarita"
+        case .others:
+            return "frozenMargarita"
+        }
+    }
+    
+    func getLabel() -> String {
+        switch self {
+        case .spirit:
+            return "Spirits"
+        case .liqueur:
+            return "Liqueurs"
+        case .mixer:
+            return "Mixers"
+        case .juice:
+            return "Juices"
+        case .syrup:
+            return "Syrups"
+        case .bitter:
+            return "Bitters"
+        case .herbsAndSpices:
+            return "Herbs and Spices"
+        case .others:
+            return "Others"
+        }
+    }
+}
+
+

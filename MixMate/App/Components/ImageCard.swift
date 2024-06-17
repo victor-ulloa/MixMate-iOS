@@ -14,7 +14,7 @@ struct ImageCard: View {
     var body: some View {
         ZStack (alignment: .center) {
             if let imageURL = cocktail.imageURL, !imageURL.isEmpty {
-                AsyncImage(url: URL(string: cocktail.imageURL ?? "")) { image in
+                AsyncImage(url: URL(string: imageURL )) { image in
                     image
                         .resizable()
                         .frame(height: 200)

@@ -23,7 +23,7 @@ struct RecipesCarousel: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
-                    ForEach(cocktails) { cocktail in
+                    ForEach(cocktails, id: \.self) { cocktail in
                         RecipesCarouselItem(cocktail: cocktail)
                     }
                 }
