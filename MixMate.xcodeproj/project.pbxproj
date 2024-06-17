@@ -33,6 +33,7 @@
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
 		57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */; };
+		57F1A9A82C2103510023B8DB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A9A72C2103510023B8DB /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		57EA6D522C1414A300AE66DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
+		57F1A9A72C2103510023B8DB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		5782A65B2C168E40000015CB /* App */ = {
 			isa = PBXGroup;
 			children = (
+				57F1A9A62C2103150023B8DB /* Profile */,
 				57EA6D502C1414A200AE66DD /* MainView.swift */,
 				57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */,
 				5782A6632C16960F000015CB /* Components */,
@@ -181,6 +184,14 @@
 				57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		57F1A9A62C2103150023B8DB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				57F1A9A72C2103510023B8DB /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +291,7 @@
 				57B5A49C2C1FBF3A00C5917C /* InventoryCategoryCard.swift in Sources */,
 				57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */,
 				575823742C17D516000EEC7A /* Supabase.swift in Sources */,
+				57F1A9A82C2103510023B8DB /* ProfileView.swift in Sources */,
 				57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */,
 				5782A6652C16962A000015CB /* ImageCard.swift in Sources */,
 			);

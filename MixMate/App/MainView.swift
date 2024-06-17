@@ -25,7 +25,7 @@ struct MainView: View {
                     Image(systemName: "list.bullet")
                     Text("Recipes")
                 }
-            HomepageView()
+            ProfileView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")
