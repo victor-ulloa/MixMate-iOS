@@ -13,3 +13,17 @@ struct Constants {
     static let kCocktailsTable = "cocktails"
     
 }
+
+
+// MARK: - Enums
+
+enum InventoryItemType: String, Codable {
+    case spirit
+    case liqueur
+    case mixer
+    case juice
+    case syrup
+    case bitter
+    case herbsAndSpices
+    case others // eggs, milk, salt, suggar, coffee, tea, etc.
+}
