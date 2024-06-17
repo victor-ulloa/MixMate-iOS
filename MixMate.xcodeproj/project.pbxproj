@@ -26,6 +26,7 @@
 		57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */; };
 		57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */; };
 		57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4992C1FB23700C5917C /* Inventory.swift */; };
+		57B5A49C2C1FBF3A00C5917C /* InventoryCategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */; };
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
 		57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		57B5A4992C1FB23700C5917C /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryCard.swift; sourceTree = "<group>"; };
 		57EA6D4B2C1414A200AE66DD /* MixMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				5782A6642C16962A000015CB /* ImageCard.swift */,
 				5782A6662C16987E000015CB /* RecipesCarousel.swift */,
 				5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */,
+				57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				575823762C17D74C000EEC7A /* HomepageViewModel.swift in Sources */,
 				575823792C181DE0000EEC7A /* Constants.swift in Sources */,
 				5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */,
+				57B5A49C2C1FBF3A00C5917C /* InventoryCategoryCard.swift in Sources */,
 				57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */,
 				575823742C17D516000EEC7A /* Supabase.swift in Sources */,
 				57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */,

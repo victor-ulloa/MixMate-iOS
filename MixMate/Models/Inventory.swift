@@ -9,7 +9,6 @@ import Foundation
 
 struct Inventory {
 
-    let item: InventoryItem
-    let quantity: Double
+    let item: [InventoryItem]
 
 }

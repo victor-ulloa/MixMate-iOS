@@ -13,15 +13,18 @@ struct InventoryView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
-                List {
-                    List {
-                        Text("Hello World")
-                        Text("Hello World")
-                        Text("Hello World")
+            List {
+                
+                ForEach(InventoryItemType.allCases, id: \.rawValue) { itemType in
+                    NavigationLink {
+                        Text(itemType.getLabel())
+                    } label: {
+                        InventoryCategoryCard(imageName: itemType.getImageName(), label: itemType.getLabel())
                     }
+                    
                 }
             }
+            .listStyle(.plain)
             .navigationTitle("Inventory")
         }
     }
