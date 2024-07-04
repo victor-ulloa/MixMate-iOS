@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    @StateObject var viewModel = ProfileViewModel()
     @State var email: String = ""
-    @State var pasword: String = ""
+    @State var password: String = ""
     @State var verifyPassword: String = ""
     @State private var isValidEmail: Bool = false
     
@@ -39,8 +40,7 @@ struct ProfileView: View {
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                             .onChange(of: email) { _, newValue in
-                                isValidEmail = validateEmail(email: newValue)
-                                print(isValidEmail)
+                                viewModel.validateEmail(newValue)
                             }
                     }
                     
@@ -50,17 +50,21 @@ struct ProfileView: View {
                             .foregroundStyle(.gray)
                             .padding(.leading)
                         
-                        SecureField("password", text: $pasword)
+                        SecureField("password", text: $password)
                             .textFieldStyle(.roundedBorder)
+                            .onChange(of: password) { _, newValue in
+                                viewModel.validatePassword(newValue)
+                            }
                         
                         SecureField("confirm password", text: $verifyPassword)
                             .textFieldStyle(.roundedBorder)
+                            .onChange(of: verifyPassword) { _, newValue in
+                                viewModel.validatePasswordMatch(password, newValue)
+                            }
                     }
                     
                     Button {
-                        // Functionality
-                        // call a viewModel funtion
-                        // go next view
+                        viewModel.signUp()
                     } label: {
                         Text("Sign up")
                             .font(.title3)
