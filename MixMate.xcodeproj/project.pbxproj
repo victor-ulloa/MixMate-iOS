@@ -116,7 +116,7 @@
 				5782A6632C16960F000015CB /* Components */,
 				5782A65A2C168DE3000015CB /* Homepage */,
 				57B5A48F2C1FA87300C5917C /* Inventory */,
-				57F1A9A62C2103150023B8DB /* Profile */,
+				57F1A9A62C2103150023B8DB /* Account */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -199,7 +199,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		57F1A9A62C2103150023B8DB /* Profile */ = {
+		57F1A9A62C2103150023B8DB /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				57AB45332C374B1D00432A36 /* LoginView.swift */,
@@ -209,7 +209,7 @@
 				57AB452D2C371A9700432A36 /* SignUpViewModel.swift */,
 				57AB45372C374FEF00432A36 /* LoginViewModel.swift */,
 			);
-			path = Profile;
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

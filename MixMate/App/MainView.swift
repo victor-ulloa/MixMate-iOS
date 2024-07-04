@@ -25,10 +25,10 @@ struct MainView: View {
                     Image(systemName: "list.bullet")
                     Text("Recipes")
                 }
-            ProfileView()
+            AccountView()
                 .tabItem {
                     Image(systemName: "person")
-                    Text("Profile")
+                    Text("Account")
                 }
         }
     }

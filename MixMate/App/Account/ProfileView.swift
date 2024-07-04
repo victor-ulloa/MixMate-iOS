@@ -1,5 +1,5 @@
 //
-//  ProfileView.swift
+//  AccountView.swift
 //  MixMate
 //
 //  Created by Victor Ulloa on 2024-06-17.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct AccountView: View {
     
     var body: some View {
         NavigationStack {
@@ -17,5 +17,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    AccountView()
 }
