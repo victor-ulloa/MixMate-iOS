@@ -24,8 +24,6 @@ struct SignUpView: View {
                 VStack(spacing: 15) {
                     Text("Create an account")
                         .font(.title2)
-                    Text("Enter your email to sign up for this app")
-                        .font(.subheadline)
                 }
                 
                 VStack(spacing: 20) {

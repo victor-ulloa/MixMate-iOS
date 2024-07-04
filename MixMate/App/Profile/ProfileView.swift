@@ -10,15 +10,12 @@ import SwiftUI
 struct ProfileView: View {
     
     var body: some View {
-        ZStack{
+        NavigationStack {
             SignUpView()
         }
-        .toolbar(.hidden)
     }
 }
 
 #Preview {
-    NavigationStack {
-        ProfileView()
-    }
+    ProfileView()
 }
