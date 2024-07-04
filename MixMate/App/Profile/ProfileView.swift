@@ -28,22 +28,34 @@ struct ProfileView: View {
                 }
                 
                 VStack(spacing: 20) {
-                    TextField("email", text: $email)
-                        .textFieldStyle(.roundedBorder)
-                        .keyboardType(.emailAddress)
-                        .autocapitalization(.none)
-                        .onChange(of: email) { _, newValue in
-                            isValidEmail = validateEmail(email: newValue)
-                            print(isValidEmail)
-                        }
                     
-                    TextField("password", text: $pasword)
-                        .textFieldStyle(.roundedBorder)
-                        .keyboardType(.emailAddress)
+                    VStack(alignment: .leading) {
+                        Text("Email")
+                            .font(.subheadline)
+                            .foregroundStyle(.gray)
+                            .padding(.leading)
+                        TextField("email", text: $email)
+                            .textFieldStyle(.roundedBorder)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .onChange(of: email) { _, newValue in
+                                isValidEmail = validateEmail(email: newValue)
+                                print(isValidEmail)
+                            }
+                    }
                     
-                    TextField("confirmpassword", text: $verifyPassword)
-                        .textFieldStyle(.roundedBorder)
-                        .keyboardType(.emailAddress)
+                    VStack(alignment: .leading) {
+                        Text("Password")
+                            .font(.subheadline)
+                            .foregroundStyle(.gray)
+                            .padding(.leading)
+                        
+                        SecureField("password", text: $pasword)
+                            .textFieldStyle(.roundedBorder)
+                        
+                        SecureField("confirm password", text: $verifyPassword)
+                            .textFieldStyle(.roundedBorder)
+                    }
                     
                     Button {
                         // Functionality
