@@ -1,5 +1,5 @@
 //
-//  ProfileViewModel.swift
+//  SignUpViewModel.swift
 //  MixMate
 //
 //  Created by Victor Ulloa on 2024-07-04.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ProfileViewModel: ObservableObject {
+final class SignUpViewModel: ObservableObject {
     
     @Published var isEmailValid = false
     @Published var isPasswordValid = false
