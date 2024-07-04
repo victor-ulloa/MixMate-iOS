@@ -36,9 +36,13 @@ struct ProfileView: View {
                             .foregroundStyle(.gray)
                             .padding(.leading)
                         TextField("email", text: $email)
-                            .textFieldStyle(.roundedBorder)
-                            .keyboardType(.emailAddress)
-                            .autocapitalization(.none)
+                            .keyboardType(.emailAddress)                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .padding()
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.gray.opacity(0.5))
+                            }
                             .onChange(of: email) { _, newValue in
                                 viewModel.validateEmail(newValue)
                             }
@@ -50,18 +54,19 @@ struct ProfileView: View {
                             .foregroundStyle(.gray)
                             .padding(.leading)
                         
-                        SecureField("password", text: $password)
-                            .textFieldStyle(.roundedBorder)
+                        PasswordField(fieldLabel: "password", password: $password)
                             .onChange(of: password) { _, newValue in
                                 viewModel.validatePassword(newValue)
                             }
                         
-                        SecureField("confirm password", text: $verifyPassword)
-                            .textFieldStyle(.roundedBorder)
+                        PasswordField(fieldLabel:"confirm password", password: $verifyPassword)
                             .onChange(of: verifyPassword) { _, newValue in
                                 viewModel.validatePasswordMatch(password, newValue)
                             }
+                        
+                        
                     }
+                    
                     
                     Button {
                         viewModel.signUp()

@@ -28,7 +28,6 @@ final class ProfileViewModel: ObservableObject {
         let numberTest = NSPredicate(format: "SELF MATCHES %@", numberRegex)
         
         isPasswordValid = capitalLetterTest.evaluate(with: password) && numberTest.evaluate(with: password)
-        print(isPasswordValid)
     }
     
     func validatePasswordMatch(_ password: String, _ passwordVerification: String) {
