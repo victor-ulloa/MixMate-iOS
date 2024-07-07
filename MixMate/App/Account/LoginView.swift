@@ -57,8 +57,9 @@ struct LoginView: View {
                     
                     Button {
                         Task {
-                            await authManager.logIn(email: email, password: password)
-                            dismiss()
+                            if await authManager.logIn(email: email, password: password) {
+                                dismiss()
+                            }
                         }
                         
                     } label: {

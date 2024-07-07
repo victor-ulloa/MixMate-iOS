@@ -48,15 +48,17 @@ class AuthenticationManager: ObservableObject {
     
     // Sign in a user
     @MainActor
-    func logIn(email: String, password: String) async {
+    func logIn(email: String, password: String) async -> Bool {
         do {
             isLoading = true
             try await Supabase.shared.instance.auth.signIn(email: email, password: password)
             authState = AuthState.Signin
             isLoading = false
+            return true
         } catch let error {
             errorMessage = error.localizedDescription
             isLoading = false
+            return false
         }
     }
     
