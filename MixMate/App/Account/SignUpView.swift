@@ -86,8 +86,7 @@ struct SignUpView: View {
                             await authManager.signUp(email: email, password: password)
                         }
                     } label: {
-                        if(authManager.isLoading)
-                        {
+                        if authManager.isLoading {
                             ProgressView()
                                 .padding(.vertical, 15)
                         } else {

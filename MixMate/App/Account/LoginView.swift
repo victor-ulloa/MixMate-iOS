@@ -58,15 +58,23 @@ struct LoginView: View {
                     Button {
                         Task {
                             if await authManager.logIn(email: email, password: password) {
-                                dismiss()
+                                if !authManager.isLoading {
+                                    dismiss()
+                                }
+                                
                             }
                         }
                         
                     } label: {
-                        Text("Log in")
-                            .font(.title3)
-                            .foregroundStyle(Color.white)
-                            .padding(.vertical, 15)
+                        if authManager.isLoading {
+                            ProgressView()
+                                .padding(.vertical, 15)
+                        } else {
+                            Text("Log in")
+                                .font(.title3)
+                                .foregroundStyle(Color.white)
+                                .padding(.vertical, 15)
+                        }
                     }
                     .frame(maxWidth: .infinity)
                     .background(Color.black)
