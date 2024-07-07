@@ -105,6 +105,7 @@ struct SignUpView: View {
                 
                 NavigationLink {
                     LoginView()
+                        .environmentObject(authManager)
                 } label: {
                     Text("Have an account? Log In instead")
                 }

@@ -9,12 +9,12 @@ import SwiftUI
 
 struct AccountView: View {
     
-    @EnvironmentObject private var authManager: AuthenticationManager
+    @EnvironmentObject var authManager: AuthenticationManager
     
     @ObservedObject var viewModel = AccountViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack() {
             
             Group{
                 switch (authManager.authState) {

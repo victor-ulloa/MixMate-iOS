@@ -9,6 +9,9 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @EnvironmentObject private var authManager: AuthenticationManager
+    @Environment(\.dismiss) private var dismiss
+    
     @StateObject var viewModel = LoginViewModel()
     @State var email: String = ""
     @State var password: String = ""
@@ -33,7 +36,8 @@ struct LoginView: View {
                             .foregroundStyle(.gray)
                             .padding(.leading)
                         TextField("email", text: $email)
-                            .keyboardType(.emailAddress)                            .textInputAutocapitalization(.never)
+                            .keyboardType(.emailAddress)                            
+                            .textInputAutocapitalization(.never)
                             .autocorrectionDisabled()
                             .padding()
                             .overlay {
@@ -52,7 +56,11 @@ struct LoginView: View {
                     }
                     
                     Button {
-                        viewModel.logIn(email: email, password: password)
+                        Task {
+                            await authManager.logIn(email: email, password: password)
+                            dismiss()
+                        }
+                        
                     } label: {
                         Text("Log in")
                             .font(.title3)

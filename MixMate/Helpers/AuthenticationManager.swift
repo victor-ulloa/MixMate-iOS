@@ -48,7 +48,7 @@ class AuthenticationManager: ObservableObject {
     
     // Sign in a user
     @MainActor
-    func signIn(email: String, password: String) async {
+    func logIn(email: String, password: String) async {
         do {
             isLoading = true
             try await Supabase.shared.instance.auth.signIn(email: email, password: password)
