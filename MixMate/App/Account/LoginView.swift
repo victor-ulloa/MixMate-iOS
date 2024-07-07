@@ -86,6 +86,7 @@ struct LoginView: View {
             .padding(.top, 20)
             .padding(.horizontal, 20)
         }
+        .errorAlert(error: $authManager.error)
     }
 }
 

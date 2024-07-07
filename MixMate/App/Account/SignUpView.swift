@@ -114,6 +114,7 @@ struct SignUpView: View {
             .padding(.vertical, 60)
             .padding(.horizontal, 20)
         }
+        .errorAlert(error: $authManager.error)
     }
 }
 

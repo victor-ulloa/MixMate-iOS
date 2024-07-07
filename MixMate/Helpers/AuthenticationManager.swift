@@ -14,7 +14,7 @@ class AuthenticationManager: ObservableObject {
     // Published properties for SwiftUI views
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var errorMessage: String = ""
+    @Published var error: Error?
     @Published var authState: AuthState = AuthState.Initial
     @Published var isLoading = false
     
@@ -41,7 +41,7 @@ class AuthenticationManager: ObservableObject {
             authState = AuthState.Signin
             isLoading = false
         } catch let error {
-            errorMessage = error.localizedDescription
+            self.error = error
             isLoading = false
         }
     }
@@ -56,7 +56,7 @@ class AuthenticationManager: ObservableObject {
             isLoading = false
             return true
         } catch let error {
-            errorMessage = error.localizedDescription
+            self.error = error
             isLoading = false
             return false
         }
@@ -69,7 +69,7 @@ class AuthenticationManager: ObservableObject {
             try await Supabase.shared.instance.auth.signOut()
             authState = AuthState.Signout
         } catch let error {
-            errorMessage = error.localizedDescription
+            self.error = error
         }
     }
 }
