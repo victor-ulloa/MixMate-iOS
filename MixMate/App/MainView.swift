@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @EnvironmentObject private var authManager: AuthenticationManager
+    
     var body: some View {
         TabView {
             HomepageView()
@@ -26,6 +29,7 @@ struct MainView: View {
                     Text("Recipes")
                 }
             AccountView()
+                .environmentObject(authManager)
                 .tabItem {
                     Image(systemName: "person")
                     Text("Account")

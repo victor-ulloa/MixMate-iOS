@@ -25,8 +25,9 @@
 		57AB45302C3722D200432A36 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB452F2C3722D200432A36 /* PasswordField.swift */; };
 		57AB45322C3748F400432A36 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45312C3748F400432A36 /* SignUpView.swift */; };
 		57AB45342C374B1D00432A36 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45332C374B1D00432A36 /* LoginView.swift */; };
-		57AB45362C374C2600432A36 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45352C374C2600432A36 /* UserState.swift */; };
 		57AB45382C374FEF00432A36 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45372C374FEF00432A36 /* LoginViewModel.swift */; };
+		57AB453A2C3B011A00432A36 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45392C3B011A00432A36 /* AuthenticationManager.swift */; };
+		57AB453C2C3B029C00432A36 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB453B2C3B029C00432A36 /* AccountViewModel.swift */; };
 		57B5A4932C1FA8C600C5917C /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4922C1FA8C600C5917C /* InventoryView.swift */; };
 		57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */; };
 		57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */; };
@@ -39,7 +40,7 @@
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
 		57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */; };
-		57F1A9A82C2103510023B8DB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A9A72C2103510023B8DB /* ProfileView.swift */; };
+		57F1A9A82C2103510023B8DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A9A72C2103510023B8DB /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +56,9 @@
 		57AB452F2C3722D200432A36 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		57AB45312C3748F400432A36 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		57AB45332C374B1D00432A36 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		57AB45352C374C2600432A36 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		57AB45372C374FEF00432A36 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		57AB45392C3B011A00432A36 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		57AB453B2C3B029C00432A36 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		57B5A4922C1FA8C600C5917C /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
 		57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		57EA6D522C1414A300AE66DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
-		57F1A9A72C2103510023B8DB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		57F1A9A72C2103510023B8DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				575823782C181DE0000EEC7A /* Constants.swift */,
-				57AB45352C374C2600432A36 /* UserState.swift */,
+				57AB45392C3B011A00432A36 /* AuthenticationManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -142,6 +144,7 @@
 		5782A6632C16960F000015CB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				57AB452F2C3722D200432A36 /* PasswordField.swift */,
 				5782A6642C16962A000015CB /* ImageCard.swift */,
 				5782A6662C16987E000015CB /* RecipesCarousel.swift */,
 				5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */,
@@ -202,12 +205,12 @@
 		57F1A9A62C2103150023B8DB /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				57F1A9A72C2103510023B8DB /* AccountView.swift */,
+				57AB453B2C3B029C00432A36 /* AccountViewModel.swift */,
 				57AB45332C374B1D00432A36 /* LoginView.swift */,
-				57AB452F2C3722D200432A36 /* PasswordField.swift */,
-				57F1A9A72C2103510023B8DB /* ProfileView.swift */,
+				57AB45372C374FEF00432A36 /* LoginViewModel.swift */,
 				57AB45312C3748F400432A36 /* SignUpView.swift */,
 				57AB452D2C371A9700432A36 /* SignUpViewModel.swift */,
-				57AB45372C374FEF00432A36 /* LoginViewModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -296,10 +299,12 @@
 				57B5A4A02C1FD68000C5917C /* AddItemView.swift in Sources */,
 				5782A6622C168F15000015CB /* HomepageView.swift in Sources */,
 				57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */,
+				57AB453C2C3B029C00432A36 /* AccountViewModel.swift in Sources */,
 				57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */,
 				57AB45342C374B1D00432A36 /* LoginView.swift in Sources */,
 				57AB45302C3722D200432A36 /* PasswordField.swift in Sources */,
 				57B5A4932C1FA8C600C5917C /* InventoryView.swift in Sources */,
+				57AB453A2C3B011A00432A36 /* AuthenticationManager.swift in Sources */,
 				57B5A4A42C1FD72700C5917C /* SearchBar.swift in Sources */,
 				57EA6D512C1414A200AE66DD /* MainView.swift in Sources */,
 				575823652C17BC8D000EEC7A /* Cocktail.swift in Sources */,
@@ -312,10 +317,9 @@
 				5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */,
 				57B5A49C2C1FBF3A00C5917C /* InventoryCategoryCard.swift in Sources */,
 				57AB452E2C371A9700432A36 /* SignUpViewModel.swift in Sources */,
-				57AB45362C374C2600432A36 /* UserState.swift in Sources */,
 				57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */,
 				575823742C17D516000EEC7A /* Supabase.swift in Sources */,
-				57F1A9A82C2103510023B8DB /* ProfileView.swift in Sources */,
+				57F1A9A82C2103510023B8DB /* AccountView.swift in Sources */,
 				57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */,
 				5782A6652C16962A000015CB /* ImageCard.swift in Sources */,
 			);

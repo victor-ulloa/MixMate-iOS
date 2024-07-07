@@ -33,22 +33,4 @@ final class SignUpViewModel: ObservableObject {
     func validatePasswordMatch(_ password: String, _ passwordVerification: String) {
         passwordsMatch = password == passwordVerification
     }
-    
-    func signUp() {
-        if !isEmailValid {
-            print("Handle invalid email")
-            return
-        }
-        
-        if !isPasswordValid {
-            print("Password not valid")
-            return
-        }
-        
-        if !passwordsMatch {
-            print("Passwords do not match")
-            return
-        }
-        
-    }
 }

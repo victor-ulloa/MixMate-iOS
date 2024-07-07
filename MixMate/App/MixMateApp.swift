@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct MixMateApp: App {
+    
+    @StateObject private var authManager = AuthenticationManager()
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(authManager)
         }
     }
 }

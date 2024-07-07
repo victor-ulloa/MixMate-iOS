@@ -9,7 +9,10 @@ import SwiftUI
 
 struct SignUpView: View {
     
+    @EnvironmentObject private var authManager: AuthenticationManager
+    
     @StateObject var viewModel = SignUpViewModel()
+    
     @State var email: String = ""
     @State var password: String = ""
     @State var verifyPassword: String = ""
@@ -34,7 +37,8 @@ struct SignUpView: View {
                             .foregroundStyle(.gray)
                             .padding(.leading)
                         TextField("email", text: $email)
-                            .keyboardType(.emailAddress)                            .textInputAutocapitalization(.never)
+                            .keyboardType(.emailAddress)
+                            .textInputAutocapitalization(.never)
                             .autocorrectionDisabled()
                             .padding()
                             .overlay {
@@ -64,12 +68,34 @@ struct SignUpView: View {
                     }
                     
                     Button {
-                        viewModel.signUp()
+                        if !viewModel.isEmailValid {
+                            print("Handle invalid email")
+                            return
+                        }
+                        
+                        if !viewModel.isPasswordValid {
+                            print("Password not valid")
+                            return
+                        }
+                        
+                        if !viewModel.passwordsMatch {
+                            print("Passwords do not match")
+                            return
+                        }
+                        Task {
+                            await authManager.signUp(email: email, password: password)
+                        }
                     } label: {
-                        Text("Sign up")
-                            .font(.title3)
-                            .foregroundStyle(Color.white)
-                            .padding(.vertical, 15)
+                        if(authManager.isLoading)
+                        {
+                            ProgressView()
+                                .padding(.vertical, 15)
+                        } else {
+                            Text("Sign up")
+                                .font(.title3)
+                                .foregroundStyle(Color.white)
+                                .padding(.vertical, 15)
+                        }
                     }
                     .frame(maxWidth: .infinity)
                     .background(Color.black)
