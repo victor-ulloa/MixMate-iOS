@@ -71,4 +71,12 @@ enum InventoryItemType: String, Codable, CaseIterable {
     }
 }
 
+// MARK: - Authentication State
+
+enum AuthState: Hashable {
+    case Initial
+    case Signin
+    case Signout
+}
+
 
