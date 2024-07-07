@@ -43,6 +43,7 @@
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
 		57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */; };
 		57F1A9A82C2103510023B8DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A9A72C2103510023B8DB /* AccountView.swift */; };
+		D7FAA9142C3B2F750011EFEC /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9132C3B2F750011EFEC /* AddItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		57EA6D522C1414A300AE66DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
 		57F1A9A72C2103510023B8DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		D7FAA9132C3B2F750011EFEC /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */,
 				57B5A49D2C1FC68E00C5917C /* CategoryView.swift */,
 				57B5A49F2C1FD68000C5917C /* AddItemView.swift */,
+				D7FAA9132C3B2F750011EFEC /* AddItemViewModel.swift */,
 			);
 			path = Inventory;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				57AB453A2C3B011A00432A36 /* AuthenticationManager.swift in Sources */,
 				57B5A4A42C1FD72700C5917C /* SearchBar.swift in Sources */,
 				57EA6D512C1414A200AE66DD /* MainView.swift in Sources */,
+				D7FAA9142C3B2F750011EFEC /* AddItemViewModel.swift in Sources */,
 				575823652C17BC8D000EEC7A /* Cocktail.swift in Sources */,
 				57B5A49E2C1FC68E00C5917C /* CategoryView.swift in Sources */,
 				5782A6692C1698CF000015CB /* RecipesCarouselItem.swift in Sources */,
