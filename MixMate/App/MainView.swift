@@ -19,6 +19,7 @@ struct MainView: View {
                     Text("Home")
                 }
             InventoryView()
+                .environmentObject(authManager)
                 .tabItem {
                     Image(systemName: "shippingbox")
                     Text("Inventory")

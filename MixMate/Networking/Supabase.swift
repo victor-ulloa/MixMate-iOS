@@ -27,26 +27,18 @@ final class Supabase {
             return fetchedCocktails
         } catch {
             print("Error: \(error)")
+            return nil
         }
-        return nil
     }
     
-    func signOut() async {
+    func fetchInventory(userId: UUID) async -> Inventory? {
         do {
-            try await instance.auth.signOut()
+            let inventory: Inventory = try await instance.from(Constants.kInventoriesTable).select().eq("userId", value: userId).execute().value
+            return inventory
         } catch {
             print("Error: \(error)")
+            return nil
         }
+        
     }
-    
-    func getSession() async -> Session? {
-        do {
-            let session = try await instance.auth.session
-            return session
-        } catch {
-            print("Error: \(error)")
-        }
-        return nil
-    }
-    
 }
