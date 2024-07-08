@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct Inventory {
+struct Inventory: Codable {
 
-    let id: Int
-    let item: [InventoryItem]
+    let id: UUID
+    let userId: UUID
+    let inventoryData: InventoryData
 
+}
+
+struct InventoryData: Codable {
+    let items: [InventoryItem]
 }

@@ -31,4 +31,22 @@ final class Supabase {
         return nil
     }
     
+    func signOut() async {
+        do {
+            try await instance.auth.signOut()
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+    
+    func getSession() async -> Session? {
+        do {
+            let session = try await instance.auth.session
+            return session
+        } catch {
+            print("Error: \(error)")
+        }
+        return nil
+    }
+    
 }
