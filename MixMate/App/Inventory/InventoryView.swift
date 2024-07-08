@@ -28,22 +28,31 @@ struct InventoryView: View {
                     }
                 }
                 .listStyle(.plain)
-                .navigationTitle("Inventory")
+                
                 
                 if viewModel.session == nil {
-                    VStack {
-                        Text("Signed out")
+                    VStack(spacing: 20) {
+                        Text("Log in to start saving your inventory!")
+                            .font(.title)
+                            .multilineTextAlignment(.center)
+                        
+                        Text("Having your inventory will allow you to get recipe recommendations according to what you have in hand!")
+                            .font(.caption)
+                            .padding(.horizontal)
                         Button {
                             navigationManager.selectedTab = Tabs.account.rawValue
                         } label: {
-                            Text("go to sign in")
+                            Text("Tap to log in!")
                         }
+                        .padding()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.ultraThinMaterial)
                 }
             }
         }
+        .toolbar(viewModel.session == nil ? .hidden : .visible)
+        .navigationTitle("Inventory")
         .task {
             viewModel.session = await authManager.isUserSignIn()
         }
