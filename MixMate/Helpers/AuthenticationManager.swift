@@ -37,7 +37,9 @@ class AuthenticationManager: ObservableObject {
     func signUp(email: String, password: String) async {
         do {
             isLoading = true
-            try await Supabase.shared.instance.auth.signUp(email: email, password: password)
+            let response = try await Supabase.shared.instance.auth.signUp(email: email, password: password)
+            let newInventory = Inventory(id: UUID(), userId: response.user.id, inventoryData: nil)
+            try await Supabase.shared.instance.from(Constants.kInventoriesTable).insert(newInventory).execute()
             authState = AuthState.Signin
             isLoading = false
         } catch let error {

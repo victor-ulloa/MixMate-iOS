@@ -11,7 +11,7 @@ struct Inventory: Codable {
 
     let id: UUID
     let userId: UUID
-    let inventoryData: InventoryData
+    let inventoryData: InventoryData?
 
 }
 

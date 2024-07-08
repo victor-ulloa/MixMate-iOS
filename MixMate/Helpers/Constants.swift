@@ -11,7 +11,8 @@ struct Constants {
     
     //    MARK: - Supabase Table keys
     static let kCocktailsTable = "cocktails"
-    static let kInventoryTable = "Inventory"
+    static let kInventoryListTable = "inventoryList"
+    static let kInventoriesTable = "inventories"
     
 }
 
