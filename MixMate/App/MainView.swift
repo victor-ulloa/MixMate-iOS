@@ -10,31 +10,37 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject private var authManager: AuthenticationManager
+    @EnvironmentObject private var navigationManager: NavigationManager
     
     var body: some View {
-        TabView {
+        TabView(selection: $navigationManager.selectedTab) {
             HomepageView()
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
+                .tag(Tabs.home.rawValue)
             InventoryView()
                 .environmentObject(authManager)
+                .environmentObject(navigationManager)
                 .tabItem {
                     Image(systemName: "shippingbox")
                     Text("Inventory")
                 }
+                .tag(Tabs.inventory.rawValue)
             HomepageView()
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("Recipes")
                 }
+                .tag(Tabs.recipes.rawValue)
             AccountView()
                 .environmentObject(authManager)
                 .tabItem {
                     Image(systemName: "person")
                     Text("Account")
                 }
+                .tag(Tabs.account.rawValue)
         }
     }
 }

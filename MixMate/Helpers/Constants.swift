@@ -72,6 +72,13 @@ enum InventoryItemType: String, Codable, CaseIterable {
     }
 }
 
+enum Tabs: Int {
+    case home = 0
+    case inventory = 1
+    case recipes = 2
+    case account = 3
+}
+
 // MARK: - Authentication State
 
 enum AuthState: Hashable {

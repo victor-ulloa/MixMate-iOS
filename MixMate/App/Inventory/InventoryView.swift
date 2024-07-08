@@ -10,6 +10,7 @@ import SwiftUI
 struct InventoryView: View {
     
     @EnvironmentObject var authManager: AuthenticationManager
+    @EnvironmentObject var navigationManager: NavigationManager
     
     @StateObject var viewModel: InventoryViewModel = InventoryViewModel()
     
@@ -32,6 +33,11 @@ struct InventoryView: View {
                 if viewModel.session == nil {
                     VStack {
                         Text("Signed out")
+                        Button {
+                            navigationManager.selectedTab = Tabs.account.rawValue
+                        } label: {
+                            Text("go to sign in")
+                        }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.ultraThinMaterial)
