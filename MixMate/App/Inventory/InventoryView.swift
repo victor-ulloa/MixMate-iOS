@@ -50,9 +50,9 @@ struct InventoryView: View {
                     .background(.ultraThinMaterial)
                 }
             }
+            .toolbar(viewModel.session == nil ? .hidden : .visible)
+            .navigationTitle("Inventory")
         }
-        .toolbar(viewModel.session == nil ? .hidden : .visible)
-        .navigationTitle("Inventory")
         .task {
             viewModel.session = await authManager.isUserSignIn()
         }
