@@ -11,32 +11,41 @@ struct AddItemView: View {
     
     @Binding var isPresented: Bool
     @State var searchText: String = ""
+    @State var categoryItems: [InventoryListItem]?
+    var category: InventoryItemType
     let items = ["Apple", "Banana", "Cherry", "Date", "Fig", "Grape", "Kiwi"]
     
-    var filteredItems: [String] {
+    var filteredItems: [InventoryListItem] {
         if searchText.isEmpty {
-            return items
+            return categoryItems ?? []
         } else {
-            return items.filter { $0.localizedCaseInsensitiveContains(searchText) }
+            return categoryItems?.filter { $0.name.localizedCaseInsensitiveContains(searchText) } ?? []
         }
     }
     
     var body: some View {
         VStack {
             SearchBar(text: $searchText)
-            List(filteredItems, id: \.self) { item in
+            List(filteredItems, id: \.id) { item in
                 Button {
                     isPresented.toggle()
                 } label: {
-                    Text(item)
+                    Text(item.name)
                 }
             }
             .listStyle(.plain)
+        }
+        .task {
+            if let categoryItems = await Supabase.shared.fetchCategoryItems(category: category) {
+                DispatchQueue.main.async {
+                    self.categoryItems = categoryItems
+                }
+            }
         }
     }
 }
 
 #Preview {
     @State var showingAddItem = false
-    return AddItemView(isPresented: $showingAddItem)
+    return AddItemView(isPresented: $showingAddItem, category: .spirit)
 }

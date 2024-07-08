@@ -1,5 +1,5 @@
 //
-//  InventoryListItems.swift
+//  InventoryListItem.swift
 //  MixMate
 //
 //  Created by Victor Ulloa on 2024-06-17.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct InventoryListItems: Codable {
+struct InventoryListItem: Codable {
     
     let id: Int
     let name: String

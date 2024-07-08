@@ -18,7 +18,6 @@ struct ImageCard: View {
                     image
                         .resizable()
                         .frame(height: 200)
-                        .scaledToFit()
                         .shadow(radius: 5)
                 } placeholder: {
                     Color.gray
@@ -48,6 +47,7 @@ struct ImageCard: View {
             .padding(.horizontal, 20)
         }
         .frame(maxWidth: .infinity)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
 
     }
 }

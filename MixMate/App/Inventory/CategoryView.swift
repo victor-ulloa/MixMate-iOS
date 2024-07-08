@@ -11,14 +11,16 @@ struct CategoryView: View {
     
     @State private var showingAddItem = false
     
+    let inventoryItems: [InventoryItem]?
     let category: InventoryItemType
     
     var body: some View {
         List {
-            Text("Vodka")
-            Text("Rum")
-            Text("Whiskey")
-            Text("Gin")
+            if let items = inventoryItems, !items.isEmpty {
+                ForEach(items, id: \.self) { item in
+                    Text(item.name)
+                }
+            }
         }
         .navigationTitle(category.getLabel())
         .toolbar {
@@ -29,7 +31,7 @@ struct CategoryView: View {
                     Image(systemName: "plus")
                 }
                 .sheet(isPresented: $showingAddItem, onDismiss: didDismiss, content: {
-                    AddItemView(isPresented: $showingAddItem)
+                    AddItemView(isPresented: $showingAddItem, category: category)
                 })
             }
         }
@@ -42,6 +44,6 @@ struct CategoryView: View {
 
 #Preview {
     NavigationStack {
-        CategoryView(category: .spirit)
+        CategoryView(inventoryItems: nil, category: .spirit)
     }
 }
