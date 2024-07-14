@@ -16,10 +16,11 @@ struct ImageCard: View {
             if let imageURL = cocktail.imageURL, !imageURL.isEmpty {
                 AsyncImage(url: URL(string: imageURL )) { image in
                     image
-                        .resizable()
+                        .centreCropped()
                         .frame(height: 200)
-                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                         .shadow(radius: 5)
+                        
                 } placeholder: {
                     Color.gray
                         .frame(height: 200)
@@ -29,9 +30,9 @@ struct ImageCard: View {
                 }
             } else {
                 Image(cocktail.imageName ?? "")
-                    .resizable()
+                    .centreCropped()
                     .frame(height: 200)
-                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 5)
             }
             
@@ -53,5 +54,5 @@ struct ImageCard: View {
 }
 
 #Preview {
-    ImageCard(cocktail: Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: ""))
+    ImageCard(cocktail: Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: "", tags: []))
 }

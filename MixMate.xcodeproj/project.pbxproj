@@ -44,6 +44,11 @@
 		57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */; };
 		57F1A9A82C2103510023B8DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A9A72C2103510023B8DB /* AccountView.swift */; };
 		D7FAA9142C3B2F750011EFEC /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9132C3B2F750011EFEC /* AddItemViewModel.swift */; };
+		D7FAA91A2C3C4B6D0011EFEC /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */; };
+		D7FAA91C2C3C50570011EFEC /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */; };
+		D7FAA91E2C3C5A9B0011EFEC /* SearchTagBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91D2C3C5A9B0011EFEC /* SearchTagBarView.swift */; };
+		D7FAA9202C3C7AE80011EFEC /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91F2C3C7AE80011EFEC /* Tag.swift */; };
+		D7FAA9222C434E420011EFEC /* Image-CentreCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9212C434E420011EFEC /* Image-CentreCrop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +84,11 @@
 		57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
 		57F1A9A72C2103510023B8DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		D7FAA9132C3B2F750011EFEC /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
+		D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
+		D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
+		D7FAA91D2C3C5A9B0011EFEC /* SearchTagBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTagBarView.swift; sourceTree = "<group>"; };
+		D7FAA91F2C3C7AE80011EFEC /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		D7FAA9212C434E420011EFEC /* Image-CentreCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image-CentreCrop.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +130,7 @@
 		5782A65B2C168E40000015CB /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D7FAA9182C3C4B5C0011EFEC /* Recipes */,
 				57EA6D502C1414A200AE66DD /* MainView.swift */,
 				57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */,
 				57F1A9A62C2103150023B8DB /* Account */,
@@ -158,6 +169,8 @@
 				5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */,
 				57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */,
 				57B5A4A32C1FD72700C5917C /* SearchBar.swift */,
+				D7FAA91D2C3C5A9B0011EFEC /* SearchTagBarView.swift */,
+				D7FAA91F2C3C7AE80011EFEC /* Tag.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -166,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				57AB45422C3B223700432A36 /* View+Extension.swift */,
+				D7FAA9212C434E420011EFEC /* Image-CentreCrop.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +244,15 @@
 				57AB452D2C371A9700432A36 /* SignUpViewModel.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		D7FAA9182C3C4B5C0011EFEC /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */,
+				D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */,
+			);
+			path = Recipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,11 +342,13 @@
 				57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */,
 				57AB453C2C3B029C00432A36 /* AccountViewModel.swift in Sources */,
 				57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */,
+				D7FAA9202C3C7AE80011EFEC /* Tag.swift in Sources */,
 				57AB45342C374B1D00432A36 /* LoginView.swift in Sources */,
 				57AB45302C3722D200432A36 /* PasswordField.swift in Sources */,
 				57B5A4932C1FA8C600C5917C /* InventoryView.swift in Sources */,
 				57AB453A2C3B011A00432A36 /* AuthenticationManager.swift in Sources */,
 				57B5A4A42C1FD72700C5917C /* SearchBar.swift in Sources */,
+				D7FAA9222C434E420011EFEC /* Image-CentreCrop.swift in Sources */,
 				57EA6D512C1414A200AE66DD /* MainView.swift in Sources */,
 				D7FAA9142C3B2F750011EFEC /* AddItemViewModel.swift in Sources */,
 				575823652C17BC8D000EEC7A /* Cocktail.swift in Sources */,
@@ -332,9 +357,11 @@
 				575823762C17D74C000EEC7A /* HomepageViewModel.swift in Sources */,
 				57AB45382C374FEF00432A36 /* LoginViewModel.swift in Sources */,
 				575823792C181DE0000EEC7A /* Constants.swift in Sources */,
+				D7FAA91E2C3C5A9B0011EFEC /* SearchTagBarView.swift in Sources */,
 				57AB45322C3748F400432A36 /* SignUpView.swift in Sources */,
 				5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */,
 				57B5A49C2C1FBF3A00C5917C /* InventoryCategoryCard.swift in Sources */,
+				D7FAA91A2C3C4B6D0011EFEC /* RecipesView.swift in Sources */,
 				57AB452E2C371A9700432A36 /* SignUpViewModel.swift in Sources */,
 				57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */,
 				575823742C17D516000EEC7A /* Supabase.swift in Sources */,
@@ -342,6 +369,7 @@
 				57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */,
 				57AB45432C3B223700432A36 /* View+Extension.swift in Sources */,
 				5782A6652C16962A000015CB /* ImageCard.swift in Sources */,
+				D7FAA91C2C3C50570011EFEC /* RecipesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
