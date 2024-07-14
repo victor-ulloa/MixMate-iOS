@@ -10,32 +10,25 @@ import SwiftUI
 struct Tag: View {
     
     let text: String
-    @State var onOff: Bool = false
+    @Binding var isOn: Bool
     
     var body: some View {
         
-        if onOff {
+        Button(action: {
+            isOn.toggle()
+            print(text + " on: " + isOn.description)
+        }){
             Text(text)
-                .foregroundStyle(Color.orange)
-                .padding(10)
-                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.orange, lineWidth: 3))
-                .onTapGesture {
-                    onOff.toggle()
-                }
+                .padding(5)
+                .foregroundStyle(isOn ? Color.orange : Color.gray )
+                .overlay(RoundedRectangle(cornerRadius: 5).stroke(isOn ? Color.orange : Color.gray, lineWidth: 2))
         }
-        else {
-            Text(text)
-                .foregroundStyle(Color.gray)
-                .padding(10)
-                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray, lineWidth: 3))
-                .onTapGesture {
-                    onOff.toggle()
-                }
-        }
+        
     }
 }
 
 #Preview {
     let text: String = "tag preview"
-    return Tag(text: text)
+    @State var isOn = false
+    return Tag(text: text, isOn: $isOn)
 }

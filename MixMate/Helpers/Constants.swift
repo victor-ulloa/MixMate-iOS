@@ -16,6 +16,29 @@ struct Constants {
 
 // MARK: - Enums
 
+enum Tags: String, Codable, CaseIterable{
+    case nonalcoholic = "non-alcoholic"
+    case sweet
+    case sour
+    case bitter
+    case cold
+    case refreshing
+    case carbonated
+    case dairyfree = "dairy-free"
+    case fruits
+    
+    func getString ()->String {
+        switch self {
+        case .nonalcoholic:
+            return "non-alcoholic"
+        case .dairyfree:
+            return "dairy-free"
+        default:
+            return self.rawValue
+        }
+    }
+}
+
 enum InventoryItemType: String, Codable, CaseIterable {
     case spirit
     case liqueur
