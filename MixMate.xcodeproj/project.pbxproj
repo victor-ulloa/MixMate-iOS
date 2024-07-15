@@ -46,7 +46,7 @@
 		D7FAA9142C3B2F750011EFEC /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9132C3B2F750011EFEC /* AddItemViewModel.swift */; };
 		D7FAA91A2C3C4B6D0011EFEC /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */; };
 		D7FAA91C2C3C50570011EFEC /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */; };
-		D7FAA9202C3C7AE80011EFEC /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91F2C3C7AE80011EFEC /* Tag.swift */; };
+		D7FAA9202C3C7AE80011EFEC /* TagToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */; };
 		D7FAA9222C434E420011EFEC /* Image-CentreCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9212C434E420011EFEC /* Image-CentreCrop.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +85,7 @@
 		D7FAA9132C3B2F750011EFEC /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
 		D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
-		D7FAA91F2C3C7AE80011EFEC /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagToggle.swift; sourceTree = "<group>"; };
 		D7FAA9212C434E420011EFEC /* Image-CentreCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image-CentreCrop.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,7 +167,7 @@
 				5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */,
 				57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */,
 				57B5A4A32C1FD72700C5917C /* SearchBar.swift */,
-				D7FAA91F2C3C7AE80011EFEC /* Tag.swift */,
+				D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 				57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */,
 				57AB453C2C3B029C00432A36 /* AccountViewModel.swift in Sources */,
 				57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */,
-				D7FAA9202C3C7AE80011EFEC /* Tag.swift in Sources */,
+				D7FAA9202C3C7AE80011EFEC /* TagToggle.swift in Sources */,
 				57AB45342C374B1D00432A36 /* LoginView.swift in Sources */,
 				57AB45302C3722D200432A36 /* PasswordField.swift in Sources */,
 				57B5A4932C1FA8C600C5917C /* InventoryView.swift in Sources */,

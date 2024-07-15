@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import Combine
 
 final class RecipesViewModel: ObservableObject {
+    
     @Published var cocktails: [Cocktail] = []
+    @Published var selectedTags: [Tags] = []
+    
     
     init() {
         Task {

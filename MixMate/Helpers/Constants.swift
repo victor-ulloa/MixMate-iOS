@@ -16,8 +16,8 @@ struct Constants {
 
 // MARK: - Enums
 
-enum Tags: String, Codable, CaseIterable{
-    case nonalcoholic = "non-alcoholic"
+enum Tags: String, Codable, CaseIterable {
+    case nonAlcoholic = "non-alcoholic"
     case sweet
     case sour
     case bitter
@@ -29,7 +29,7 @@ enum Tags: String, Codable, CaseIterable{
     
     func getString ()->String {
         switch self {
-        case .nonalcoholic:
+        case .nonAlcoholic:
             return "non-alcoholic"
         case .dairyfree:
             return "dairy-free"
