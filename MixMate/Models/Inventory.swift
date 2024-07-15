@@ -39,5 +39,5 @@ struct Inventory: Codable {
 }
 
 struct InventoryData: Codable {
-    let items: [InventoryItem]
+    var items: [InventoryItem]
 }

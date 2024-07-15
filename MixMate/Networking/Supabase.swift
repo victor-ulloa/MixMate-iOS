@@ -31,15 +31,18 @@ final class Supabase {
         }
     }
     
-    func fetchInventory(userId: UUID) async -> Inventory? {
+    func fetchInventory() async -> Inventory? {
         do {
+            let session = try await Supabase.shared.instance.auth.session
             let response = try await instance
                 .from(Constants.kInventoriesTable)
                 .select()
                 .execute()
             do {
+                let jsonString = String(data: response.data, encoding: .utf8)
+                print(jsonString)
                 let inventories = try JSONDecoder().decode([Inventory].self, from: response.data)
-                return inventories.first { $0.userId == userId }
+                return inventories.first { $0.userId == session.user.id }
             } catch {
                 print("Decoding error: \(error)")
                 return nil
@@ -47,6 +50,28 @@ final class Supabase {
         } catch {
             print("Error: \(error)")
             return nil
+        }
+    }
+    
+    func updateInventoryData(newInventoryData: InventoryData) async -> Bool {
+        guard let jsonData = try? JSONEncoder().encode(newInventoryData),
+              let jsonString = String(data: jsonData, encoding: .utf8) else {
+            print("Failed to encode updated inventory")
+            return false
+        }
+        
+        // Update the inventory in Supabase
+        do {
+            let session = try await Supabase.shared.instance.auth.session
+            _ = try await instance
+                .from(Constants.kInventoriesTable)
+                .update(["inventoryData": jsonString])
+                .eq("userId", value: session.user.id)
+                .execute()
+            return true
+        } catch {
+            print("Error updating inventory: \(error)")
+            return false
         }
     }
     
@@ -60,12 +85,4 @@ final class Supabase {
         }
     }
     
-    func addInventoryItem(newInventory: InventoryListItem) async {
-        do {
-            let session = try await instance.auth.session
-            try await instance.from(Constants.kInventoriesTable).update(["":""]).eq("userId", value: session.user.id).execute()
-        } catch {
-            print("Error: \(error)")
-        }
-    }
 }

@@ -12,8 +12,9 @@ struct AddItemView: View {
     @Binding var isPresented: Bool
     @State var searchText: String = ""
     @State var categoryItems: [InventoryListItem]?
+    
+    var inventoryData: InventoryData
     var category: InventoryItemType
-    let items = ["Apple", "Banana", "Cherry", "Date", "Fig", "Grape", "Kiwi"]
     
     var filteredItems: [InventoryListItem] {
         if searchText.isEmpty {
@@ -28,8 +29,13 @@ struct AddItemView: View {
             SearchBar(text: $searchText)
             List(filteredItems, id: \.id) { item in
                 Button {
-                    
-                    isPresented.toggle()
+                    Task {
+                        var newData = inventoryData
+                        newData.items.append(InventoryItem(name: item.name, type: item.type))
+                        let _ = await Supabase.shared.updateInventoryData(newInventoryData: newData)
+                        isPresented.toggle()
+                        
+                    }
                 } label: {
                     Text(item.name)
                 }
@@ -48,5 +54,5 @@ struct AddItemView: View {
 
 #Preview {
     @State var showingAddItem = false
-    return AddItemView(isPresented: $showingAddItem, category: .spirit)
+    return AddItemView(isPresented: $showingAddItem, inventoryData: InventoryData(items: []), category: .spirit)
 }

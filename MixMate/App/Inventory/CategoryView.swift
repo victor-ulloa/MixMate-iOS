@@ -11,12 +11,12 @@ struct CategoryView: View {
     
     @State private var showingAddItem = false
     
-    let inventory: Inventory?
+    let inventoryData: InventoryData?
     let category: InventoryItemType
     
     var body: some View {
         List {
-            if let items = inventory?.inventoryData?.items.filter( { $0.type == category}), !items.isEmpty {
+            if let items = inventoryData?.items.filter( { $0.type == category}), !items.isEmpty {
                 ForEach(items, id: \.type) { item in
                     Text(item.name)
                 }
@@ -31,7 +31,7 @@ struct CategoryView: View {
                     Image(systemName: "plus")
                 }
                 .sheet(isPresented: $showingAddItem, onDismiss: didDismiss, content: {
-                    AddItemView(isPresented: $showingAddItem, category: category)
+                    AddItemView(isPresented: $showingAddItem, inventoryData: inventoryData ?? InventoryData(items: []), category: category)
                 })
             }
         }
@@ -44,6 +44,6 @@ struct CategoryView: View {
 
 #Preview {
     NavigationStack {
-        CategoryView(inventory: nil, category: .spirit)
+        CategoryView(inventoryData: nil, category: .spirit)
     }
 }

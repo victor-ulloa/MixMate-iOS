@@ -21,7 +21,7 @@ final class InventoryViewModel: ObservableObject {
             .sink { [weak self] session in
                 guard let self = self else { return }
                 Task {
-                    if let userId = session?.user.id, let inventory = await Supabase.shared.fetchInventory(userId: userId) {
+                    if let inventory = await Supabase.shared.fetchInventory() {
                         DispatchQueue.main.async {
                             self.inventory = inventory
                         }

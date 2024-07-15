@@ -20,7 +20,7 @@ struct InventoryView: View {
                 List {
                     ForEach(InventoryItemType.allCases, id: \.rawValue) { itemType in
                         NavigationLink {
-                            CategoryView(inventory: viewModel.inventory, category: itemType)
+                            CategoryView(inventoryData: viewModel.inventory?.inventoryData, category: itemType)
                         } label: {
                             InventoryCategoryCard(imageName: itemType.getImageName(), label: itemType.getLabel())
                         }
