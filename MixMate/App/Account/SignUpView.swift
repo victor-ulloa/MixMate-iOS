@@ -121,5 +121,6 @@ struct SignUpView: View {
 #Preview {
     NavigationStack{
         SignUpView()
+            .environmentObject(AuthenticationManager())
     }
 }
