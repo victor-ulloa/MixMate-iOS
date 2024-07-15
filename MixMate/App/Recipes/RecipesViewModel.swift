@@ -27,17 +27,15 @@ final class RecipesViewModel: ObservableObject {
         }
         
         $selectedTags
-            .sink { [weak self] tagToggles in
+            .sink { [weak self] selectedTags in
                 guard let self = self else { return }
-                if tagToggles.isEmpty {
+                if selectedTags.isEmpty {
                     self.filteredCocktails = self.cocktails
                     return
                 }
-                
                 filteredCocktails.removeAll()
-                
                 self.cocktails.forEach { cocktail in
-                    if cocktail.tags.allSatisfy({ self.selectedTags.contains($0) }) {
+                    if Set(selectedTags).isSubset(of: Set(cocktail.tags)) {
                         self.filteredCocktails.append(cocktail)
                     }
                 }
