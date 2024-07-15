@@ -36,18 +36,8 @@ final class RecipesViewModel: ObservableObject {
                 
                 filteredCocktails.removeAll()
                 
-                cocktails.forEach { cocktail in
-                    var satisfies = true
-                    
-                    cocktail.tags.forEach { tagString in
-                        if let tag = Tags(rawValue: tagString) {
-                            if !self.selectedTags.contains(tag) {
-                                satisfies = false
-                            }
-                        }
-                    }
-                    
-                    if satisfies {
+                self.cocktails.forEach { cocktail in
+                    if cocktail.tags.allSatisfy({ self.selectedTags.contains($0) }) {
                         self.filteredCocktails.append(cocktail)
                     }
                 }
