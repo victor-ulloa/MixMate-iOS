@@ -43,4 +43,5 @@ struct AccountView: View {
 
 #Preview {
     AccountView()
+        .environmentObject(AuthenticationManager())
 }
