@@ -11,13 +11,13 @@ struct CategoryView: View {
     
     @State private var showingAddItem = false
     
-    let inventoryItems: [InventoryItem]?
+    let inventory: Inventory?
     let category: InventoryItemType
     
     var body: some View {
         List {
-            if let items = inventoryItems, !items.isEmpty {
-                ForEach(items, id: \.self) { item in
+            if let items = inventory?.inventoryData?.items.filter( { $0.type == category}), !items.isEmpty {
+                ForEach(items, id: \.type) { item in
                     Text(item.name)
                 }
             }
@@ -44,6 +44,6 @@ struct CategoryView: View {
 
 #Preview {
     NavigationStack {
-        CategoryView(inventoryItems: nil, category: .spirit)
+        CategoryView(inventory: nil, category: .spirit)
     }
 }

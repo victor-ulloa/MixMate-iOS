@@ -33,13 +33,21 @@ final class Supabase {
     
     func fetchInventory(userId: UUID) async -> Inventory? {
         do {
-            let inventory: Inventory = try await instance.from(Constants.kInventoriesTable).select().eq("userId", value: userId).execute().value
-            return inventory
+            let response = try await instance
+                .from(Constants.kInventoriesTable)
+                .select()
+                .execute()
+            do {
+                let inventories = try JSONDecoder().decode([Inventory].self, from: response.data)
+                return inventories.first { $0.userId == userId }
+            } catch {
+                print("Decoding error: \(error)")
+                return nil
+            }
         } catch {
             print("Error: \(error)")
             return nil
         }
-        
     }
     
     func fetchCategoryItems(category: InventoryItemType) async -> [InventoryListItem]? {
@@ -50,6 +58,14 @@ final class Supabase {
             print("Error: \(error)")
             return nil
         }
-        
+    }
+    
+    func addInventoryItem(newInventory: InventoryListItem) async {
+        do {
+            let session = try await instance.auth.session
+            try await instance.from(Constants.kInventoriesTable).update(["":""]).eq("userId", value: session.user.id).execute()
+        } catch {
+            print("Error: \(error)")
+        }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct InventoryItem: Codable, Hashable {
+struct InventoryItem: Codable {
     
     let name: String
     let type: InventoryItemType

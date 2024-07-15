@@ -28,6 +28,7 @@ struct AddItemView: View {
             SearchBar(text: $searchText)
             List(filteredItems, id: \.id) { item in
                 Button {
+                    
                     isPresented.toggle()
                 } label: {
                     Text(item.name)
