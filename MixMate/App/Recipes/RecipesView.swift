@@ -10,8 +10,14 @@ struct RecipesView: View {
     
     @StateObject var viewModel : RecipesViewModel = RecipesViewModel()
     @State var searchText = ""
-    // var deciding whether show search bar or not.
-    @State var showSearchBar = false
+    
+    var searchResults: [Cocktail] {
+        if searchText.isEmpty {
+            return viewModel.filteredCocktails
+        } else {
+            return viewModel.filteredCocktails.filter { $0.name?.contains(searchText) ?? false }
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -29,7 +35,7 @@ struct RecipesView: View {
 
                 ScrollView(.vertical, showsIndicators: false){
                     VStack {
-                        ForEach(viewModel.cocktails.filter({ cocktail in filter(cocktail)}), id: \.self){ cocktail in
+                        ForEach(searchResults, id: \.id){ cocktail in
                             ImageCard(cocktail: cocktail)
                                 .padding(.horizontal, 20)
                         }
@@ -41,22 +47,7 @@ struct RecipesView: View {
         .searchable(text: $searchText)
     }
     
-    private func filter(_ cocktail: Cocktail) -> Bool {
-        var meetCriteria = true
-        if searchText != "" && !(cocktail.name?.localizedCaseInsensitiveContains(searchText) ?? false) {
-            meetCriteria = false
-        }
-        
-        return meetCriteria
-    }
     
-    var searchResults: [Cocktail] {
-        if searchText.isEmpty {
-            return viewModel.cocktails
-        } else {
-            return viewModel.cocktails.filter { $0.name?.contains(searchText) ?? false }
-        }
-    }
 }
 
 #Preview {

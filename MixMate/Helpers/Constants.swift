@@ -26,6 +26,8 @@ enum Tags: String, Codable, CaseIterable {
     case carbonated
     case dairyfree = "dairy-free"
     case fruits
+    case spices
+    case summer
     
     func getString ()->String {
         switch self {

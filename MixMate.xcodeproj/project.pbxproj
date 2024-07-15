@@ -25,7 +25,6 @@
 		57AB45302C3722D200432A36 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB452F2C3722D200432A36 /* PasswordField.swift */; };
 		57AB45322C3748F400432A36 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45312C3748F400432A36 /* SignUpView.swift */; };
 		57AB45342C374B1D00432A36 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45332C374B1D00432A36 /* LoginView.swift */; };
-		57AB45382C374FEF00432A36 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45372C374FEF00432A36 /* LoginViewModel.swift */; };
 		57AB453A2C3B011A00432A36 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45392C3B011A00432A36 /* AuthenticationManager.swift */; };
 		57AB453C2C3B029C00432A36 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB453B2C3B029C00432A36 /* AccountViewModel.swift */; };
 		57AB45402C3B21E800432A36 /* LocalizedAlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB453F2C3B21E800432A36 /* LocalizedAlertError.swift */; };
@@ -63,7 +62,6 @@
 		57AB452F2C3722D200432A36 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		57AB45312C3748F400432A36 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		57AB45332C374B1D00432A36 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		57AB45372C374FEF00432A36 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		57AB45392C3B011A00432A36 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		57AB453B2C3B029C00432A36 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		57AB453F2C3B21E800432A36 /* LocalizedAlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlertError.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 				57F1A9A72C2103510023B8DB /* AccountView.swift */,
 				57AB453B2C3B029C00432A36 /* AccountViewModel.swift */,
 				57AB45332C374B1D00432A36 /* LoginView.swift */,
-				57AB45372C374FEF00432A36 /* LoginViewModel.swift */,
 				57AB45312C3748F400432A36 /* SignUpView.swift */,
 				57AB452D2C371A9700432A36 /* SignUpViewModel.swift */,
 			);
@@ -352,7 +349,6 @@
 				57B5A49E2C1FC68E00C5917C /* CategoryView.swift in Sources */,
 				5782A6692C1698CF000015CB /* RecipesCarouselItem.swift in Sources */,
 				575823762C17D74C000EEC7A /* HomepageViewModel.swift in Sources */,
-				57AB45382C374FEF00432A36 /* LoginViewModel.swift in Sources */,
 				575823792C181DE0000EEC7A /* Constants.swift in Sources */,
 				57AB45322C3748F400432A36 /* SignUpView.swift in Sources */,
 				5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */,
