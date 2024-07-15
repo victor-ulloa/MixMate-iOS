@@ -44,7 +44,7 @@ struct RecipesView: View {
 
     
     var body: some View {
-        VStack {
+        NavigationStack {
             // search bar
             HStack {
                 Spacer()

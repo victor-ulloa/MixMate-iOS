@@ -23,7 +23,7 @@ struct MainView: View {
                     Image(systemName: "shippingbox")
                     Text("Inventory")
                 }
-            HomepageView()
+            RecipesView()
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("Recipes")
