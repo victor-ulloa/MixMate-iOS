@@ -14,7 +14,7 @@ struct AccountView: View {
     @ObservedObject var viewModel = AccountViewModel()
     
     var body: some View {
-        NavigationStack() {
+        NavigationStack {
             
             Group{
                 switch (authManager.authState) {

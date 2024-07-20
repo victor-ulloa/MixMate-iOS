@@ -29,7 +29,7 @@ struct CategoryView: View {
                     Image(systemName: "plus")
                 }
                 .sheet(isPresented: $showingAddItem, onDismiss: didDismiss, content: {
-                    AddItemView(isPresented: $showingAddItem)
+                    AddItemView(isPresented: $showingAddItem, selectedCategory: category)
                 })
             }
         }

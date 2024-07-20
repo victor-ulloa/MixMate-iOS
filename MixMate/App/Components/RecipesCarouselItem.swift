@@ -32,5 +32,5 @@ struct RecipesCarouselItem: View {
 }
 
 #Preview {
-    RecipesCarouselItem(cocktail: Cocktail(id: 1, name: "Espresso Martini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageName: "", imageURL: ""))
+    RecipesCarouselItem(cocktail: Cocktail(id: 1, name: "Espresso Martini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageName: "", imageURL: "", tags: []))
 }

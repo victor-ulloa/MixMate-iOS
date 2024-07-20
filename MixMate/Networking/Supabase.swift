@@ -31,6 +31,21 @@ final class Supabase {
         return nil
     }
     
+    func fetchCategoryItems(type: InventoryItemType) async -> [InventoryItem]? {
+        do {
+            let fetchedItems: [InventoryItem] = try await instance
+                .from(Constants.kInventoryTable)
+                .select()
+                .eq("type", value: type.rawValue)
+                .execute().value
+            return fetchedItems
+        }
+        catch{
+            print("Error: \(error)")
+        }
+        return nil
+    }
+    
     func signOut() async {
         do {
             try await instance.auth.signOut()
