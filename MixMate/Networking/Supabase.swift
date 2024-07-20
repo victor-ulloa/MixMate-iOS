@@ -40,7 +40,6 @@ final class Supabase {
                 .execute()
             do {
                 let jsonString = String(data: response.data, encoding: .utf8)
-                print(jsonString)
                 let inventories = try JSONDecoder().decode([Inventory].self, from: response.data)
                 return inventories.first { $0.userId == session.user.id }
             } catch {

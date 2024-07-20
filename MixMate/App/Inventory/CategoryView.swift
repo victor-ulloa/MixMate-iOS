@@ -16,8 +16,8 @@ struct CategoryView: View {
     
     var body: some View {
         List {
-            if let items = inventoryData?.items.filter( { $0.type == category}), !items.isEmpty {
-                ForEach(items, id: \.type) { item in
+            if let items = inventoryData?.items?.filter( { $0.type == category}), !items.isEmpty {
+                ForEach(items, id: \.name) { item in
                     Text(item.name)
                 }
             }

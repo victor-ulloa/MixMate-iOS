@@ -31,7 +31,7 @@ struct AddItemView: View {
                 Button {
                     Task {
                         var newData = inventoryData
-                        newData.items.append(InventoryItem(name: item.name, type: item.type))
+                        newData.items?.append(InventoryItem(name: item.name, type: item.type))
                         let _ = await Supabase.shared.updateInventoryData(newInventoryData: newData)
                         isPresented.toggle()
                         

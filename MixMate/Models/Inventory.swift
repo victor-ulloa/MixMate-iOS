@@ -11,33 +11,15 @@ struct Inventory: Codable {
     
     let id: UUID
     let userId: UUID
-    let inventoryData: InventoryData?
+    let inventoryData: String?
     
-    enum CodingKeys: String, CodingKey {
-        case id, userId, inventoryData
-    }
-    
-    init(id: UUID, userId: UUID, inventoryData: InventoryData?) {
-        self.id = id
-        self.userId = userId
-        self.inventoryData = inventoryData
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(UUID.self, forKey: .id)
-        userId = try container.decode(UUID.self, forKey: .userId)
-        
-        if let dataArray = try? container.decode([InventoryItem].self, forKey: .inventoryData) {
-            inventoryData = InventoryData(items: dataArray)
-        } else if let dataObject = try? container.decode(InventoryData.self, forKey: .inventoryData) {
-            inventoryData = dataObject
-        } else {
-            inventoryData = nil
-        }
+    var decodedInventoryData: InventoryData? {
+        guard let inventoryData = inventoryData else { return nil }
+        let data = Data(inventoryData.utf8)
+        return try? JSONDecoder().decode(InventoryData.self, from: data)
     }
 }
 
 struct InventoryData: Codable {
-    var items: [InventoryItem]
+    var items: [InventoryItem]?
 }
