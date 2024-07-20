@@ -11,7 +11,7 @@ struct CategoryView: View {
     
     @State private var showingAddItem = false
     
-    let inventoryData: InventoryData?
+    @Binding var inventoryData: InventoryData?
     let category: InventoryItemType
     
     var body: some View {
@@ -31,7 +31,7 @@ struct CategoryView: View {
                     Image(systemName: "plus")
                 }
                 .sheet(isPresented: $showingAddItem, onDismiss: didDismiss, content: {
-                    AddItemView(isPresented: $showingAddItem, inventoryData: inventoryData ?? InventoryData(items: []), category: category)
+                    AddItemView(isPresented: $showingAddItem, inventoryData: $inventoryData, category: category)
                 })
             }
         }
@@ -43,7 +43,10 @@ struct CategoryView: View {
 }
 
 #Preview {
-    NavigationStack {
-        CategoryView(inventoryData: nil, category: .spirit)
-    }
+    @State var inventoryData: InventoryData? = InventoryData(items: [
+        InventoryItem(name: "Vodka", type: .spirit),
+        InventoryItem(name: "Reposado", type: .spirit)
+    ])
+    
+    return NavigationStack { CategoryView(inventoryData: $inventoryData, category: .spirit) }
 }

@@ -13,7 +13,7 @@ struct AddItemView: View {
     @State var searchText: String = ""
     @State var categoryItems: [InventoryListItem]?
     
-    var inventoryData: InventoryData
+    @Binding var inventoryData: InventoryData?
     var category: InventoryItemType
     
     var filteredItems: [InventoryListItem] {
@@ -30,8 +30,9 @@ struct AddItemView: View {
             List(filteredItems, id: \.id) { item in
                 Button {
                     Task {
-                        var newData = inventoryData
+                        var newData = inventoryData ?? InventoryData(items: [])
                         newData.items?.append(InventoryItem(name: item.name, type: item.type))
+                        inventoryData = newData
                         let _ = await Supabase.shared.updateInventoryData(newInventoryData: newData)
                         isPresented.toggle()
                         
@@ -54,5 +55,6 @@ struct AddItemView: View {
 
 #Preview {
     @State var showingAddItem = false
-    return AddItemView(isPresented: $showingAddItem, inventoryData: InventoryData(items: []), category: .spirit)
+    @State var inventoryData: InventoryData? = InventoryData(items: [])
+    return AddItemView(isPresented: $showingAddItem, inventoryData: $inventoryData, category: .spirit)
 }

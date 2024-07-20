@@ -12,6 +12,7 @@ import Auth
 final class InventoryViewModel: ObservableObject {
     
     @Published var inventory: Inventory?
+    @Published var inventoryData: InventoryData?
     @Published var session: Session?
     
     var cancellable = Set<AnyCancellable>()
@@ -24,6 +25,7 @@ final class InventoryViewModel: ObservableObject {
                     if let inventory = await Supabase.shared.fetchInventory() {
                         DispatchQueue.main.async {
                             self.inventory = inventory
+                            self.inventoryData = inventory.decodedInventoryData
                         }
                     }
                 }
