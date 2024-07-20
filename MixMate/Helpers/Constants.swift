@@ -13,11 +13,36 @@ struct Constants {
     static let kCocktailsTable = "cocktails"
     static let kInventoryListTable = "inventoryList"
     static let kInventoriesTable = "inventories"
-    
+    static let kInventoryTable = "inventoryList"
 }
 
-
 // MARK: - Enums
+
+enum Tags: String, Codable, CaseIterable {
+    case nonAlcoholic
+    case sweet
+    case sour
+    case bitter
+    case cold
+    case refreshing
+    case carbonated
+    case dairyFree
+    case fruits
+    case spices
+    case summer
+    case coffee
+    
+    func getString ()->String {
+        switch self {
+        case .nonAlcoholic:
+            return "non-alcoholic"
+        case .dairyFree:
+            return "dairy-free"
+        default:
+            return self.rawValue
+        }
+    }
+}
 
 enum InventoryItemType: String, Codable, CaseIterable {
     case spirit

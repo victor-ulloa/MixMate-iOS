@@ -14,7 +14,7 @@ struct AccountView: View {
     @ObservedObject var viewModel = AccountViewModel()
     
     var body: some View {
-        NavigationStack() {
+        NavigationStack {
             
             Group{
                 switch (authManager.authState) {
@@ -42,4 +42,5 @@ struct AccountView: View {
 
 #Preview {
     AccountView()
+        .environmentObject(AuthenticationManager())
 }

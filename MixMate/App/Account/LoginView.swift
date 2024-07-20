@@ -12,7 +12,6 @@ struct LoginView: View {
     @EnvironmentObject private var authManager: AuthenticationManager
     @Environment(\.dismiss) private var dismiss
     
-    @StateObject var viewModel = LoginViewModel()
     @State var email: String = ""
     @State var password: String = ""
     @State private var isValidEmail: Bool = false
@@ -92,4 +91,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environmentObject(AuthenticationManager())
 }

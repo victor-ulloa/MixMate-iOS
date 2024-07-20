@@ -16,9 +16,11 @@ struct ImageCard: View {
             if let imageURL = cocktail.imageURL, !imageURL.isEmpty {
                 AsyncImage(url: URL(string: imageURL )) { image in
                     image
-                        .resizable()
+                        .centreCropped()
                         .frame(height: 200)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                         .shadow(radius: 5)
+                        
                 } placeholder: {
                     Color.gray
                         .frame(height: 200)
@@ -28,9 +30,9 @@ struct ImageCard: View {
                 }
             } else {
                 Image(cocktail.imageName ?? "")
-                    .resizable()
+                    .centreCropped()
                     .frame(height: 200)
-                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 5)
             }
             

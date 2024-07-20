@@ -28,7 +28,7 @@ struct MainView: View {
                     Text("Inventory")
                 }
                 .tag(Tabs.inventory.rawValue)
-            HomepageView()
+            RecipesView()
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("Recipes")
@@ -47,4 +47,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environmentObject(AuthenticationManager())
 }
