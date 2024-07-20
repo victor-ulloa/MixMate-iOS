@@ -17,11 +17,13 @@ struct AddItemView: View {
     var category: InventoryItemType
     
     var filteredItems: [InventoryListItem] {
-        if searchText.isEmpty {
-            return categoryItems ?? []
-        } else {
+        var items = categoryItems ?? []
+        if !searchText.isEmpty {
             return categoryItems?.filter { $0.name.localizedCaseInsensitiveContains(searchText) } ?? []
         }
+        let names = inventoryData?.items?.map { $0.name } ?? []
+        
+        return items.filter { !names.contains($0.name) }
     }
     
     var body: some View {
