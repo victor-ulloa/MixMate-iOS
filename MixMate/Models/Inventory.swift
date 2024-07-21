@@ -7,9 +7,19 @@
 
 import Foundation
 
-struct Inventory {
+struct Inventory: Codable {
+    
+    let id: UUID
+    let userId: UUID
+    let inventoryData: String?
+    
+    var decodedInventoryData: InventoryData? {
+        guard let inventoryData = inventoryData else { return nil }
+        let data = Data(inventoryData.utf8)
+        return try? JSONDecoder().decode(InventoryData.self, from: data)
+    }
+}
 
-    let id: Int
-    let item: [InventoryItem]
-
+struct InventoryData: Codable {
+    var items: [InventoryItem]?
 }

@@ -11,6 +11,8 @@ struct Constants {
     
     //    MARK: - Supabase Table keys
     static let kCocktailsTable = "cocktails"
+    static let kInventoryListTable = "inventoryList"
+    static let kInventoriesTable = "inventories"
     static let kInventoryTable = "inventoryList"
 }
 
@@ -93,6 +95,13 @@ enum InventoryItemType: String, Codable, CaseIterable {
             return "Others"
         }
     }
+}
+
+enum Tabs: Int {
+    case home = 0
+    case inventory = 1
+    case recipes = 2
+    case account = 3
 }
 
 // MARK: - Authentication State

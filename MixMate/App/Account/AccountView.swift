@@ -34,8 +34,7 @@ struct AccountView: View {
                 }
             }
             .task {
-                await authManager.isUserSignIn()
-                
+                let _ = await authManager.isUserSignIn()
             }
         }
     }

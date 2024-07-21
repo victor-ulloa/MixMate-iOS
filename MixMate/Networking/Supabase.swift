@@ -27,41 +27,61 @@ final class Supabase {
             return fetchedCocktails
         } catch {
             print("Error: \(error)")
+            return nil
         }
-        return nil
     }
     
-    func fetchCategoryItems(type: InventoryItemType) async -> [InventoryItem]? {
+    func fetchInventory() async -> Inventory? {
         do {
-            let fetchedItems: [InventoryItem] = try await instance
-                .from(Constants.kInventoryTable)
+            let session = try await Supabase.shared.instance.auth.session
+            let response = try await instance
+                .from(Constants.kInventoriesTable)
                 .select()
-                .eq("type", value: type.rawValue)
-                .execute().value
-            return fetchedItems
-        }
-        catch{
-            print("Error: \(error)")
-        }
-        return nil
-    }
-    
-    func signOut() async {
-        do {
-            try await instance.auth.signOut()
+                .execute()
+            do {
+                let jsonString = String(data: response.data, encoding: .utf8)
+                let inventories = try JSONDecoder().decode([Inventory].self, from: response.data)
+                return inventories.first { $0.userId == session.user.id }
+            } catch {
+                print("Decoding error: \(error)")
+                return nil
+            }
         } catch {
             print("Error: \(error)")
+            return nil
         }
     }
     
-    func getSession() async -> Session? {
+    func updateInventoryData(newInventoryData: InventoryData) async -> Bool {
+        guard let jsonData = try? JSONEncoder().encode(newInventoryData),
+              let jsonString = String(data: jsonData, encoding: .utf8) else {
+            print("Failed to encode updated inventory")
+            return false
+        }
+        
+        // Update the inventory in Supabase
         do {
-            let session = try await instance.auth.session
-            return session
+            let session = try await Supabase.shared.instance.auth.session
+            _ = try await instance
+                .from(Constants.kInventoriesTable)
+                .update(["inventoryData": jsonString])
+                .eq("userId", value: session.user.id)
+                .execute()
+            return true
+        } catch {
+            print("Error updating inventory: \(error)")
+            return false
+        }
+    }
+    
+    func fetchCategoryItems(category: InventoryItemType) async -> [InventoryListItem]? {
+        do {
+            let categoryItems: [InventoryListItem] = try await instance.from(Constants.kInventoryListTable).select().eq("type", value: category.rawValue).execute().value
+            return categoryItems
         } catch {
             print("Error: \(error)")
+            return nil
         }
-        return nil
     }
     
 }

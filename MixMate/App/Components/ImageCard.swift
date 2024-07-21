@@ -49,6 +49,7 @@ struct ImageCard: View {
             .padding(.horizontal, 20)
         }
         .frame(maxWidth: .infinity)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
 
     }
 }

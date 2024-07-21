@@ -9,50 +9,54 @@ import SwiftUI
 
 struct AddItemView: View {
     
-    @StateObject var viewModel = AddItemViewModel()
-    
     @Binding var isPresented: Bool
-    var selectedCategory: InventoryItemType
     @State var searchText: String = ""
-    //let items = ["Apple", "Banana", "Cherry", "Date", "Fig", "Grape", "Kiwi"]
-    @State var items: [String] = []
+    @State var categoryItems: [InventoryListItem]?
     
-    var filteredItems: [String] {
-        if searchText.isEmpty {
-            return items
-        } else {
-            return items.filter { $0.localizedCaseInsensitiveContains(searchText) }
+    @Binding var inventoryData: InventoryData?
+    var category: InventoryItemType
+    
+    var filteredItems: [InventoryListItem] {
+        let items = categoryItems ?? []
+        if !searchText.isEmpty {
+            return categoryItems?.filter { $0.name.localizedCaseInsensitiveContains(searchText) } ?? []
         }
+        let names = inventoryData?.items?.map { $0.name } ?? []
+        
+        return items.filter { !names.contains($0.name) }.sorted(by: { $0.name < $1.name })
     }
     
     var body: some View {
         VStack {
             SearchBar(text: $searchText)
-            if (filteredItems.isEmpty) {
-                Text("no items to display")
-            }
-            List(filteredItems, id: \.self) { item in
+            List(filteredItems, id: \.id) { item in
                 Button {
-                    isPresented.toggle()
-                } label: {
-                    Text(item)
-                }
-            }.task {
-                do {
-                    try await viewModel.fetchItemsByCategory(category: selectedCategory)
-                    viewModel.items.forEach{ item in
-                        items.append(item.name)
+                    Task {
+                        var newData = inventoryData ?? InventoryData(items: [])
+                        newData.items?.append(InventoryItem(name: item.name, type: item.type))
+                        inventoryData = newData
+                        let _ = await Supabase.shared.updateInventoryData(newInventoryData: newData)
+                        isPresented.toggle()
+                        
                     }
-                }catch {
-                    items.append("failed to load")
+                } label: {
+                    Text(item.name)
+                }
+            }
+            .listStyle(.plain)
+        }
+        .task {
+            if let categoryItems = await Supabase.shared.fetchCategoryItems(category: category) {
+                DispatchQueue.main.async {
+                    self.categoryItems = categoryItems
                 }
             }
         }
-        .listStyle(.plain)
     }
 }
 
 #Preview {
     @State var showingAddItem = false
-    return AddItemView(isPresented: $showingAddItem, selectedCategory: .spirit)
+    @State var inventoryData: InventoryData? = InventoryData(items: [])
+    return AddItemView(isPresented: $showingAddItem, inventoryData: $inventoryData, category: .spirit)
 }

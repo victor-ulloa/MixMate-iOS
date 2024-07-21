@@ -9,23 +9,51 @@ import SwiftUI
 
 struct InventoryView: View {
     
+    @EnvironmentObject var authManager: AuthenticationManager
+    @EnvironmentObject var navigationManager: NavigationManager
+    
     @StateObject var viewModel: InventoryViewModel = InventoryViewModel()
     
     var body: some View {
         NavigationStack {
-            List {
-                
-                ForEach(InventoryItemType.allCases, id: \.rawValue) { itemType in
-                    NavigationLink {
-                        CategoryView(category: itemType)
-                    } label: {
-                        InventoryCategoryCard(imageName: itemType.getImageName(), label: itemType.getLabel())
+            ZStack {
+                List {
+                    ForEach(InventoryItemType.allCases, id: \.rawValue) { itemType in
+                        NavigationLink {
+                            CategoryView(viewModel: viewModel, category: itemType)
+                        } label: {
+                            InventoryCategoryCard(imageName: itemType.getImageName(), label: itemType.getLabel())
+                        }
+                        
                     }
-                    
+                }
+                .listStyle(.plain)
+                
+                if viewModel.session == nil {
+                    VStack(spacing: 20) {
+                        Text("Log in to start saving your inventory!")
+                            .font(.title)
+                            .multilineTextAlignment(.center)
+                        
+                        Text("Having your inventory will allow you to get recipe recommendations according to what you have in hand!")
+                            .font(.caption)
+                            .padding(.horizontal)
+                        Button {
+                            navigationManager.selectedTab = Tabs.account.rawValue
+                        } label: {
+                            Text("Tap to log in!")
+                        }
+                        .padding()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.ultraThinMaterial)
                 }
             }
-            .listStyle(.plain)
+            .toolbar(viewModel.session == nil ? .hidden : .visible)
             .navigationTitle("Inventory")
+        }
+        .task {
+            viewModel.session = await authManager.isUserSignIn()
         }
     }
 }
