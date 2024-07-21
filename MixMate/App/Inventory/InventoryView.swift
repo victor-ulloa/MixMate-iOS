@@ -20,7 +20,7 @@ struct InventoryView: View {
                 List {
                     ForEach(InventoryItemType.allCases, id: \.rawValue) { itemType in
                         NavigationLink {
-                            CategoryView(inventoryData: $viewModel.inventoryData, category: itemType)
+                            CategoryView(viewModel: viewModel, category: itemType)
                         } label: {
                             InventoryCategoryCard(imageName: itemType.getImageName(), label: itemType.getLabel())
                         }
@@ -28,7 +28,6 @@ struct InventoryView: View {
                     }
                 }
                 .listStyle(.plain)
-                
                 
                 if viewModel.session == nil {
                     VStack(spacing: 20) {

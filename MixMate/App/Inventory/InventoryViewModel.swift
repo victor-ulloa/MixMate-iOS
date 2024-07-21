@@ -33,4 +33,15 @@ final class InventoryViewModel: ObservableObject {
             .store(in: &cancellable)
     }
     
+    func deleteItems(offsets: IndexSet, category: InventoryItemType) {
+        Task {
+            guard var newData = inventoryData, var newCategoryItems = inventoryData?.items?.filter( { $0.type == category}).sorted(by: { $0.name < $1.name }) else { return }
+            newCategoryItems.remove(atOffsets: offsets)
+            newData.items?.removeAll(where: { $0.type == category })
+            newData.items?.append(contentsOf: newCategoryItems)
+            inventoryData = newData
+            let _ = await Supabase.shared.updateInventoryData(newInventoryData: newData)
+        }
+    }
+    
 }

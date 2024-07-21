@@ -11,34 +11,40 @@ struct CategoryView: View {
     
     @State private var showingAddItem = false
     
-    @Binding var inventoryData: InventoryData?
+    @ObservedObject var viewModel: InventoryViewModel
     let category: InventoryItemType
     
     var body: some View {
         List {
-            if let items = inventoryData?.items?.filter( { $0.type == category}), !items.isEmpty {
+            if let items = viewModel.inventoryData?.items?.filter( { $0.type == category}).sorted(by: { $0.name < $1.name }), !items.isEmpty {
                 ForEach(items, id: \.name) { item in
                     Text(item.name)
                 }
+                .onDelete(perform: deleteItems)
             }
         }
         .navigationTitle(category.getLabel())
         .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                EditButton()
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showingAddItem.toggle()
                 } label: {
                     Image(systemName: "plus")
                 }
-                .sheet(isPresented: $showingAddItem, onDismiss: didDismiss, content: {
-                    AddItemView(isPresented: $showingAddItem, inventoryData: $inventoryData, category: category)
-                })
+                .sheet(isPresented: $showingAddItem) {
+                    AddItemView(isPresented: $showingAddItem, inventoryData: $viewModel.inventoryData, category: category)
+                }
             }
         }
     }
     
-    func didDismiss() {
-        // Handle the dismissing action.
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            viewModel.deleteItems(offsets: offsets, category: category)
+        }
     }
 }
 
@@ -47,6 +53,6 @@ struct CategoryView: View {
         InventoryItem(name: "Vodka", type: .spirit),
         InventoryItem(name: "Reposado", type: .spirit)
     ])
-    
-    return NavigationStack { CategoryView(inventoryData: $inventoryData, category: .spirit) }
+    @StateObject var viewModel: InventoryViewModel = InventoryViewModel()
+    return NavigationStack { CategoryView(viewModel: viewModel, category: .spirit) }
 }
