@@ -32,14 +32,15 @@ struct RecipesView: View {
                     }
                     .padding(.leading, 20)
                 }
-
-                ScrollView(.vertical, showsIndicators: false){
+                
+                ScrollView(.vertical) {
                     VStack {
                         ForEach(searchResults, id: \.id){ cocktail in
-                            ImageCard(cocktail: cocktail)
+                            RecipeListItem(cocktail: cocktail)
                                 .padding(.horizontal, 20)
                         }
                     }
+                    .padding(.top, 10)
                 }
             }
             .navigationTitle("Recipes")
