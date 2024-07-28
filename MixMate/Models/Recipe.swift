@@ -18,4 +18,9 @@ struct Recipe: Codable {
     let complexity: Complexity
     let tags: [Tags]
     
+    var decodedIngredientsData: [Ingredient]? {
+        let data = Data(ingredients.utf8)
+        return try? JSONDecoder().decode([Ingredient].self, from: data)
+    }
+    
 }

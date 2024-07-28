@@ -10,5 +10,7 @@ import Foundation
 struct Ingredient: Codable {
     
     let InventoryItem: InventoryItem
+    let ammount: Double
+    let unit: String
     
 }
