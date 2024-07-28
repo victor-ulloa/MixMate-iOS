@@ -52,6 +52,8 @@ enum InventoryItemType: String, Codable, CaseIterable {
     case syrup
     case bitters
     case herbsAndSpices
+    case beer
+    case wine
     case others // eggs, milk, salt, suggar, coffee, tea, etc.
     
     func getImageName() -> String {
@@ -72,6 +74,10 @@ enum InventoryItemType: String, Codable, CaseIterable {
             return "frozenMargarita"
         case .others:
             return "frozenMargarita"
+        case .beer:
+            return "frozenMargarita"
+        case .wine:
+            return "frozenMargarita"
         }
     }
     
@@ -91,6 +97,10 @@ enum InventoryItemType: String, Codable, CaseIterable {
             return "Bitters"
         case .herbsAndSpices:
             return "Herbs and Spices"
+        case .beer:
+            return "Beer"
+        case .wine:
+            return "Wine"
         case .others:
             return "Others"
         }
@@ -102,6 +112,12 @@ enum Tabs: Int {
     case inventory = 1
     case recipes = 2
     case account = 3
+}
+
+enum Complexity: Int, Codable {
+    case easy = 1
+    case medium = 2
+    case hard = 3
 }
 
 // MARK: - Authentication State

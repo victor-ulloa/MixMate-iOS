@@ -74,9 +74,9 @@ final class Supabase {
         }
     }
     
-    func fetchCategoryItems(category: InventoryItemType) async -> [InventoryListItem]? {
+    func fetchCategoryItems(category: InventoryItemType) async -> [InventoryItem]? {
         do {
-            let categoryItems: [InventoryListItem] = try await instance.from(Constants.kInventoryListTable).select().eq("type", value: category.rawValue).execute().value
+            let categoryItems: [InventoryItem] = try await instance.from(Constants.kInventoryListTable).select().eq("type", value: category.rawValue).execute().value
             return categoryItems
         } catch {
             print("Error: \(error)")

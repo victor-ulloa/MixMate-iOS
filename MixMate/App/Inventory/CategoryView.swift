@@ -50,8 +50,8 @@ struct CategoryView: View {
 
 #Preview {
     @State var inventoryData: InventoryData? = InventoryData(items: [
-        InventoryItem(name: "Vodka", type: .spirit),
-        InventoryItem(name: "Reposado", type: .spirit)
+        InventoryItem(id: UUID(), name: "Vodka", type: .spirit),
+        InventoryItem(id: UUID(), name: "Reposado", type: .spirit)
     ])
     @StateObject var viewModel: InventoryViewModel = InventoryViewModel()
     return NavigationStack { CategoryView(viewModel: viewModel, category: .spirit) }

@@ -11,12 +11,12 @@ struct AddItemView: View {
     
     @Binding var isPresented: Bool
     @State var searchText: String = ""
-    @State var categoryItems: [InventoryListItem]?
+    @State var categoryItems: [InventoryItem]?
     
     @Binding var inventoryData: InventoryData?
     var category: InventoryItemType
     
-    var filteredItems: [InventoryListItem] {
+    var filteredItems: [InventoryItem] {
         let items = categoryItems ?? []
         if !searchText.isEmpty {
             return categoryItems?.filter { $0.name.localizedCaseInsensitiveContains(searchText) } ?? []
@@ -33,7 +33,7 @@ struct AddItemView: View {
                 Button {
                     Task {
                         var newData = inventoryData ?? InventoryData(items: [])
-                        newData.items?.append(InventoryItem(name: item.name, type: item.type))
+                        newData.items?.append(InventoryItem(id: UUID(), name: item.name, type: item.type))
                         inventoryData = newData
                         let _ = await Supabase.shared.updateInventoryData(newInventoryData: newData)
                         isPresented.toggle()
