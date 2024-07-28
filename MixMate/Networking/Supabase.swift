@@ -39,7 +39,6 @@ final class Supabase {
                 .select()
                 .execute()
             do {
-                let jsonString = String(data: response.data, encoding: .utf8)
                 let inventories = try JSONDecoder().decode([Inventory].self, from: response.data)
                 return inventories.first { $0.userId == session.user.id }
             } catch {
@@ -78,6 +77,16 @@ final class Supabase {
         do {
             let categoryItems: [InventoryItem] = try await instance.from(Constants.kInventoryListTable).select().eq("type", value: category.rawValue).execute().value
             return categoryItems
+        } catch {
+            print("Error: \(error)")
+            return nil
+        }
+    }
+    
+    func fetchRecipe(id: UUID) async -> Recipe? {
+        do {
+            let recipe: Recipe = try await instance.from(Constants.kRecipesTable).select().eq("id", value: id).execute().value
+            return recipe
         } catch {
             print("Error: \(error)")
             return nil

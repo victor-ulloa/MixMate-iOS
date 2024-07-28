@@ -9,7 +9,7 @@ import Foundation
 
 struct Ingredient: Codable {
     
-    let InventoryItem: InventoryItem
+    let inventoryItem: InventoryItem
     let ammount: Double
     let unit: String
     

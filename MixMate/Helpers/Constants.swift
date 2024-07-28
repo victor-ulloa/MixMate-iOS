@@ -14,6 +14,8 @@ struct Constants {
     static let kInventoryListTable = "inventoryList"
     static let kInventoriesTable = "inventories"
     static let kInventoryTable = "inventoryList"
+    static let kRecipesTable = "recipes"
+    
 }
 
 // MARK: - Enums
@@ -32,7 +34,7 @@ enum Tags: String, Codable, CaseIterable {
     case summer
     case coffee
     
-    func getString ()->String {
+    func getString () -> String {
         switch self {
         case .nonAlcoholic:
             return "non-alcoholic"
