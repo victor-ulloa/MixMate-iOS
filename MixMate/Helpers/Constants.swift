@@ -40,6 +40,9 @@ enum Tags: String, Codable, CaseIterable {
     case spicy
     case herbal
     case juicy
+    case vegan
+    case tropical
+    case frozen
     
     func getString () -> String {
         switch self {

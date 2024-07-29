@@ -14,6 +14,7 @@ final class RecipesViewModel: ObservableObject {
     @Published var selectedTags: [Tags] = []
     
     var cocktails: [Cocktail] = []
+    var recipes: [Recipe] = []
     private var cancellables = Set<AnyCancellable>()
     
     init() {
@@ -26,6 +27,14 @@ final class RecipesViewModel: ObservableObject {
             }
         }
         
+        Task {
+            if let recipes = await Supabase.shared.fetchRecipes() {
+                DispatchQueue.main.async { [weak self] in
+                    self?.recipes = recipes
+                }
+            }
+        }
+        
         $selectedTags
             .sink { [weak self] selectedTags in
                 guard let self = self else { return }
@@ -34,9 +43,12 @@ final class RecipesViewModel: ObservableObject {
                     return
                 }
                 filteredCocktails.removeAll()
-                self.cocktails.forEach { cocktail in
-                    if Set(selectedTags).isSubset(of: Set(cocktail.tags)) {
-                        self.filteredCocktails.append(cocktail)
+                
+                self.recipes.forEach { recipe in
+                    if Set(selectedTags).isSubset(of: Set(recipe.tags)) {
+                        if let cocktail = self.cocktails.first(where: { $0.recipe == recipe.id }) {
+                            self.filteredCocktails.append(cocktail)
+                        }
                     }
                 }
             }
