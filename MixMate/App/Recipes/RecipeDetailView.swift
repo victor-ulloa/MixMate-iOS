@@ -35,6 +35,33 @@ struct RecipeDetailView: View {
                     if let recipe = viewModel.recipe {
                         Text(recipe.description ?? "")
                         
+                        // MARK: Complexity
+                        
+                        HStack {
+                            Text("Complexity")
+                            switch recipe.complexity {
+                            case .easy:
+                                Image(systemName: "circle.fill")
+                                    .foregroundStyle(.green)
+                                Image(systemName: "circle")
+                                Image(systemName: "circle")
+                            case .medium:
+                                Image(systemName: "circle.fill")
+                                    .foregroundStyle(.yellow)
+                                Image(systemName: "circle.fill")
+                                    .foregroundStyle(.yellow)
+                                Image(systemName: "circle")
+                            case .hard:
+                                Image(systemName: "circle.fill")
+                                    .foregroundStyle(.red)
+                                Image(systemName: "circle.fill")
+                                    .foregroundStyle(.red)
+                                Image(systemName: "circle.fill")
+                                    .foregroundStyle(.red)
+                            }
+                            Spacer()
+                        }
+                        
                         // MARK: Ingredients
                         // TODO: Match check or X if the user has the ingredient
                         Divider()
@@ -55,6 +82,9 @@ struct RecipeDetailView: View {
                                                 .padding(.leading, 8)
                                             
                                             Spacer()
+                                            
+                                            Text("\(ingredient.ammount, specifier: "%.1f")")
+                                            Text(ingredient.unit)
                                         }
                                         .padding(.horizontal)
                                     }
