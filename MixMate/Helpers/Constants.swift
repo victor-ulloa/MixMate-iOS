@@ -71,19 +71,19 @@ enum InventoryItemType: String, Codable, CaseIterable {
     func getImageName() -> String {
         switch self {
         case .spirit:
-            return "frozenMargarita"
+            return "spirit"
         case .liqueur:
-            return "frozenMargarita"
+            return "liqueur"
         case .mixer:
             return "frozenMargarita"
         case .juice:
-            return "frozenMargarita"
+            return "juice"
         case .syrup:
-            return "frozenMargarita"
+            return "syrup"
         case .bitters:
-            return "frozenMargarita"
+            return "bitters"
         case .herbsAndSpices:
-            return "frozenMargarita"
+            return "herbsAndSpices"
         case .others:
             return "frozenMargarita"
         case .beer:

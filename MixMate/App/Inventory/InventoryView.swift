@@ -60,4 +60,5 @@ struct InventoryView: View {
 
 #Preview {
     InventoryView()
+        .environmentObject(AuthenticationManager())
 }

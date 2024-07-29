@@ -18,17 +18,21 @@ struct InventoryCategoryCard: View {
                     .resizable()
                     .frame(height: 150)
                     .scaledToFit()
+                    .overlay(content: {
+                        Color.black.opacity(0.3)
+                    })
                     .shadow(radius: 5)
                 
                 Text(label)
                     .font(.title)
                     .foregroundStyle(Color.white)
         }
+        .clipShape(RoundedRectangle(cornerRadius: 10))
         .frame(maxWidth: .infinity)
 
     }
 }
 
 #Preview {
-    InventoryCategoryCard(imageName: "frozenMargarita", label: "Spirits")
+    InventoryCategoryCard(imageName: "spirit", label: "Spirits")
 }
