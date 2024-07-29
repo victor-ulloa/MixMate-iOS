@@ -23,7 +23,6 @@ struct RecipesView: View {
         NavigationStack {
             VStack {
                 // MARK: - tags
-                
                 ScrollView(.horizontal) {
                     HStack(spacing: 12){
                         ForEach(Tags.allCases, id: \.rawValue) { item in
@@ -36,19 +35,23 @@ struct RecipesView: View {
                 ScrollView(.vertical) {
                     VStack {
                         ForEach(searchResults, id: \.id){ cocktail in
-                            RecipeListItem(cocktail: cocktail)
-                                .padding(.horizontal, 20)
+                            NavigationLink {
+                                if let _ = cocktail.recipe {
+                                    RecipeDetailView(cocktail: cocktail)
+                                }
+                            } label: {
+                                RecipeListItem(cocktail: cocktail)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                     }
-                    .padding(.top, 10)
+                    .padding(.top, 12)
                 }
             }
             .navigationTitle("Recipes")
         }
         .searchable(text: $searchText)
     }
-    
-    
 }
 
 #Preview {

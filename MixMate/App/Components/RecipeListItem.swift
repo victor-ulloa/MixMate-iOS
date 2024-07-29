@@ -50,8 +50,8 @@ struct RecipeListItem: View {
             }
             .padding(.horizontal, 20)
             .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 10)) // Apply rounding here
-            .shadow(color: .gray, radius: 10, x: 4, y: 4) // Shadow for the entire HStack
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(color: .gray, radius: 10, x: 8, y: 8)
         }
         .frame(maxWidth: .infinity)
     }

@@ -85,8 +85,8 @@ final class Supabase {
     
     func fetchRecipe(id: UUID) async -> Recipe? {
         do {
-            let recipe: Recipe = try await instance.from(Constants.kRecipesTable).select().eq("id", value: id).execute().value
-            return recipe
+            let recipe: [Recipe] = try await instance.from(Constants.kRecipesTable).select().eq("id", value: id).execute().value
+            return recipe.first
         } catch {
             print("Error: \(error)")
             return nil
