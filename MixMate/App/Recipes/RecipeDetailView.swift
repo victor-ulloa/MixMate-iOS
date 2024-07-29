@@ -99,7 +99,7 @@ struct RecipeDetailView: View {
                                             
                                             Spacer()
                                             
-                                            Text("\(ingredient.ammount, specifier: "%.1f")")
+                                            Text("\(ingredient.amount, specifier: "%.1f")")
                                             Text(ingredient.unit)
                                         }
                                         .padding(.horizontal)
@@ -148,14 +148,14 @@ struct RecipeDetailView: View {
                                 HStack {
                                     Text("Alcohol content")
                                     Spacer()
-                                    Text("\(recipe.alcoholContent, specifier: "%.1f") ABV")
+                                    Text("\(recipe.alcoholContent, specifier: "%.1f")% ABV")
                                 }
                                 .font(.footnote)
                                 
                                 HStack {
                                     Text("Calories")
                                     Spacer()
-                                    Text("\(recipe.calories ?? 0, specifier: "%.1f")")
+                                    Text("\(recipe.calories ?? 0, specifier: "%.f")")
                                 }
                                 .font(.footnote)
                             }

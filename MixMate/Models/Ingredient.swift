@@ -10,7 +10,7 @@ import Foundation
 struct Ingredient: Codable {
     
     let inventoryItem: InventoryItem
-    let ammount: Double
+    let amount: Double
     let unit: String
     
 }

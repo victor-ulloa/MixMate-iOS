@@ -33,6 +33,13 @@ enum Tags: String, Codable, CaseIterable {
     case spices
     case summer
     case coffee
+    case classic
+    case elegant
+    case smooth
+    case sophisticated
+    case spicy
+    case herbal
+    case juicy
     
     func getString () -> String {
         switch self {

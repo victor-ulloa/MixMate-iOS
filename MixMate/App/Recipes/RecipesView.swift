@@ -41,6 +41,7 @@ struct RecipesView: View {
                                 }
                             } label: {
                                 RecipeListItem(cocktail: cocktail)
+                                    .foregroundStyle(.black)
                                     .padding(.horizontal, 20)
                             }
                         }

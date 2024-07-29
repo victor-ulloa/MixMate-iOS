@@ -41,7 +41,8 @@ struct RecipeListItem: View {
                 }
                 
                 Text(cocktail.name ?? "")
-                    .font(.title)
+                    .multilineTextAlignment(.leading)
+                    .font(.title2)
                 
                 Spacer()
                 
