@@ -30,6 +30,10 @@
 		57AB45402C3B21E800432A36 /* LocalizedAlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB453F2C3B21E800432A36 /* LocalizedAlertError.swift */; };
 		57AB45432C3B223700432A36 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45422C3B223700432A36 /* View+Extension.swift */; };
 		57AB45452C3C5A5C00432A36 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB45442C3C5A5C00432A36 /* NavigationManager.swift */; };
+		57B238062C56E66000162925 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B238052C56E66000162925 /* Ingredient.swift */; };
+		57B238082C5709AB00162925 /* RecipeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B238072C5709AB00162925 /* RecipeListItem.swift */; };
+		57B2380A2C570FA200162925 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B238092C570FA200162925 /* RecipeDetailView.swift */; };
+		57B2380C2C570FB200162925 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B2380B2C570FB200162925 /* RecipeDetailViewModel.swift */; };
 		57B5A4932C1FA8C600C5917C /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4922C1FA8C600C5917C /* InventoryView.swift */; };
 		57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */; };
 		57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */; };
@@ -41,9 +45,9 @@
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
-		57F1A99D2C20E5100023B8DB /* InventoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A99C2C20E5100023B8DB /* InventoryListItem.swift */; };
 		57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */; };
 		57F1A9A82C2103510023B8DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A9A72C2103510023B8DB /* AccountView.swift */; };
+		57F8801B2C4DAB17002F599C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8801A2C4DAB17002F599C /* Recipe.swift */; };
 		D7FAA91A2C3C4B6D0011EFEC /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */; };
 		D7FAA91C2C3C50570011EFEC /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */; };
 		D7FAA9202C3C7AE80011EFEC /* TagToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */; };
@@ -68,6 +72,10 @@
 		57AB453F2C3B21E800432A36 /* LocalizedAlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlertError.swift; sourceTree = "<group>"; };
 		57AB45422C3B223700432A36 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		57AB45442C3C5A5C00432A36 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		57B238052C56E66000162925 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		57B238072C5709AB00162925 /* RecipeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListItem.swift; sourceTree = "<group>"; };
+		57B238092C570FA200162925 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		57B2380B2C570FB200162925 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
 		57B5A4922C1FA8C600C5917C /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		57B5A4952C1FAAB400C5917C /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
 		57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
@@ -80,9 +88,9 @@
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		57EA6D522C1414A300AE66DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		57F1A99C2C20E5100023B8DB /* InventoryListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryListItem.swift; sourceTree = "<group>"; };
 		57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
 		57F1A9A72C2103510023B8DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		57F8801A2C4DAB17002F599C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagToggle.swift; sourceTree = "<group>"; };
@@ -146,7 +154,8 @@
 				575823642C17BC8D000EEC7A /* Cocktail.swift */,
 				57B5A4972C1FAFFD00C5917C /* InventoryItem.swift */,
 				57B5A4992C1FB23700C5917C /* Inventory.swift */,
-				57F1A99C2C20E5100023B8DB /* InventoryListItem.swift */,
+				57F8801A2C4DAB17002F599C /* Recipe.swift */,
+				57B238052C56E66000162925 /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,11 +171,12 @@
 		5782A6632C16960F000015CB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				57AB452F2C3722D200432A36 /* PasswordField.swift */,
 				5782A6642C16962A000015CB /* ImageCard.swift */,
+				57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */,
+				57AB452F2C3722D200432A36 /* PasswordField.swift */,
+				57B238072C5709AB00162925 /* RecipeListItem.swift */,
 				5782A6662C16987E000015CB /* RecipesCarousel.swift */,
 				5782A6682C1698CF000015CB /* RecipesCarouselItem.swift */,
-				57B5A49B2C1FBF3A00C5917C /* InventoryCategoryCard.swift */,
 				57B5A4A32C1FD72700C5917C /* SearchBar.swift */,
 				D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */,
 			);
@@ -198,7 +208,6 @@
 			children = (
 				57EA6D4D2C1414A200AE66DD /* MixMate */,
 				57EA6D4C2C1414A200AE66DD /* Products */,
-				57F880192C4C4DD3002F599C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +256,8 @@
 		D7FAA9182C3C4B5C0011EFEC /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				57B238092C570FA200162925 /* RecipeDetailView.swift */,
+				57B2380B2C570FB200162925 /* RecipeDetailViewModel.swift */,
 				D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */,
 				D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */,
 			);
@@ -336,9 +347,12 @@
 			files = (
 				57AB45402C3B21E800432A36 /* LocalizedAlertError.swift in Sources */,
 				57B5A4A02C1FD68000C5917C /* AddItemView.swift in Sources */,
+				57B238062C56E66000162925 /* Ingredient.swift in Sources */,
+				57B2380C2C570FB200162925 /* RecipeDetailViewModel.swift in Sources */,
 				5782A6622C168F15000015CB /* HomepageView.swift in Sources */,
 				57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */,
-				57F1A99D2C20E5100023B8DB /* InventoryListItem.swift in Sources */,
+				57F8801B2C4DAB17002F599C /* Recipe.swift in Sources */,
+				57B238082C5709AB00162925 /* RecipeListItem.swift in Sources */,
 				57AB453C2C3B029C00432A36 /* AccountViewModel.swift in Sources */,
 				57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */,
 				D7FAA9202C3C7AE80011EFEC /* TagToggle.swift in Sources */,
@@ -351,6 +365,7 @@
 				57EA6D512C1414A200AE66DD /* MainView.swift in Sources */,
 				575823652C17BC8D000EEC7A /* Cocktail.swift in Sources */,
 				57B5A49E2C1FC68E00C5917C /* CategoryView.swift in Sources */,
+				57B2380A2C570FA200162925 /* RecipeDetailView.swift in Sources */,
 				5782A6692C1698CF000015CB /* RecipesCarouselItem.swift in Sources */,
 				575823762C17D74C000EEC7A /* HomepageViewModel.swift in Sources */,
 				575823792C181DE0000EEC7A /* Constants.swift in Sources */,

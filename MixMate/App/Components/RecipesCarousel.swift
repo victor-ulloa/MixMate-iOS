@@ -11,8 +11,8 @@ struct RecipesCarousel: View {
     
     let title: String
     let cocktails: [Cocktail] = [
-        Cocktail(id: 1, name: "Espresso Marini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageName: "", imageURL: "", tags: []),
-        Cocktail(id: 2, name: "Whiskey Sour", shortDescription: "Unlock the perfect balance of whiskey, fresh citrus, and a touch of sweetness", imageName: "", imageURL: "", tags: [])
+        Cocktail(id: 1, name: "Espresso Marini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageURL: "", recipe: UUID(), tags: []),
+        Cocktail(id: 2, name: "Whiskey Sour", shortDescription: "Unlock the perfect balance of whiskey, fresh citrus, and a touch of sweetness", imageURL: "", recipe: UUID(), tags: [])
     ]
     
     var body: some View {

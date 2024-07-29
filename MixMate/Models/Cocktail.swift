@@ -12,8 +12,8 @@ struct Cocktail: Codable, Hashable {
     let id: Int
     let name: String?
     let shortDescription: String?
-    let imageName: String?
     let imageURL: String?
-    var tags: [Tags]
+    let recipe: UUID?
+    let tags: [Tags]
     
 }

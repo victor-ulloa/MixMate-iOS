@@ -29,7 +29,8 @@ struct ImageCard: View {
                         .shadow(radius: 5)
                 }
             } else {
-                Image(cocktail.imageName ?? "")
+                // TODO: Set placeholder if there's no image url
+                Image("")
                     .centreCropped()
                     .frame(height: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -50,10 +51,9 @@ struct ImageCard: View {
         }
         .frame(maxWidth: .infinity)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-
     }
 }
 
 #Preview {
-    ImageCard(cocktail: Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageName: "frozenMargarita", imageURL: "", tags: []))
+    ImageCard(cocktail: Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageURL: "", recipe: UUID(), tags: []))
 }
