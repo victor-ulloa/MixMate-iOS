@@ -35,7 +35,39 @@ struct RecipeDetailView: View {
                     if let recipe = viewModel.recipe {
                         Text(recipe.description ?? "")
                         
+                        // MARK: Ingredients
+                        // TODO: Match check or X if the user has the ingredient
+                        Divider()
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Ingredients")
+                                .font(.title3)
+                            VStack(alignment: .leading, spacing: 10) {
+                                if let ingredients = recipe.ingredients {
+                                    ForEach(ingredients, id: \.inventoryItem.id) { ingredient in
+                                        HStack {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .foregroundColor(.green)
+                                                .frame(width: 24, height: 24)
+                                            
+                                            Text(ingredient.inventoryItem.name)
+                                                .font(.body)
+                                                .foregroundColor(.primary)
+                                                .padding(.leading, 8)
+                                            
+                                            Spacer()
+                                        }
+                                        .padding(.horizontal)
+                                    }
+                                }
+                            }
+                            .padding(.vertical)
+                            .background(Color(UIColor.systemGray6))
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+                        }
+                        
                         // MARK: Steps
+                        Divider()
                         VStack(alignment: .leading) {
                             Text("Steps")
                                 .font(.title3)
@@ -60,8 +92,7 @@ struct RecipeDetailView: View {
                         }
                         
                         // MARK: Information
-                        
-                        
+                        Divider()
                         VStack(alignment: .leading) {
                             
                             Text("Information per serving")
