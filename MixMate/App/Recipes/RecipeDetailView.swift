@@ -33,10 +33,26 @@ struct RecipeDetailView: View {
                 
                 VStack(alignment: .center, spacing: 20) {
                     if let recipe = viewModel.recipe {
+                        // MARK: Tags
+                        Divider()
+                        ScrollView(.horizontal) {
+                            HStack {
+                                ForEach(recipe.tags, id: \.rawValue) { tag in
+                                    Text(tag.getString().capitalized)
+                                        .font(.callout)
+                                        .foregroundStyle(.white)
+                                        .padding(8)
+                                        .background(Color.accentColor.opacity(0.8))
+                                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                                    
+                                }
+                            }
+                        }
+                        
+                        // MARK: Description
                         Text(recipe.description ?? "")
                         
                         // MARK: Complexity
-                        
                         HStack {
                             Text("Complexity")
                             switch recipe.complexity {
