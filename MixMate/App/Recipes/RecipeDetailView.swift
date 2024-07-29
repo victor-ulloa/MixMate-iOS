@@ -35,9 +35,10 @@ struct RecipeDetailView: View {
                     if let recipe = viewModel.recipe {
                         Text(recipe.description ?? "")
                         
+                        // MARK: Steps
                         VStack(alignment: .leading) {
                             Text("Steps")
-                                .font(.title2)
+                                .font(.title3)
                             ForEach(recipe.steps.indices, id: \.self) { index in
                                 HStack(alignment: .top) {
                                     Text("\(index + 1).")
@@ -55,6 +56,31 @@ struct RecipeDetailView: View {
                                 .background(Color(UIColor.systemGray6)) // Light gray background for each step
                                 .clipShape(RoundedRectangle(cornerRadius: 8)) // Rounded corners
                                 .shadow(color: .gray.opacity(0.3), radius: 4, x: 0, y: 2) // Bottom shadow
+                            }
+                        }
+                        
+                        // MARK: Information
+                        
+                        
+                        VStack(alignment: .leading) {
+                            
+                            Text("Information per serving")
+                                .font(.title3)
+                            
+                            GroupBox() {
+                                HStack {
+                                    Text("Alcohol content")
+                                    Spacer()
+                                    Text("\(recipe.alcoholContent, specifier: "%.1f") ABV")
+                                }
+                                .font(.footnote)
+                                
+                                HStack {
+                                    Text("Calories")
+                                    Spacer()
+                                    Text("\(recipe.calories ?? 0, specifier: "%.1f")")
+                                }
+                                .font(.footnote)
                             }
                         }
                     }
