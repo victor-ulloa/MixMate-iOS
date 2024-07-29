@@ -23,7 +23,7 @@ struct RecipesView: View {
         NavigationStack {
             VStack {
                 // MARK: - tags
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12){
                         ForEach(Tags.allCases, id: \.rawValue) { item in
                             TagToggle(type: item, selectedTags: $viewModel.selectedTags)

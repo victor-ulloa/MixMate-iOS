@@ -21,10 +21,23 @@ struct TagToggle: View {
                 selectedTags.append(type)
             }
         } label: {
-            Text(type.getString())
-                .padding(5)
-                .foregroundStyle(selectedTags.contains(where: { $0 == type }) ? Color.orange : Color.gray )
-                .overlay(RoundedRectangle(cornerRadius: 5).stroke(selectedTags.contains(where: { $0 == type }) ? Color.orange : Color.gray, lineWidth: 2))
+            
+            if selectedTags.contains(where: { $0 == type })  {
+                Text(type.getString())
+                    .font(.callout)
+                    .foregroundStyle(.white)
+                    .padding(8)
+                    .background(Color.accentColor.opacity(0.8))
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+            } else {
+                Text(type.getString())
+                    .font(.callout)
+                    .foregroundStyle(.black.opacity(0.6))
+                    .padding(8)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                
+            }
         }
         
     }
