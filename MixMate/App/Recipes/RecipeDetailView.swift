@@ -173,6 +173,6 @@ struct RecipeDetailView: View {
 
 #Preview {
     NavigationStack {
-        RecipeDetailView(cocktail: Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageURL: "", recipe: UUID(uuidString: "a7716831-b07c-4117-bd3e-27548ba1e8eb"), tags: []))
+        RecipeDetailView(cocktail: Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageURL: "", recipe: UUID(uuidString: "a7716831-b07c-4117-bd3e-27548ba1e8eb")))
     }
 }

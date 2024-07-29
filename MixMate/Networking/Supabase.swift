@@ -93,4 +93,13 @@ final class Supabase {
         }
     }
     
+    func fetchRecipes() async -> [Recipe]? {
+        do {
+            let recipes: [Recipe] = try await instance.from(Constants.kRecipesTable).select().execute().value
+            return recipes
+        } catch {
+            print("Error: \(error)")
+            return nil
+        }
+    }
 }
