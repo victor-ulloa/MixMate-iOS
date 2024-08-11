@@ -19,8 +19,8 @@ struct HomepageView: View {
                         ImageCard(cocktail: cocktail)
                             .padding(.horizontal, 20)
                     }
-                    RecipesCarousel(title: "Recomendations")
-                    RecipesCarousel(title: "Recomendations")
+                    RecipesCarousel(title: "Summer time!", cocktails: viewModel.summerCarousel)
+                    RecipesCarousel(title: "But first coffee", cocktails: viewModel.coffeeCarousel)
                 }
                 .padding(.top)
             }
