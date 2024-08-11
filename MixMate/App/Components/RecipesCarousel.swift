@@ -21,7 +21,11 @@ struct RecipesCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
                     ForEach(cocktails, id: \.self) { cocktail in
-                        RecipesCarouselItem(cocktail: cocktail)
+                        NavigationLink {
+                            RecipeDetailView(cocktail: cocktail)
+                        } label: {
+                            RecipesCarouselItem(cocktail: cocktail)
+                        }
                     }
                 }
             }
