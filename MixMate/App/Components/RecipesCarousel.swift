@@ -10,10 +10,7 @@ import SwiftUI
 struct RecipesCarousel: View {
     
     let title: String
-    let cocktails: [Cocktail] = [
-        Cocktail(id: 1, name: "Espresso Marini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageURL: "", recipe: UUID()),
-        Cocktail(id: 2, name: "Whiskey Sour", shortDescription: "Unlock the perfect balance of whiskey, fresh citrus, and a touch of sweetness", imageURL: "", recipe: UUID())
-    ]
+    let cocktails: [Cocktail]
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -24,7 +21,11 @@ struct RecipesCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
                     ForEach(cocktails, id: \.self) { cocktail in
-                        RecipesCarouselItem(cocktail: cocktail)
+                        NavigationLink {
+                            RecipeDetailView(cocktail: cocktail)
+                        } label: {
+                            RecipesCarouselItem(cocktail: cocktail)
+                        }
                     }
                 }
             }
@@ -33,5 +34,8 @@ struct RecipesCarousel: View {
 }
 
 #Preview {
-    RecipesCarousel(title: "Recomendations")
+    RecipesCarousel(title: "Recomendations", cocktails: [
+        Cocktail(id: 1, name: "Espresso Marini", shortDescription: "Discover the ultimate blend of rich espresso and smooth vodka!", imageURL: "", recipe: UUID()),
+        Cocktail(id: 2, name: "Whiskey Sour", shortDescription: "Unlock the perfect balance of whiskey, fresh citrus, and a touch of sweetness", imageURL: "", recipe: UUID())
+    ])
 }

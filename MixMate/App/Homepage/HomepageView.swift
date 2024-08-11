@@ -16,11 +16,15 @@ struct HomepageView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 25){
                     if let cocktail = viewModel.cocktails.first {
-                        ImageCard(cocktail: cocktail)
-                            .padding(.horizontal, 20)
+                        NavigationLink {
+                            RecipeDetailView(cocktail: cocktail)
+                        } label: {
+                            ImageCard(cocktail: cocktail)
+                                .padding(.horizontal, 20)
+                        }
                     }
-                    RecipesCarousel(title: "Recomendations")
-                    RecipesCarousel(title: "Recomendations")
+                    RecipesCarousel(title: "Summer time!", cocktails: viewModel.summerCarousel)
+                    RecipesCarousel(title: "But first coffee", cocktails: viewModel.coffeeCarousel)
                 }
                 .padding(.top)
             }
