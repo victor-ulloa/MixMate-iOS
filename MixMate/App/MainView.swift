@@ -11,6 +11,7 @@ struct MainView: View {
     
     @EnvironmentObject private var authManager: AuthenticationManager
     @EnvironmentObject private var navigationManager: NavigationManager
+    @State private var isLoggedOut = false
     
     var body: some View {
         TabView(selection: $navigationManager.selectedTab) {
@@ -43,10 +44,15 @@ struct MainView: View {
                 .tag(Tabs.account.rawValue)
         }
     }
+    
+    
 }
+
 
 #Preview {
     MainView()
-        .environmentObject(AuthenticationManager())
-        .environmentObject(NavigationManager())
+            .environmentObject(AuthenticationManager())
+            .environmentObject(NavigationManager())
+    
+    
 }

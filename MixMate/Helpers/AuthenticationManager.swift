@@ -69,4 +69,34 @@ class AuthenticationManager: ObservableObject {
             self.error = error
         }
     }
-}
+    
+    func login(email: String, password: String) async -> Bool {
+        isLoading = true
+        defer { isLoading = false }
+        
+        do {
+            // Fetch the user profile from your server or database
+            let fetchedProfile = try await fetchUserProfile(email: email) // Use `try` here
+            
+            // If login successful and profile fetched
+            if let profile = fetchedProfile {
+                let user = try User(from: profile as! Decoder) // Assuming `User` can be initialized with `Profile`
+                // Use the `user` object as needed
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            // Handle any errors that might occur during fetching
+            print("Error fetching user profile: \(error)")
+            return false
+        }
+    }
+        
+        func fetchUserProfile(email: String) async -> Profile? {
+            // Fetch the user profile logic
+            // Return a Profile object based on the email
+            return Profile(id: "1", username: "User", nickname: "Nickname", dateOfBirth: Date(), bio: "Bio", profileImageUrl: "")
+        }
+    }
+

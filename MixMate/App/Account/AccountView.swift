@@ -21,20 +21,16 @@ struct AccountView: View {
                 case .Initial:
                     Text("Loading")
                 case .Signin:
-                    Button {
-                        Task {
-                            await authManager.signOutUser()
-                        }
-                    } label: {
-                        Text("Sign out")
-                    }
+                    ProfilePageView()
+                                .environmentObject(authManager)
                 case .Signout:
                     SignUpView()
                         .environmentObject(authManager)
                 }
             }
             .task {
-                let _ = await authManager.isUserSignIn()
+                await authManager.isUserSignIn()
+                
             }
         }
     }

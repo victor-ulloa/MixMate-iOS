@@ -45,9 +45,14 @@
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
-		57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */; };
 		57F1A9A82C2103510023B8DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A9A72C2103510023B8DB /* AccountView.swift */; };
 		57F8801B2C4DAB17002F599C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8801A2C4DAB17002F599C /* Recipe.swift */; };
+		9A5B724B2C6A9C8A007F5FA5 /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5B724A2C6A9C8A007F5FA5 /* Preview Content.xcassets */; };
+		9A5B724D2C6A9FDE007F5FA5 /* ForgetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B724C2C6A9FDE007F5FA5 /* ForgetPassword.swift */; };
+		9A5B724F2C6AA011007F5FA5 /* ProfilePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B724E2C6AA011007F5FA5 /* ProfilePageView.swift */; };
+		9A5B72512C6AA055007F5FA5 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B72502C6AA055007F5FA5 /* UserProfileView.swift */; };
+		9A5B72532C6AA0CB007F5FA5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B72522C6AA0CB007F5FA5 /* LoginViewModel.swift */; };
+		9A5B72552C6AA15C007F5FA5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B72542C6AA15B007F5FA5 /* UserModel.swift */; };
 		D7FAA91A2C3C4B6D0011EFEC /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */; };
 		D7FAA91C2C3C50570011EFEC /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */; };
 		D7FAA9202C3C7AE80011EFEC /* TagToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */; };
@@ -88,9 +93,14 @@
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		57EA6D522C1414A300AE66DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
 		57F1A9A72C2103510023B8DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		57F8801A2C4DAB17002F599C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		9A5B724A2C6A9C8A007F5FA5 /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
+		9A5B724C2C6A9FDE007F5FA5 /* ForgetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassword.swift; sourceTree = "<group>"; };
+		9A5B724E2C6AA011007F5FA5 /* ProfilePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageView.swift; sourceTree = "<group>"; };
+		9A5B72502C6AA055007F5FA5 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		9A5B72522C6AA0CB007F5FA5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9A5B72542C6AA15B007F5FA5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		D7FAA9192C3C4B6D0011EFEC /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		D7FAA91B2C3C50570011EFEC /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagToggle.swift; sourceTree = "<group>"; };
@@ -156,6 +166,7 @@
 				57B5A4992C1FB23700C5917C /* Inventory.swift */,
 				57F8801A2C4DAB17002F599C /* Recipe.swift */,
 				57B238052C56E66000162925 /* Ingredient.swift */,
+				9A5B72542C6AA15B007F5FA5 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,23 +233,15 @@
 		57EA6D4D2C1414A200AE66DD /* MixMate */ = {
 			isa = PBXGroup;
 			children = (
+				9A5B72492C6A9C6A007F5FA5 /* Preview Content */,
 				57EA6D522C1414A300AE66DD /* Assets.xcassets */,
 				5782A65B2C168E40000015CB /* App */,
 				57AB45412C3B220300432A36 /* Extensions */,
 				575823772C181DCB000EEC7A /* Helpers */,
 				5782A65C2C168E48000015CB /* Models */,
 				5782A65D2C168E4E000015CB /* Networking */,
-				57F1A9A22C20F8030023B8DB /* Preview Content */,
 			);
 			path = MixMate;
-			sourceTree = "<group>";
-		};
-		57F1A9A22C20F8030023B8DB /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		57F1A9A62C2103150023B8DB /* Account */ = {
@@ -249,8 +252,20 @@
 				57AB45332C374B1D00432A36 /* LoginView.swift */,
 				57AB45312C3748F400432A36 /* SignUpView.swift */,
 				57AB452D2C371A9700432A36 /* SignUpViewModel.swift */,
+				9A5B724C2C6A9FDE007F5FA5 /* ForgetPassword.swift */,
+				9A5B724E2C6AA011007F5FA5 /* ProfilePageView.swift */,
+				9A5B72502C6AA055007F5FA5 /* UserProfileView.swift */,
+				9A5B72522C6AA0CB007F5FA5 /* LoginViewModel.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		9A5B72492C6A9C6A007F5FA5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9A5B724A2C6A9C8A007F5FA5 /* Preview Content.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		D7FAA9182C3C4B5C0011EFEC /* Recipes */ = {
@@ -334,7 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */,
-				57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */,
+				9A5B724B2C6A9C8A007F5FA5 /* Preview Content.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,10 +365,13 @@
 				57B238062C56E66000162925 /* Ingredient.swift in Sources */,
 				57B2380C2C570FB200162925 /* RecipeDetailViewModel.swift in Sources */,
 				5782A6622C168F15000015CB /* HomepageView.swift in Sources */,
+				9A5B72532C6AA0CB007F5FA5 /* LoginViewModel.swift in Sources */,
+				9A5B724D2C6A9FDE007F5FA5 /* ForgetPassword.swift in Sources */,
 				57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */,
 				57F8801B2C4DAB17002F599C /* Recipe.swift in Sources */,
 				57B238082C5709AB00162925 /* RecipeListItem.swift in Sources */,
 				57AB453C2C3B029C00432A36 /* AccountViewModel.swift in Sources */,
+				9A5B724F2C6AA011007F5FA5 /* ProfilePageView.swift in Sources */,
 				57B5A49A2C1FB23700C5917C /* Inventory.swift in Sources */,
 				D7FAA9202C3C7AE80011EFEC /* TagToggle.swift in Sources */,
 				57AB45342C374B1D00432A36 /* LoginView.swift in Sources */,
@@ -364,6 +382,7 @@
 				D7FAA9222C434E420011EFEC /* Image-CentreCrop.swift in Sources */,
 				57EA6D512C1414A200AE66DD /* MainView.swift in Sources */,
 				575823652C17BC8D000EEC7A /* Cocktail.swift in Sources */,
+				9A5B72552C6AA15C007F5FA5 /* UserModel.swift in Sources */,
 				57B5A49E2C1FC68E00C5917C /* CategoryView.swift in Sources */,
 				57B2380A2C570FA200162925 /* RecipeDetailView.swift in Sources */,
 				5782A6692C1698CF000015CB /* RecipesCarouselItem.swift in Sources */,
@@ -378,6 +397,7 @@
 				575823742C17D516000EEC7A /* Supabase.swift in Sources */,
 				57F1A9A82C2103510023B8DB /* AccountView.swift in Sources */,
 				57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */,
+				9A5B72512C6AA055007F5FA5 /* UserProfileView.swift in Sources */,
 				57AB45432C3B223700432A36 /* View+Extension.swift in Sources */,
 				5782A6652C16962A000015CB /* ImageCard.swift in Sources */,
 				57AB45452C3C5A5C00432A36 /* NavigationManager.swift in Sources */,

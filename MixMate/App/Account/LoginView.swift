@@ -8,62 +8,76 @@
 import SwiftUI
 
 struct LoginView: View {
-    
     @EnvironmentObject private var authManager: AuthenticationManager
-    @Environment(\.dismiss) private var dismiss
+    @State private var navigateToUserProfile = false
+    @State private var profile: Profile? = nil
     
     @State var email: String = ""
     @State var password: String = ""
-    @State private var isValidEmail: Bool = false
-    
+
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(spacing: 40) {
-                Text("MixMate")
-                    .font(.system(size: 60, weight: .bold))
-                
-                VStack(spacing: 15) {
-                    Text("Welcome back!")
-                        .font(.title2)
-                }
-                
-                VStack(spacing: 20) {
+        NavigationView {
+            ScrollView(.vertical) {
+                VStack(spacing: 40) {
+                    Text("MixMate")
+                        .font(.system(size: 45, weight: .bold))
+                        .padding(.top, 25)
                     
-                    VStack(alignment: .leading) {
-                        Text("Email")
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
-                            .padding(.leading)
-                        TextField("email", text: $email)
-                            .keyboardType(.emailAddress)                            
-                            .textInputAutocapitalization(.never)
-                            .autocorrectionDisabled()
-                            .padding()
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.gray.opacity(0.5))
-                            }
+                    VStack(spacing: 15) {
+                        Text("Welcome back!")
+                            .font(.title2)
                     }
                     
-                    VStack(alignment: .leading) {
-                        Text("Password")
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
-                            .padding(.leading)
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading) {
+                            Text("Email")
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
+                                .padding(.leading)
+                            TextField("email", text: $email)
+                                .keyboardType(.emailAddress)
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
+                                .padding()
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5))
+                                }
+                        }
                         
-                        PasswordField(fieldLabel: "password", password: $password)
+                        VStack(alignment: .leading) {
+                            Text("Password")
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
+                                .padding(.leading)
+                            
+                            PasswordField(fieldLabel: "password", password: $password)
+                            
+                            NavigationLink(
+                                destination: ForgetPassword()
+                                    .environmentObject(authManager),
+                                label: {
+                                    Text("Forget Password?")
+                                        .font(.subheadline)
+                                        .foregroundColor(.blue)
+                                        .fontWeight(.bold)
+                                        .padding(.horizontal, 110)
+                                }
+                            )
+                            .padding(.top, 10)
+                        }
                     }
                     
                     Button {
                         Task {
                             if await authManager.logIn(email: email, password: password) {
                                 if !authManager.isLoading {
-                                    dismiss()
+                                    // Assuming a method to fetch profile after login
+                                    profile = await fetchProfile() // Fetch or create Profile
+                                    navigateToUserProfile = true
                                 }
-                                
                             }
                         }
-                        
                     } label: {
                         if authManager.isLoading {
                             ProgressView()
@@ -79,13 +93,25 @@ struct LoginView: View {
                     .background(Color.black)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     
+                    NavigationLink(
+                        destination: UserProfileView(profile: profile ?? Profile(id: "", username: "", nickname: nil, dateOfBirth: nil, bio: nil, profileImageUrl: nil)),
+                        isActive: $navigateToUserProfile,
+                        label: {
+                            EmptyView()
+                        }
+                    )
+                    .hidden()
                 }
-                
+                .padding(.top, 20)
+                .padding(.horizontal, 20)
             }
-            .padding(.top, 20)
-            .padding(.horizontal, 20)
+            
         }
-        .errorAlert(error: $authManager.error)
+    }
+    
+
+    func fetchProfile() async -> Profile? {
+        return Profile(id: "1", username: "User", nickname: "Nickname", dateOfBirth: Date(), bio: "Bio", profileImageUrl: "")
     }
 }
 

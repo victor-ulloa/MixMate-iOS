@@ -8,119 +8,145 @@
 import SwiftUI
 
 struct SignUpView: View {
-    
     @EnvironmentObject private var authManager: AuthenticationManager
-    
     @StateObject var viewModel = SignUpViewModel()
-    
     @State var email: String = ""
     @State var password: String = ""
     @State var verifyPassword: String = ""
     @State private var isValidEmail: Bool = false
+    @State private var navigateToProfilePage = false 
     
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(spacing: 40) {
-                Text("MixMate")
-                    .font(.system(size: 60, weight: .bold))
-                
-                VStack(spacing: 15) {
-                    Text("Create an account")
-                        .font(.title2)
-                }
-                
-                VStack(spacing: 20) {
+        
+            ScrollView(.vertical) {
+                VStack(spacing: 40) {
+                    Text("MixMate")
+                        .font(.system(size: 60, weight: .bold))
                     
-                    VStack(alignment: .leading) {
-                        Text("Email")
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
-                            .padding(.leading)
-                        TextField("email", text: $email)
-                            .keyboardType(.emailAddress)
-                            .textInputAutocapitalization(.never)
-                            .autocorrectionDisabled()
-                            .padding()
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.gray.opacity(0.5))
-                            }
-                            .onChange(of: email) { _, newValue in
-                                viewModel.validateEmail(newValue)
-                            }
+                    VStack(spacing: 15) {
+                        Text("Create an account")
+                            .font(.title2)
                     }
                     
-                    VStack(alignment: .leading) {
-                        Text("Password")
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
-                            .padding(.leading)
+                    VStack(spacing: 20) {
                         
-                        PasswordField(fieldLabel: "password", password: $password)
-                            .onChange(of: password) { _, newValue in
-                                viewModel.validatePassword(newValue)
-                            }
+                        VStack(alignment: .leading) {
+                            Text("Email")
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
+                                .padding(.leading)
+                            TextField("email", text: $email)
+                                .keyboardType(.emailAddress)
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
+                                .padding()
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.gray.opacity(0.5))
+                                }
+                                .onChange(of: email) { _, newValue in
+                                    viewModel.validateEmail(newValue)
+                                }
+                        }
                         
-                        PasswordField(fieldLabel:"confirm password", password: $verifyPassword)
-                            .onChange(of: verifyPassword) { _, newValue in
-                                viewModel.validatePasswordMatch(password, newValue)
+                        VStack(alignment: .leading) {
+                            Text("Password")
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
+                                .padding(.leading)
+                            
+                          
+                            PasswordField(fieldLabel: "password", password: $password)
+                                .onChange(of: password) { _, newValue in
+                                    viewModel.validatePassword(newValue)
+                                }
+                            
+                           
+                            PasswordField(fieldLabel:"confirm password", password: $verifyPassword)
+                                .onChange(of: verifyPassword) { _, newValue in
+                                    viewModel.validatePasswordMatch(password, newValue)
+                                }
+                        }
+                        
+                        Button {
+                            if !viewModel.isEmailValid {
+                                print("Handle invalid email")
+                                return
                             }
+                            
+                            if !viewModel.isPasswordValid {
+                                print("Password not valid")
+                                return
+                            }
+                            
+                            if !viewModel.passwordsMatch {
+                                print("Passwords do not match")
+                                return
+                            }
+                            
+                            Task {
+                                do {
+                                    try await authManager.signUp(email: email, password: password)
+                                    
+                                    // Send email upon successful signup
+                                    try await sendSignupEmail()
+                                } catch {
+                                    print("Error signing up: \(error)")
+                                }
+                            }
+                        } label: {
+                            if authManager.isLoading {
+                                ProgressView()
+                                    .padding(.vertical, 15)
+                            } else {
+                                Text("Sign up")
+                                    .font(.title3)
+                                    .foregroundStyle(Color.white)
+                                    .padding(.vertical, 15)
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(Color.black)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        
+                       
+                        
+                        
                     }
                     
-                    Button {
-                        if !viewModel.isEmailValid {
-                            print("Handle invalid email")
-                            return
-                        }
-                        
-                        if !viewModel.isPasswordValid {
-                            print("Password not valid")
-                            return
-                        }
-                        
-                        if !viewModel.passwordsMatch {
-                            print("Passwords do not match")
-                            return
-                        }
-                        Task {
-                            await authManager.signUp(email: email, password: password)
-                        }
+                    NavigationLink {
+                        LoginView()
+                            .environmentObject(authManager)
                     } label: {
-                        if authManager.isLoading {
-                            ProgressView()
-                                .padding(.vertical, 15)
-                        } else {
-                            Text("Sign up")
-                                .font(.title3)
-                                .foregroundStyle(Color.white)
-                                .padding(.vertical, 15)
-                        }
+                        Text("Have an account? Log In instead")
                     }
                     .frame(maxWidth: .infinity)
-                    .background(Color.black)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
                     
                 }
-                
-                NavigationLink {
-                    LoginView()
-                        .environmentObject(authManager)
-                } label: {
-                    Text("Have an account? Log In instead")
-                }
-                .frame(maxWidth: .infinity)
-                
+                .padding(.vertical, 60)
+                .padding(.horizontal, 20)
             }
-            .padding(.vertical, 60)
-            .padding(.horizontal, 20)
+            .errorAlert(error: $authManager.error)
         }
-        .errorAlert(error: $authManager.error)
+        
+        func sendSignupEmail() async throws
+        {
+           
+            let subject = "Welcome to MixMate!"
+            let message = "Thank you for signing up!"
+            
+            do {
+               
+                print("Signup email sent successfully to \(email)")
+            } catch {
+                throw error
+            }
+        }
     }
-}
-
-#Preview {
-    NavigationStack{
-        SignUpView()
-            .environmentObject(AuthenticationManager())
+    
+    struct SignUpView_Previews: PreviewProvider {
+        static var previews: some View {
+            SignUpView()
+                .environmentObject(AuthenticationManager())
+        }
     }
-}

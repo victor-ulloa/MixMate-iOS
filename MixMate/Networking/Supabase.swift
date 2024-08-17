@@ -102,4 +102,19 @@ final class Supabase {
             return nil
         }
     }
+    func saveProfile(profile: Profile) async -> Result<Void, Error> {
+            do {
+                _ = try await instance
+                    .from("profiles")
+                    .upsert(profile)
+                    .execute()
+                
+                return .success(())
+            } catch {
+                print("Error: \(error)")
+                return .failure(error)
+            }
+        }
+
+    
 }

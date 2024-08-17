@@ -20,7 +20,7 @@ final class SignUpViewModel: ObservableObject {
     }
     
     func validatePassword(_ password: String) {
-        // Check for at least one capital letter and one number
+        
         let capitalLetterRegex = ".*[A-Z]+.*"
         let numberRegex = ".*[0-9]+.*"
         
