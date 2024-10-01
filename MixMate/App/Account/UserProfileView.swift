@@ -19,19 +19,25 @@ struct UserProfileView: View {
     @State var didError: Bool = false
     
     var body: some View {
-        VStack {
-            Image(uiImage: UIImage())
-                .resizable()
-                .scaledToFill()
-                .frame(width: 150, height: 150)
-                .background(Color.gray.opacity(0.2))
-                .clipShape(Circle())
-            photoPickerButton
-            VStack(alignment: .leading){
-                HStack(spacing: 5){
-                    Text("Name: ").bold()
+        VStack(spacing: 30) {
+            // MARK: - Profile picture
+            VStack(spacing: 10) {
+                Image(uiImage: UIImage())
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 150, height: 150)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(Circle())
+                photoPickerButton
+            }
+            
+            VStack(alignment: .leading, spacing: 20) {
+                HStack(spacing: 5) {
+                    Text("Name: ")
+                        .bold()
+                    
                     if (nameEditMode) {
-                        TextField("name", text: $viewModel.name).underline()
+                        TextField("name", text: $viewModel.name)
                         Button {
                             nameEditMode = false
                         } label: {
@@ -53,6 +59,7 @@ struct UserProfileView: View {
                     }
                     else {
                         Text(viewModel.name)
+                        Spacer()
                         Button {
                             Task {
                                 nameEditMode = true
@@ -61,11 +68,15 @@ struct UserProfileView: View {
                             Label("Edit", systemImage: "pencil")
                         }
                     }
-                }.padding()
+                }
+                
                 HStack(spacing: 5) {
-                    Text("Email: ").bold()
-                    if (emailEditMode){
-                        TextField("new email", text: $viewModel.email).underline()
+                    Text("Email: ")
+                        .bold()
+                    
+                    if (emailEditMode) {
+                        TextField("new email", text: $viewModel.email)
+                        
                         Button {
                             emailEditMode = false
                         } label: {
@@ -87,6 +98,7 @@ struct UserProfileView: View {
                     }
                     else {
                         Text(viewModel.email)
+                        Spacer()
                         Button {
                             Task {
                                 emailEditMode = true
@@ -96,13 +108,16 @@ struct UserProfileView: View {
                         }
                     }
  
-                }.padding()
+                }
                 HStack(spacing: 5){
                     Text("Member since: ").bold()
                     Text(viewModel.sinceDate)
-                }.padding()
+                }
             }
+            
             Spacer()
+            
+            // MARK: - Sign Out button
             Button {
                 Task {
                     await authManager.signOutUser()
@@ -111,8 +126,9 @@ struct UserProfileView: View {
                 Text("Sign out")
             }
         }
+        .padding()
         .onChange(of: imageSelection) {
-            Task { @MainActor in
+            Task {
                 if let data = try? await imageSelection?.loadTransferable(type: Data.self) {
                     uiImage = UIImage(data:data)
                     return
