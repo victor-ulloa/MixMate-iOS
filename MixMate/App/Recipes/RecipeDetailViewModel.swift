@@ -11,6 +11,7 @@ final class RecipeDetailViewModel: ObservableObject {
     
     let cocktail: Cocktail
     @Published var recipe: Recipe?
+    @Published var isFavourite: Bool = false
     
     init(cocktail: Cocktail) {
         self.cocktail = cocktail

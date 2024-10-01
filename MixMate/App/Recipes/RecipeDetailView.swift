@@ -18,17 +18,30 @@ struct RecipeDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 30) {
-                if let imageURL = viewModel.cocktail.imageURL, !imageURL.isEmpty {
-                    AsyncImage(url: URL(string: imageURL)) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .shadow(color: .black, radius: 10, x: 0, y: 10)
-                    } placeholder: {
-                        Color.gray
-                            .frame(height: 300)
-                            .shadow(color: .gray, radius: 10, x: 0, y: 10)
+                ZStack {
+                    if let imageURL = viewModel.cocktail.imageURL, !imageURL.isEmpty {
+                        AsyncImage(url: URL(string: imageURL)) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .shadow(color: .black, radius: 10, x: 0, y: 10)
+                        } placeholder: {
+                            Color.gray
+                                .frame(height: 300)
+                                .shadow(color: .gray, radius: 10, x: 0, y: 10)
+                        }
                     }
+                    
+                    Button {
+                        viewModel.isFavourite.toggle()
+                    } label: {
+                        Image(systemName: viewModel.isFavourite ? "heart.fill" : "heart")
+                            .resizable()
+                            .frame(width: 28, height: 28)
+                            .foregroundStyle(.pink)
+                            .padding()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 }
                 
                 VStack(alignment: .center, spacing: 20) {
@@ -173,6 +186,6 @@ struct RecipeDetailView: View {
 
 #Preview {
     NavigationStack {
-        RecipeDetailView(cocktail: Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageURL: "", recipe: UUID(uuidString: "a7716831-b07c-4117-bd3e-27548ba1e8eb")))
+        RecipeDetailView(cocktail: Cocktail(id: 1, name: "Frozen Margarita", shortDescription: "Indulge in a refreshing blend of zesty lime and tequila for a taste that's pure summer vibes!", imageURL: "https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/pexels_kimvanvuuren_1590154.jpg", recipe: UUID(uuidString: "a7716831-b07c-4117-bd3e-27548ba1e8eb")))
     }
 }
