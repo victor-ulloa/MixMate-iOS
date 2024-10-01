@@ -18,15 +18,17 @@ final class AccountViewModel: ObservableObject {
         Task {
             do {
                 let user = try await Supabase.shared.instance.auth.user()
-                name = user.userMetadata[Constants.name]?.queryValue ?? ""
-                email = user.email ?? ""
-                sinceDate = user.createdAt.formatted()
-            }
-            catch {
-                name = ""
-                email = ""
-                sinceDate = ""
+                await updateData(name: user.userMetadata[Constants.name]?.queryValue ?? "", email: user.email ?? "", sinceDate: user.createdAt.formatted())
+            } catch {
+                await updateData(name: "", email: "", sinceDate: "")
             }
         }
+    }
+    
+    @MainActor
+    func updateData(name: String, email: String, sinceDate: String) {
+        self.name = name
+        self.email = email
+        self.sinceDate = sinceDate
     }
 }
