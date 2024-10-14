@@ -16,6 +16,8 @@ struct Constants {
     static let kInventoryTable = "inventoryList"
     static let kRecipesTable = "recipes"
     
+    // MARK: - user data keys
+    static let name = "name"
 }
 
 // MARK: - Enums

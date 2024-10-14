@@ -21,6 +21,33 @@ final class Supabase {
         instance = SupabaseClient(supabaseURL: url, supabaseKey: key)
     }
     
+    func updateUserName(newName: String) async -> Bool {
+        print("received name: " + newName)
+        do {
+            try await instance.auth.update(
+              user: UserAttributes(
+                data: [
+                    Constants.name: .string(newName)
+                ]
+              )
+            )
+            return true
+        } catch {
+            print("Error: \(error)")
+            return false
+        }
+    }
+    
+    func updateUserEmail(newEmail: String) async -> Bool {
+        do {
+            try await instance.auth.update(user: UserAttributes(email: newEmail))
+            return true
+        }catch {
+            print("Error: \(error)")
+            return false
+        }
+    }
+    
     func fetchCocktails() async -> [Cocktail]? {
         do {
             let fetchedCocktails: [Cocktail] = try await instance.from(Constants.kCocktailsTable).select().execute().value
