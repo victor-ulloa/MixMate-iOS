@@ -18,7 +18,6 @@ final class RecipeDetailViewModel: ObservableObject {
     
     init(cocktail: Cocktail) {
         self.cocktail = cocktail
-        
         Task {
             if let recipeId = cocktail.recipe, let recipe = await Supabase.shared.fetchRecipe(id: recipeId) {
                 DispatchQueue.main.async { [weak self] in
@@ -26,7 +25,6 @@ final class RecipeDetailViewModel: ObservableObject {
                 }
                 isFavourite = await Supabase.shared.getFavourites()?.contains(where: { $0 == recipeId }) ?? false
             }
-            
         }
     }
     
