@@ -17,6 +17,12 @@ struct Constants {
     static let kRecipesTable = "recipes"
     
     // MARK: - user data keys
+    
+    enum MetaDataKeys: String {
+        case name
+        case favourites
+    }
+    
     static let name = "name"
 }
 
