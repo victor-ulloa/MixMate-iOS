@@ -23,6 +23,7 @@ struct HomepageView: View {
                                 .padding(.horizontal, 20)
                         }
                     }
+                    RecipesCarousel(title: "Your Favourites!", cocktails: viewModel.favouritesCarousel)
                     RecipesCarousel(title: "Summer time!", cocktails: viewModel.summerCarousel)
                     RecipesCarousel(title: "But first coffee", cocktails: viewModel.coffeeCarousel)
                 }

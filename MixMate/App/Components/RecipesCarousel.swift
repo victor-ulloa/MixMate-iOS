@@ -13,18 +13,20 @@ struct RecipesCarousel: View {
     let cocktails: [Cocktail]
     
     var body: some View {
-        VStack (alignment: .leading) {
-            Text(title)
-                .font(.title2)
-                .padding(.leading, 25)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 0) {
-                    ForEach(cocktails, id: \.self) { cocktail in
-                        NavigationLink {
-                            RecipeDetailView(cocktail: cocktail)
-                        } label: {
-                            RecipesCarouselItem(cocktail: cocktail)
+        if !cocktails.isEmpty {
+            VStack (alignment: .leading) {
+                Text(title)
+                    .font(.title2)
+                    .padding(.leading, 25)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 0) {
+                        ForEach(cocktails, id: \.self) { cocktail in
+                            NavigationLink {
+                                RecipeDetailView(cocktail: cocktail)
+                            } label: {
+                                RecipesCarouselItem(cocktail: cocktail)
+                            }
                         }
                     }
                 }

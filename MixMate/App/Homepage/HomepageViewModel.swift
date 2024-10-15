@@ -14,6 +14,8 @@ final class HomepageViewModel: ObservableObject {
     @Published var recipes: [Recipe] = []
     @Published var summerCarousel: [Cocktail] = []
     @Published var coffeeCarousel: [Cocktail] = []
+    @Published var favouritesCarousel: [Cocktail] = []
+    @Published var favouriteCocktails: [Cocktail] = []
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -24,9 +26,7 @@ final class HomepageViewModel: ObservableObject {
                     self?.cocktails = cocktails
                 }
             }
-        }
-        
-        Task {
+            
             if let recipes = await Supabase.shared.fetchRecipes() {
                 DispatchQueue.main.async { [weak self] in
                     self?.recipes = recipes
@@ -50,6 +50,18 @@ final class HomepageViewModel: ObservableObject {
                         return summerIDs.contains(recipeID)
                     }
                     return false
+                }
+                Task {
+                    if let favourites = await Supabase.shared.getFavourites(), !favourites.isEmpty {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.favouritesCarousel.removeAll()
+                            favourites.forEach { id in
+                                if let cocktail = cocktails.first(where: { $0.recipe == id }) {
+                                    self?.favouritesCarousel.append(cocktail)
+                                }
+                            }
+                        }
+                    }
                 }
             }
             .store(in: &cancellables)
