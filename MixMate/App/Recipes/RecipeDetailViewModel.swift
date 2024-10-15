@@ -33,7 +33,6 @@ final class RecipeDetailViewModel: ObservableObject {
             .dropFirst()
             .sink { [weak self] isFavourite in
                 guard let self = self, let recipeID = self.recipe?.id else { return }
-                print(isFavourite)
                 Task {
                     await Supabase.shared.updateFavourites(recipeID: recipeID)
                 }
