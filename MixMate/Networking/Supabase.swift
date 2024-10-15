@@ -21,8 +21,46 @@ final class Supabase {
         instance = SupabaseClient(supabaseURL: url, supabaseKey: key)
     }
     
+    func getFavourites() async -> [UUID]? {
+        do {
+            if let metadata = instance.auth.currentUser?.userMetadata[Constants.MetaDataKeys.favourites.rawValue] {
+                // Decode the array of UUID strings and map them to UUID objects
+                let favouriteStrings = try metadata.decode(as: [String].self)
+                return favouriteStrings.compactMap { UUID(uuidString: $0) }
+            } else {
+                return []
+            }
+        } catch {
+            print("Error decoding favourites: \(error)")
+            return nil
+        }
+    }
+    
+    func updateFavourites(recipeID: UUID) async {
+        do {
+            if var favourites = await getFavourites() {
+                if favourites.contains(recipeID) {
+                    favourites.removeAll(where: { $0 == recipeID })
+                } else {
+                    favourites.append(recipeID)
+                }
+                
+                let jsonFavourites: [AnyJSON] = favourites.map { .string($0.uuidString) }
+                
+                try await instance.auth.update(
+                    user: UserAttributes(
+                        data: [
+                            Constants.MetaDataKeys.favourites.rawValue: .array(jsonFavourites)
+                        ]
+                    )
+                )
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+    
     func updateUserName(newName: String) async -> Bool {
-        print("received name: " + newName)
         do {
             try await instance.auth.update(
               user: UserAttributes(

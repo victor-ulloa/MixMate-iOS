@@ -181,6 +181,9 @@ struct RecipeDetailView: View {
         }
         .navigationTitle(viewModel.cocktail.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            viewModel.setUpObservers()
+        }
     }
 }
 
