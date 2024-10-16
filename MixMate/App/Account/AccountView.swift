@@ -21,7 +21,7 @@ struct AccountView: View {
                 case .Initial:
                     Text("Loading")
                 case .Signin:
-                    UserProfileView()
+                    AccountMenuView()
                         .environmentObject(authManager)
                 case .Signout:
                     SignUpView()
