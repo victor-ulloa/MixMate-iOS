@@ -18,7 +18,8 @@ struct AccountMenuView: View {
                 // Profile
                 Section {
                     NavigationLink {
-                        
+                        UserProfileView()
+                            .environmentObject(authManager)
                     } label: {
                         Text("Profile")
                     }
