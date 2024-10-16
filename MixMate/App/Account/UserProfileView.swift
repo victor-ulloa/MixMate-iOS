@@ -10,7 +10,7 @@ import PhotosUI
 
 struct UserProfileView: View {
     @EnvironmentObject var authManager: AuthenticationManager
-    @ObservedObject var viewModel = AccountViewModel()
+    @ObservedObject var viewModel = UserProfileViewModel()
     @State var imageSelection: PhotosPickerItem? = nil
     @State var uiImage: UIImage? = nil
     @State var nameEditMode: Bool = false
@@ -113,17 +113,6 @@ struct UserProfileView: View {
                     Text("Member since: ").bold()
                     Text(viewModel.sinceDate)
                 }
-            }
-            
-            Spacer()
-            
-            // MARK: - Sign Out button
-            Button {
-                Task {
-                    await authManager.signOutUser()
-                }
-            } label: {
-                Text("Sign out")
             }
         }
         .padding()

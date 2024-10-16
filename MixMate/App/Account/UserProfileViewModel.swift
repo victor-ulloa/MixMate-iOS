@@ -1,5 +1,5 @@
 //
-//  AccountViewModel.swift
+//  UserProfileViewModel.swift
 //  MixMate
 //
 //  Created by Victor Ulloa on 2024-07-07.
@@ -7,14 +7,13 @@
 
 import Foundation
 
-final class AccountViewModel: ObservableObject {
+final class UserProfileViewModel: ObservableObject {
     
     @Published var name: String = ""
     @Published var email: String = ""
     @Published var sinceDate: String = ""
     
     init() {
-        
         Task {
             do {
                 let user = try await Supabase.shared.instance.auth.user()
