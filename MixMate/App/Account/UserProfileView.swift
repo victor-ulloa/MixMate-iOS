@@ -114,17 +114,6 @@ struct UserProfileView: View {
                     Text(viewModel.sinceDate)
                 }
             }
-            
-            Spacer()
-            
-            // MARK: - Sign Out button
-            Button {
-                Task {
-                    await authManager.signOutUser()
-                }
-            } label: {
-                Text("Sign out")
-            }
         }
         .padding()
         .onChange(of: imageSelection) {
