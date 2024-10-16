@@ -11,8 +11,6 @@ struct AccountView: View {
     
     @EnvironmentObject var authManager: AuthenticationManager
     
-    @ObservedObject var viewModel = AccountViewModel()
-    
     var body: some View {
         NavigationStack {
             

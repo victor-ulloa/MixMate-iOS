@@ -10,9 +10,9 @@ import SwiftUI
 struct AccountMenuView: View {
     
     @EnvironmentObject private var authManager: AuthenticationManager
+    @ObservedObject var viewModel = AccountMenuViewModel()
     
     let profileImageUrl: String? = "https://example.com/profile-image.jpg"
-    let profileName = "Profile name"
     let email = "email@email.com"
     
     var body: some View {
@@ -42,9 +42,9 @@ struct AccountMenuView: View {
                             }
                             
                             VStack(alignment: .leading) {
-                                Text(profileName)
+                                Text(viewModel.name)
                                     .font(.headline)
-                                Text(email)
+                                Text(viewModel.email)
                                     .font(.subheadline)
                                     .foregroundStyle(.gray)
                             }
