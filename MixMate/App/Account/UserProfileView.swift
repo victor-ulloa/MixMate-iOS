@@ -11,10 +11,14 @@ import PhotosUI
 struct UserProfileView: View {
     @EnvironmentObject var authManager: AuthenticationManager
     @ObservedObject var viewModel = UserProfileViewModel()
-    @State var imageSelection: PhotosPickerItem? = nil
-    @State var uiImage: UIImage? = nil
+    
     @State var nameEditMode: Bool = false
     @State var emailEditMode: Bool = false
+    
+    @State var profileImage = Image(systemName:"person.circle")
+    @State var showPhotoActionSheet: Bool = false
+    @State var showPhotoLibrary: Bool = false
+    @State var selectedPhoto: PhotosPickerItem?
     
     @State var didError: Bool = false
     
@@ -22,13 +26,41 @@ struct UserProfileView: View {
         VStack(spacing: 30) {
             // MARK: - Profile picture
             VStack(spacing: 10) {
-                Image(uiImage: UIImage())
+                profileImage
                     .resizable()
-                    .scaledToFill()
                     .frame(width: 150, height: 150)
                     .background(Color.gray.opacity(0.2))
                     .clipShape(Circle())
-                photoPickerButton
+                    .scaledToFill()
+                    .onTapGesture {
+                        print("tapped")
+                        showPhotoActionSheet.toggle()
+                    }
+                    .confirmationDialog("Select A Profile Picture", isPresented: $showPhotoActionSheet) {
+                        Button {
+                            showPhotoLibrary.toggle()
+                        } label: {
+                            Text("Photo Library")
+                        }
+                    }
+                    .photosPicker(isPresented: $showPhotoLibrary, selection: $selectedPhoto, photoLibrary: .shared())
+                    .onChange(of: selectedPhoto, perform: { newValue in
+                        guard let photoItem = selectedPhoto else {
+                            return
+                        }
+                        Task {
+                            if let photoData = try await photoItem.loadTransferable(type: Data.self),
+                               let uiImage = UIImage(data: photoData){
+                                await MainActor.run {
+                                    profileImage = Image(uiImage: uiImage)
+                                }
+                            }
+                            
+                        }
+                    }
+                    )
+                
+                
             }
             
             VStack(alignment: .leading, spacing: 20) {
@@ -116,22 +148,8 @@ struct UserProfileView: View {
             }
         }
         .padding()
-        .onChange(of: imageSelection) {
-            Task {
-                if let data = try? await imageSelection?.loadTransferable(type: Data.self) {
-                    uiImage = UIImage(data:data)
-                    return
-                }
-            }
-        }
     }
     
-    
-    var photoPickerButton: some View {
-          PhotosPicker(selection: $imageSelection, matching: .images, photoLibrary: .shared()) {
-              Text("Select Profile Picture")
-          }
-    }
 }
 
 #Preview {
