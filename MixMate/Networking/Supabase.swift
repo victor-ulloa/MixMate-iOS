@@ -12,6 +12,10 @@ final class Supabase {
     
     static let shared = Supabase(urlString: "https://npcddrdidmrwljkyxolk.supabase.co", key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wY2RkcmRpZG1yd2xqa3l4b2xrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODA2NTk2NCwiZXhwIjoyMDMzNjQxOTY0fQ.iHielmKxMmxEojHD7DjdScOLfbUWtLO2mZlcFi-S66Q")
     
+    private let pfpBucketPath: String = "Images/userProfilePictures"
+    private let pfpFileName: String = "profile_picture.jpeg"
+    private let jpegContentType: String = "image/jpeg"
+    
     let instance: SupabaseClient
     
     init(urlString: String, key: String) {
@@ -162,6 +166,32 @@ final class Supabase {
         do {
             let recipes: [Recipe] = try await instance.from(Constants.kRecipesTable).select().execute().value
             return recipes
+        } catch {
+            print("Error: \(error)")
+            return nil
+        }
+    }
+    
+    func uploadProfilePicture(pictureData: Data) async {
+        do {
+            let user = try await Supabase.shared.instance.auth.user()
+            _ = try await instance.storage.from(pfpBucketPath).upload(
+                path: "\(user.id)_\(pfpFileName)",
+                file: pictureData,
+                options: FileOptions(
+                    contentType: jpegContentType,
+                    upsert: true))
+        } catch {
+            print ("Error: \(error)")
+        }
+    }
+    
+    func downloadProfilePicture() async -> Data?{
+        do {
+            let user = try await Supabase.shared.instance.auth.user()
+            let data = try await instance.storage.from(pfpBucketPath).download(path: "\(user.id)_\(pfpFileName)")
+            return data
+            
         } catch {
             print("Error: \(error)")
             return nil

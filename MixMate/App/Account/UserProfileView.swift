@@ -12,15 +12,15 @@ struct UserProfileView: View {
     @EnvironmentObject var authManager: AuthenticationManager
     @ObservedObject var viewModel = UserProfileViewModel()
     
-    @State var nameEditMode: Bool = false
-    @State var emailEditMode: Bool = false
+    @State var profileImage: Image = Image(systemName: "person.circle")
     
-    @State var profileImage = Image(systemName:"person.circle")
     @State var showPhotoActionSheet: Bool = false
     @State var showPhotoLibrary: Bool = false
+    
     @State var selectedPhoto: PhotosPickerItem?
     
-    @State var didError: Bool = false
+    @State var errorAlert: Bool = false
+    @State var successAlert: Bool = false
     
     var body: some View {
         VStack(spacing: 30) {
@@ -32,8 +32,14 @@ struct UserProfileView: View {
                     .background(Color.gray.opacity(0.2))
                     .clipShape(Circle())
                     .scaledToFill()
+                    .onChange(of: viewModel.pfpData) {
+                        Task {
+                            await MainActor.run {
+                                profileImage = Image(uiImage: UIImage(data: viewModel.pfpData!)!)
+                            }
+                        }
+                    }
                     .onTapGesture {
-                        print("tapped")
                         showPhotoActionSheet.toggle()
                     }
                     .confirmationDialog("Select A Profile Picture", isPresented: $showPhotoActionSheet) {
@@ -44,7 +50,7 @@ struct UserProfileView: View {
                         }
                     }
                     .photosPicker(isPresented: $showPhotoLibrary, selection: $selectedPhoto, photoLibrary: .shared())
-                    .onChange(of: selectedPhoto, perform: { newValue in
+                    .onChange(of: selectedPhoto) { newValue in
                         guard let photoItem = selectedPhoto else {
                             return
                         }
@@ -58,87 +64,23 @@ struct UserProfileView: View {
                             
                         }
                     }
-                    )
-                
-                
             }
             
+            // MARK:  profile detail
             VStack(alignment: .leading, spacing: 20) {
                 HStack(spacing: 5) {
                     Text("Name: ")
                         .bold()
-                    
-                    if (nameEditMode) {
                         TextField("name", text: $viewModel.name)
-                        Button {
-                            nameEditMode = false
-                        } label: {
-                            Text("Cancel")
-                        }
-                        Button{
-                            Task {
-                                let result = await Supabase.shared.updateUserName(newName: viewModel.name)
-                                didError = !result
-                                nameEditMode = didError
-                            }
-                        } label: {
-                            Text("Update")
-                        }
-                        .alert("update failed",
-                               isPresented: $didError) {
-                            Button("OK", role: .cancel) { }
-                        }
-                    }
-                    else {
-                        Text(viewModel.name)
-                        Spacer()
-                        Button {
-                            Task {
-                                nameEditMode = true
-                            }
-                        } label: {
-                            Label("Edit", systemImage: "pencil")
-                        }
-                    }
+                        .textContentType(.name)
                 }
                 
                 HStack(spacing: 5) {
                     Text("Email: ")
                         .bold()
-                    
-                    if (emailEditMode) {
-                        TextField("new email", text: $viewModel.email)
-                        
-                        Button {
-                            emailEditMode = false
-                        } label: {
-                            Text("Cancel")
-                        }
-                        Button {
-                            Task {
-                                let result = await Supabase.shared.updateUserEmail(newEmail: viewModel.email)
-                                didError = !result
-                                emailEditMode = didError
-                            }
-                        } label: {
-                            Text("Update")
-                        }
-                        .alert("update failed",
-                            isPresented: $didError) {
-                            Button("OK", role: .cancel) { }
-                        }
-                    }
-                    else {
-                        Text(viewModel.email)
-                        Spacer()
-                        Button {
-                            Task {
-                                emailEditMode = true
-                            }
-                        } label: {
-                            Label("Edit", systemImage: "pencil")
-                        }
-                    }
+                    TextField("new email", text: $viewModel.email)
+                        .textContentType(.emailAddress)
+
  
                 }
                 HStack(spacing: 5){
@@ -148,8 +90,37 @@ struct UserProfileView: View {
             }
         }
         .padding()
+        
+        Button("update") {
+            Task {
+                successAlert = await updateUserProfile()
+                errorAlert = !successAlert
+            }
+        }
+        .alert("update failed", isPresented: $errorAlert) {
+            Button("OK", role: .cancel) {}
+        }
+        .alert("update successful", isPresented: $successAlert) {
+            Button("OK", role: .cancel) {}
+                }
     }
     
+    func updateUserProfile() async -> Bool{
+        do {
+            var success = await Supabase.shared.updateUserEmail(newEmail: viewModel.email)
+            success = await Supabase.shared.updateUserName(newName: viewModel.name)
+            if let data = try await selectedPhoto?.loadTransferable(type: Data.self) {
+                await Supabase.shared.uploadProfilePicture(pictureData: data)
+            }
+            else {
+                success = false
+            }
+            return success
+        }catch {
+            print("Error: \(error)")
+            return false
+        }
+    }
 }
 
 #Preview {
