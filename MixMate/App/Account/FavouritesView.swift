@@ -12,9 +12,20 @@ struct FavouritesView: View {
     @ObservedObject var viewModel = FavouritesViewModel()
     
     var body: some View {
-        ForEach(viewModel.favourites, id: \.self) { favourite in
-            Text(favourite.name ?? "")
+        ScrollView {
+            ForEach(viewModel.favourites, id: \.self) { favourite in
+                NavigationLink {
+                    if let _ = favourite.recipe {
+                        RecipeDetailView(cocktail: favourite)
+                    }
+                } label: {
+                    RecipeListItem(cocktail: favourite)
+                        .foregroundStyle(.black)
+                        .padding(.horizontal, 20)
+                }
+            }
         }
+        .navigationTitle("Favourites")
     }
 }
 
