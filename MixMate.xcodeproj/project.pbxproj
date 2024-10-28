@@ -44,6 +44,8 @@
 		57B5A49E2C1FC68E00C5917C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A49D2C1FC68E00C5917C /* CategoryView.swift */; };
 		57B5A4A02C1FD68000C5917C /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A49F2C1FD68000C5917C /* AddItemView.swift */; };
 		57B5A4A42C1FD72700C5917C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5A4A32C1FD72700C5917C /* SearchBar.swift */; };
+		57D5FE872CCB15C40072A542 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5FE862CCB15C40072A542 /* FavouritesView.swift */; };
+		57D5FE892CCB160D0072A542 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5FE882CCB16050072A542 /* FavouritesViewModel.swift */; };
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
@@ -89,6 +91,8 @@
 		57B5A49D2C1FC68E00C5917C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		57B5A49F2C1FD68000C5917C /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		57B5A4A32C1FD72700C5917C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		57D5FE862CCB15C40072A542 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		57D5FE882CCB16050072A542 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		57EA6D4B2C1414A200AE66DD /* MixMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				576F2B502CBF2FEA008C08E4 /* AccountMenuView.swift */,
 				57AB453B2C3B029C00432A36 /* AccountMenuViewModel.swift */,
 				57F1A9A72C2103510023B8DB /* AccountView.swift */,
+				57D5FE862CCB15C40072A542 /* FavouritesView.swift */,
+				57D5FE882CCB16050072A542 /* FavouritesViewModel.swift */,
 				57AB45332C374B1D00432A36 /* LoginView.swift */,
 				57AB45312C3748F400432A36 /* SignUpView.swift */,
 				57AB452D2C371A9700432A36 /* SignUpViewModel.swift */,
@@ -359,6 +365,7 @@
 				57B238062C56E66000162925 /* Ingredient.swift in Sources */,
 				57B2380C2C570FB200162925 /* RecipeDetailViewModel.swift in Sources */,
 				5782A6622C168F15000015CB /* HomepageView.swift in Sources */,
+				57D5FE872CCB15C40072A542 /* FavouritesView.swift in Sources */,
 				D7CCB37B2CA709E900C295EF /* UserProfileView.swift in Sources */,
 				57B5A4962C1FAAB400C5917C /* InventoryViewModel.swift in Sources */,
 				576F2B512CBF2FEA008C08E4 /* AccountMenuView.swift in Sources */,
@@ -385,6 +392,7 @@
 				5782A6672C16987E000015CB /* RecipesCarousel.swift in Sources */,
 				57B5A49C2C1FBF3A00C5917C /* InventoryCategoryCard.swift in Sources */,
 				D7FAA91A2C3C4B6D0011EFEC /* RecipesView.swift in Sources */,
+				57D5FE892CCB160D0072A542 /* FavouritesViewModel.swift in Sources */,
 				57AB452E2C371A9700432A36 /* SignUpViewModel.swift in Sources */,
 				57B5A4982C1FAFFD00C5917C /* InventoryItem.swift in Sources */,
 				575823742C17D516000EEC7A /* Supabase.swift in Sources */,
