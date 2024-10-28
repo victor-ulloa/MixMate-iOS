@@ -14,7 +14,7 @@ final class FavouritesViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init() {
+    func loadData() {
         Task {
             if let cocktails = await Supabase.shared.fetchCocktails(),
                let favourites = await Supabase.shared.getFavourites(),

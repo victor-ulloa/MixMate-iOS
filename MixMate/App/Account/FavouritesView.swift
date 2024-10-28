@@ -26,6 +26,9 @@ struct FavouritesView: View {
             }
         }
         .navigationTitle("Favourites")
+        .onAppear {
+            viewModel.loadData()
+        }
     }
 }
 
