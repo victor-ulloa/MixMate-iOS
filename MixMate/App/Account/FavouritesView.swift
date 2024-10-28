@@ -12,7 +12,9 @@ struct FavouritesView: View {
     @ObservedObject var viewModel = FavouritesViewModel()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(viewModel.favourites, id: \.self) { favourite in
+            Text(favourite.name ?? "")
+        }
     }
 }
 

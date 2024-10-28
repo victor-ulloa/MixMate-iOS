@@ -56,7 +56,7 @@ struct AccountMenuView: View {
                 // Content
                 Section {
                     NavigationLink {
-                        
+                        FavouritesView()
                     } label: {
                         Text("Favourites")
                     }
