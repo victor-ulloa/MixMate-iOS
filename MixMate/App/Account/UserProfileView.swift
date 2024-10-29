@@ -22,6 +22,8 @@ struct UserProfileView: View {
     @State var errorAlert: Bool = false
     @State var successAlert: Bool = false
     
+    @State var disableUpdate: Bool = true
+    
     var body: some View {
         VStack(spacing: 30) {
             // MARK: - Profile picture
@@ -33,9 +35,11 @@ struct UserProfileView: View {
                     .clipShape(Circle())
                     .scaledToFill()
                     .onChange(of: viewModel.pfpData) {
-                        Task {
-                            await MainActor.run {
-                                profileImage = Image(uiImage: UIImage(data: viewModel.pfpData!)!)
+                        if (viewModel.pfpData != nil) {
+                            Task {
+                                await MainActor.run {
+                                    profileImage = Image(uiImage: UIImage(data: viewModel.pfpData!)!)
+                                }
                             }
                         }
                     }
@@ -59,6 +63,7 @@ struct UserProfileView: View {
                                let uiImage = UIImage(data: photoData){
                                 await MainActor.run {
                                     profileImage = Image(uiImage: uiImage)
+                                    disableUpdate = false
                                 }
                             }
                             
@@ -71,8 +76,13 @@ struct UserProfileView: View {
                 HStack(spacing: 5) {
                     Text("Name: ")
                         .bold()
-                        TextField("name", text: $viewModel.name)
+                    TextField("name", text: $viewModel.name)
                         .textContentType(.name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: viewModel.name) {
+                            disableUpdate = false
+                        }
+                        
                 }
                 
                 HStack(spacing: 5) {
@@ -80,6 +90,10 @@ struct UserProfileView: View {
                         .bold()
                     TextField("new email", text: $viewModel.email)
                         .textContentType(.emailAddress)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: viewModel.email) {
+                            disableUpdate = false
+                        }
 
  
                 }
@@ -91,18 +105,21 @@ struct UserProfileView: View {
         }
         .padding()
         
-        Button("update") {
+        Button("Update") {
             Task {
                 successAlert = await updateUserProfile()
                 errorAlert = !successAlert
             }
         }
+        .disabled(disableUpdate)
         .alert("update failed", isPresented: $errorAlert) {
             Button("OK", role: .cancel) {}
         }
         .alert("update successful", isPresented: $successAlert) {
-            Button("OK", role: .cancel) {}
-                }
+            Button("OK", role: .cancel) {
+                disableUpdate = true
+            }
+            }
     }
     
     func updateUserProfile() async -> Bool{
