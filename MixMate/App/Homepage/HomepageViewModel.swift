@@ -52,16 +52,16 @@ final class HomepageViewModel: ObservableObject {
                     return false
                 }
                 Task {
-//                    if let favourites = await Supabase.shared.getFavourites(), !favourites.isEmpty {
-//                        DispatchQueue.main.async { [weak self] in
-//                            self?.favouritesCarousel.removeAll()
-//                            favourites.forEach { id in
-//                                if let cocktail = cocktails.first(where: { $0.recipe == id }) {
-//                                    self?.favouritesCarousel.append(cocktail)
-//                                }
-//                            }
-//                        }
-//                    }
+                    if let favourites = await Supabase.shared.getFavourites(), !favourites.isEmpty {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.favouritesCarousel.removeAll()
+                            favourites.forEach { id in
+                                if let cocktail = cocktails.first(where: { $0.recipe == id }) {
+                                    self?.favouritesCarousel.append(cocktail)
+                                }
+                            }
+                        }
+                    }
                 }
             }
             .store(in: &cancellables)
