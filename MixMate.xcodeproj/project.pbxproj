@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,7 +49,6 @@
 		57EA6D4F2C1414A200AE66DD /* MixMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */; };
 		57EA6D512C1414A200AE66DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA6D502C1414A200AE66DD /* MainView.swift */; };
 		57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA6D522C1414A300AE66DD /* Assets.xcassets */; };
-		57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */; };
 		57F1A9A82C2103510023B8DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1A9A72C2103510023B8DB /* AccountView.swift */; };
 		57F8801B2C4DAB17002F599C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8801A2C4DAB17002F599C /* Recipe.swift */; };
 		D7CCB37B2CA709E900C295EF /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCB37A2CA709E900C295EF /* UserProfileView.swift */; };
@@ -97,7 +96,6 @@
 		57EA6D4E2C1414A200AE66DD /* MixMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixMateApp.swift; sourceTree = "<group>"; };
 		57EA6D502C1414A200AE66DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		57EA6D522C1414A300AE66DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content.xcassets"; sourceTree = "<group>"; };
 		57F1A9A72C2103510023B8DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		57F8801A2C4DAB17002F599C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		D7CCB37A2CA709E900C295EF /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
@@ -106,6 +104,10 @@
 		D7FAA91F2C3C7AE80011EFEC /* TagToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagToggle.swift; sourceTree = "<group>"; };
 		D7FAA9212C434E420011EFEC /* Image-CentreCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image-CentreCrop.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		57728EF92CD1C0DE0079837A /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		57EA6D482C1414A200AE66DD /* Frameworks */ = {
@@ -238,17 +240,9 @@
 				575823772C181DCB000EEC7A /* Helpers */,
 				5782A65C2C168E48000015CB /* Models */,
 				5782A65D2C168E4E000015CB /* Networking */,
-				57F1A9A22C20F8030023B8DB /* Preview Content */,
+				57728EF92CD1C0DE0079837A /* Preview Content */,
 			);
 			path = MixMate;
-			sourceTree = "<group>";
-		};
-		57F1A9A22C20F8030023B8DB /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				57F1A9A42C20FB150023B8DB /* Preview Content.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		57F1A9A62C2103150023B8DB /* Account */ = {
@@ -293,6 +287,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				57728EF92CD1C0DE0079837A /* Preview Content */,
 			);
 			name = MixMate;
 			packageProductDependencies = (
@@ -349,7 +346,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				57EA6D532C1414A300AE66DD /* Assets.xcassets in Resources */,
-				57F1A9A52C20FB150023B8DB /* Preview Content.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
