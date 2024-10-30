@@ -11,102 +11,90 @@ import PhotosUI
 struct UserProfileView: View {
     @EnvironmentObject var authManager: AuthenticationManager
     @ObservedObject var viewModel = UserProfileViewModel()
-    @State var imageSelection: PhotosPickerItem? = nil
-    @State var uiImage: UIImage? = nil
-    @State var nameEditMode: Bool = false
-    @State var emailEditMode: Bool = false
     
-    @State var didError: Bool = false
+    @State var profileImage: Image = Image(systemName: "person.circle")
+    
+    @State var showPhotoActionSheet: Bool = false
+    @State var showPhotoLibrary: Bool = false
+    
+    @State var selectedPhoto: PhotosPickerItem?
+    
+    @State var errorAlert: Bool = false
+    @State var successAlert: Bool = false
+    
+    @State var disableUpdate: Bool = true
     
     var body: some View {
         VStack(spacing: 30) {
             // MARK: - Profile picture
             VStack(spacing: 10) {
-                Image(uiImage: UIImage())
+                profileImage
                     .resizable()
-                    .scaledToFill()
                     .frame(width: 150, height: 150)
                     .background(Color.gray.opacity(0.2))
                     .clipShape(Circle())
-                photoPickerButton
+                    .scaledToFill()
+                    .onChange(of: viewModel.pfpData) {
+                        if (viewModel.pfpData != nil) {
+                            Task {
+                                await MainActor.run {
+                                    profileImage = Image(uiImage: UIImage(data: viewModel.pfpData!)!)
+                                }
+                            }
+                        }
+                    }
+                    .onTapGesture {
+                        showPhotoActionSheet.toggle()
+                    }
+                    .confirmationDialog("Select A Profile Picture", isPresented: $showPhotoActionSheet) {
+                        Button {
+                            showPhotoLibrary.toggle()
+                        } label: {
+                            Text("Photo Library")
+                        }
+                    }
+                    .photosPicker(isPresented: $showPhotoLibrary, selection: $selectedPhoto, photoLibrary: .shared())
+                    .onChange(of: selectedPhoto) { newValue in
+                        guard let photoItem = selectedPhoto else {
+                            return
+                        }
+                        Task {
+                            if let photoData = try await photoItem.loadTransferable(type: Data.self),
+                               let uiImage = UIImage(data: photoData){
+                                await MainActor.run {
+                                    profileImage = Image(uiImage: uiImage)
+                                    disableUpdate = false
+                                }
+                            }
+                            
+                        }
+                    }
             }
             
+            // MARK:  profile detail
             VStack(alignment: .leading, spacing: 20) {
                 HStack(spacing: 5) {
                     Text("Name: ")
                         .bold()
-                    
-                    if (nameEditMode) {
-                        TextField("name", text: $viewModel.name)
-                        Button {
-                            nameEditMode = false
-                        } label: {
-                            Text("Cancel")
+                    TextField("name", text: $viewModel.name)
+                        .textContentType(.name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: viewModel.name) {
+                            disableUpdate = false
                         }
-                        Button{
-                            Task {
-                                let result = await Supabase.shared.updateUserName(newName: viewModel.name)
-                                didError = !result
-                                nameEditMode = didError
-                            }
-                        } label: {
-                            Text("Update")
-                        }
-                        .alert("update failed",
-                               isPresented: $didError) {
-                            Button("OK", role: .cancel) { }
-                        }
-                    }
-                    else {
-                        Text(viewModel.name)
-                        Spacer()
-                        Button {
-                            Task {
-                                nameEditMode = true
-                            }
-                        } label: {
-                            Label("Edit", systemImage: "pencil")
-                        }
-                    }
+                        
                 }
                 
                 HStack(spacing: 5) {
                     Text("Email: ")
                         .bold()
-                    
-                    if (emailEditMode) {
-                        TextField("new email", text: $viewModel.email)
-                        
-                        Button {
-                            emailEditMode = false
-                        } label: {
-                            Text("Cancel")
+                    TextField("new email", text: $viewModel.email)
+                        .textContentType(.emailAddress)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: viewModel.email) {
+                            disableUpdate = false
                         }
-                        Button {
-                            Task {
-                                let result = await Supabase.shared.updateUserEmail(newEmail: viewModel.email)
-                                didError = !result
-                                emailEditMode = didError
-                            }
-                        } label: {
-                            Text("Update")
-                        }
-                        .alert("update failed",
-                            isPresented: $didError) {
-                            Button("OK", role: .cancel) { }
-                        }
-                    }
-                    else {
-                        Text(viewModel.email)
-                        Spacer()
-                        Button {
-                            Task {
-                                emailEditMode = true
-                            }
-                        } label: {
-                            Label("Edit", systemImage: "pencil")
-                        }
-                    }
+
  
                 }
                 HStack(spacing: 5){
@@ -116,21 +104,39 @@ struct UserProfileView: View {
             }
         }
         .padding()
-        .onChange(of: imageSelection) {
+        
+        Button("Update") {
             Task {
-                if let data = try? await imageSelection?.loadTransferable(type: Data.self) {
-                    uiImage = UIImage(data:data)
-                    return
-                }
+                successAlert = await updateUserProfile()
+                errorAlert = !successAlert
             }
         }
+        .disabled(disableUpdate)
+        .alert("update failed", isPresented: $errorAlert) {
+            Button("OK", role: .cancel) {}
+        }
+        .alert("update successful", isPresented: $successAlert) {
+            Button("OK", role: .cancel) {
+                disableUpdate = true
+            }
+            }
     }
     
-    
-    var photoPickerButton: some View {
-          PhotosPicker(selection: $imageSelection, matching: .images, photoLibrary: .shared()) {
-              Text("Select Profile Picture")
-          }
+    func updateUserProfile() async -> Bool{
+        do {
+            var success = await Supabase.shared.updateUserEmail(newEmail: viewModel.email)
+            success = await Supabase.shared.updateUserName(newName: viewModel.name)
+            if let data = try await selectedPhoto?.loadTransferable(type: Data.self) {
+                await Supabase.shared.uploadProfilePicture(pictureData: data)
+            }
+            else {
+                success = false
+            }
+            return success
+        }catch {
+            print("Error: \(error)")
+            return false
+        }
     }
 }
 
