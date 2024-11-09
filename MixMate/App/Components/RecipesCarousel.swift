@@ -11,6 +11,7 @@ struct RecipesCarousel: View {
     
     let title: String
     let cocktails: [Cocktail]
+    var onUpdate: (() -> Void)?
     
     var body: some View {
         if !cocktails.isEmpty {
@@ -23,7 +24,7 @@ struct RecipesCarousel: View {
                     HStack(spacing: 0) {
                         ForEach(cocktails, id: \.self) { cocktail in
                             NavigationLink {
-                                RecipeDetailView(cocktail: cocktail)
+                                RecipeDetailView(cocktail: cocktail, onUpdate: onUpdate)
                             } label: {
                                 RecipesCarouselItem(cocktail: cocktail)
                             }

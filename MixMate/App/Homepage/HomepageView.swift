@@ -23,7 +23,7 @@ struct HomepageView: View {
                                 .padding(.horizontal, 20)
                         }
                     }
-                    RecipesCarousel(title: "Your Favourites!", cocktails: viewModel.favouritesCarousel)
+                    RecipesCarousel(title: "Your Favourites!", cocktails: viewModel.favouritesCarousel, onUpdate: onCocktailUpdated)
                     RecipesCarousel(title: "Summer time!", cocktails: viewModel.summerCarousel)
                     RecipesCarousel(title: "But first coffee", cocktails: viewModel.coffeeCarousel)
                 }
@@ -47,7 +47,17 @@ struct HomepageView: View {
                 }
             }
         }
-        
+        .onAppear {
+            Task {
+                await viewModel.loadData()
+            }
+        }
+    }
+    
+    func onCocktailUpdated() {
+        Task {
+            await viewModel.loadData()
+        }
     }
 }
 
