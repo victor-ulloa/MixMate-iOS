@@ -17,15 +17,15 @@ struct HomepageView: View {
                 VStack(spacing: 25){
                     if let cocktail = viewModel.cocktails.first {
                         NavigationLink {
-                            RecipeDetailView(cocktail: cocktail)
+                            RecipeDetailView(cocktail: cocktail, onUpdate: onCocktailUpdated)
                         } label: {
                             ImageCard(cocktail: cocktail)
                                 .padding(.horizontal, 20)
                         }
                     }
                     RecipesCarousel(title: "Your Favourites!", cocktails: viewModel.favouritesCarousel, onUpdate: onCocktailUpdated)
-                    RecipesCarousel(title: "Summer time!", cocktails: viewModel.summerCarousel)
-                    RecipesCarousel(title: "But first coffee", cocktails: viewModel.coffeeCarousel)
+                    RecipesCarousel(title: "Summer time!", cocktails: viewModel.summerCarousel, onUpdate: onCocktailUpdated)
+                    RecipesCarousel(title: "But first coffee", cocktails: viewModel.coffeeCarousel, onUpdate: onCocktailUpdated)
                 }
                 .padding(.top)
             }
