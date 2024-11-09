@@ -10,9 +10,11 @@ import SwiftUI
 struct RecipeDetailView: View {
     
     @ObservedObject var viewModel: RecipeDetailViewModel
+    var onUpdate: (() -> Void)?
     
-    init(cocktail: Cocktail) {
+    init(cocktail: Cocktail, onUpdate: (() -> Void)? = nil) {
         self.viewModel = RecipeDetailViewModel(cocktail: cocktail)
+        self.onUpdate = onUpdate
     }
     
     var body: some View {
@@ -34,6 +36,7 @@ struct RecipeDetailView: View {
                     
                     Button {
                         viewModel.isFavourite.toggle()
+                        onUpdate?()
                     } label: {
                         Image(systemName: viewModel.isFavourite ? "heart.fill" : "heart")
                             .resizable()

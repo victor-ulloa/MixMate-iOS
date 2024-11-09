@@ -20,20 +20,6 @@ final class HomepageViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        Task {
-            if let cocktails = await Supabase.shared.fetchCocktails() {
-                DispatchQueue.main.async { [weak self] in
-                    self?.cocktails = cocktails
-                }
-            }
-            
-            if let recipes = await Supabase.shared.fetchRecipes() {
-                DispatchQueue.main.async { [weak self] in
-                    self?.recipes = recipes
-                }
-            }
-        }
-        
         Publishers.CombineLatest($cocktails, $recipes)
             .compactMap { ($0.0, $0.1) }
             .sink { [weak self] cocktails, recipes in
@@ -65,5 +51,16 @@ final class HomepageViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    @MainActor
+    func loadData() async {
+        if let cocktails = await Supabase.shared.fetchCocktails() {
+            self.cocktails = cocktails
+        }
+        
+        if let recipes = await Supabase.shared.fetchRecipes() {
+            self.recipes = recipes
+        }
     }
 }
