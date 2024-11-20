@@ -1,6 +1,6 @@
 //
-//  WidgetControl.swift
-//  Widget
+//  MixMateWidgetControl.swift
+//  MixMateWidget
 //
 //  Created by Victor Ulloa on 2024-11-20.
 //
@@ -9,10 +9,10 @@ import AppIntents
 import SwiftUI
 import WidgetKit
 
-struct WidgetControl: ControlWidget {
+struct MixMateWidgetControl: ControlWidget {
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(
-            kind: "com.mixmate.MixMateApp.Widget",
+            kind: "com.mixmate.MixMateApp.MixMateWidget",
             provider: Provider()
         ) { value in
             ControlWidgetToggle(
@@ -28,7 +28,7 @@ struct WidgetControl: ControlWidget {
     }
 }
 
-extension WidgetControl {
+extension MixMateWidgetControl {
     struct Provider: ControlValueProvider {
         var previewValue: Bool {
             false

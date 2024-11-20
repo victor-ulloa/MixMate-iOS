@@ -17,9 +17,9 @@
 		575823742C17D516000EEC7A /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575823732C17D516000EEC7A /* Supabase.swift */; };
 		575823762C17D74C000EEC7A /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575823752C17D74C000EEC7A /* HomepageViewModel.swift */; };
 		575823792C181DE0000EEC7A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575823782C181DE0000EEC7A /* Constants.swift */; };
-		576D310A2CEE9C68001EDB59 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576D31092CEE9C68001EDB59 /* WidgetKit.framework */; };
-		576D310C2CEE9C68001EDB59 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576D310B2CEE9C68001EDB59 /* SwiftUI.framework */; };
-		576D31192CEE9C69001EDB59 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 576D31072CEE9C68001EDB59 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		576D31242CEE9DBB001EDB59 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576D31092CEE9C68001EDB59 /* WidgetKit.framework */; };
+		576D31252CEE9DBB001EDB59 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576D310B2CEE9C68001EDB59 /* SwiftUI.framework */; };
+		576D31322CEE9DBC001EDB59 /* MixMateWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 576D31232CEE9DBB001EDB59 /* MixMateWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		576F2B512CBF2FEA008C08E4 /* AccountMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576F2B502CBF2FEA008C08E4 /* AccountMenuView.swift */; };
 		5782A6622C168F15000015CB /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6612C168F15000015CB /* HomepageView.swift */; };
 		5782A6652C16962A000015CB /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5782A6642C16962A000015CB /* ImageCard.swift */; };
@@ -62,12 +62,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		576D31172CEE9C69001EDB59 /* PBXContainerItemProxy */ = {
+		576D31302CEE9DBC001EDB59 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 57EA6D432C1414A200AE66DD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 576D31062CEE9C68001EDB59;
-			remoteInfo = WidgetExtension;
+			remoteGlobalIDString = 576D31222CEE9DBB001EDB59;
+			remoteInfo = MixMateWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -78,7 +78,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				576D31192CEE9C69001EDB59 /* WidgetExtension.appex in Embed Foundation Extensions */,
+				576D31322CEE9DBC001EDB59 /* MixMateWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,9 +90,9 @@
 		575823732C17D516000EEC7A /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
 		575823752C17D74C000EEC7A /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
 		575823782C181DE0000EEC7A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		576D31072CEE9C68001EDB59 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		576D31092CEE9C68001EDB59 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		576D310B2CEE9C68001EDB59 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		576D31232CEE9DBB001EDB59 /* MixMateWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MixMateWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		576F2B502CBF2FEA008C08E4 /* AccountMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuView.swift; sourceTree = "<group>"; };
 		5782A6612C168F15000015CB /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		5782A6642C16962A000015CB /* ImageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCard.swift; sourceTree = "<group>"; };
@@ -136,27 +136,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		576D311D2CEE9C69001EDB59 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		576D31332CEE9DBC001EDB59 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 576D31062CEE9C68001EDB59 /* WidgetExtension */;
+			target = 576D31222CEE9DBB001EDB59 /* MixMateWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		576D310D2CEE9C68001EDB59 /* Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (576D311D2CEE9C69001EDB59 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Widget; sourceTree = "<group>"; };
+		576D31262CEE9DBB001EDB59 /* MixMateWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (576D31332CEE9DBC001EDB59 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MixMateWidget; sourceTree = "<group>"; };
 		57728EF92CD1C0DE0079837A /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		576D31042CEE9C68001EDB59 /* Frameworks */ = {
+		576D31202CEE9DBB001EDB59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				576D310C2CEE9C68001EDB59 /* SwiftUI.framework in Frameworks */,
-				576D310A2CEE9C68001EDB59 /* WidgetKit.framework in Frameworks */,
+				576D31252CEE9DBB001EDB59 /* SwiftUI.framework in Frameworks */,
+				576D31242CEE9DBB001EDB59 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				57EA6D4D2C1414A200AE66DD /* MixMate */,
-				576D310D2CEE9C68001EDB59 /* Widget */,
+				576D31262CEE9DBB001EDB59 /* MixMateWidget */,
 				576D31082CEE9C68001EDB59 /* Frameworks */,
 				57EA6D4C2C1414A200AE66DD /* Products */,
 			);
@@ -288,7 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				57EA6D4B2C1414A200AE66DD /* MixMate.app */,
-				576D31072CEE9C68001EDB59 /* WidgetExtension.appex */,
+				576D31232CEE9DBB001EDB59 /* MixMateWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,26 +338,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		576D31062CEE9C68001EDB59 /* WidgetExtension */ = {
+		576D31222CEE9DBB001EDB59 /* MixMateWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 576D311E2CEE9C69001EDB59 /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildConfigurationList = 576D31342CEE9DBC001EDB59 /* Build configuration list for PBXNativeTarget "MixMateWidgetExtension" */;
 			buildPhases = (
-				576D31032CEE9C68001EDB59 /* Sources */,
-				576D31042CEE9C68001EDB59 /* Frameworks */,
-				576D31052CEE9C68001EDB59 /* Resources */,
+				576D311F2CEE9DBB001EDB59 /* Sources */,
+				576D31202CEE9DBB001EDB59 /* Frameworks */,
+				576D31212CEE9DBB001EDB59 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				576D310D2CEE9C68001EDB59 /* Widget */,
+				576D31262CEE9DBB001EDB59 /* MixMateWidget */,
 			);
-			name = WidgetExtension;
+			name = MixMateWidgetExtension;
 			packageProductDependencies = (
 			);
-			productName = WidgetExtension;
-			productReference = 576D31072CEE9C68001EDB59 /* WidgetExtension.appex */;
+			productName = MixMateWidgetExtension;
+			productReference = 576D31232CEE9DBB001EDB59 /* MixMateWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		57EA6D4A2C1414A200AE66DD /* MixMate */ = {
@@ -372,7 +372,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				576D31182CEE9C69001EDB59 /* PBXTargetDependency */,
+				576D31312CEE9DBC001EDB59 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				57728EF92CD1C0DE0079837A /* Preview Content */,
@@ -400,7 +400,7 @@
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					576D31062CEE9C68001EDB59 = {
+					576D31222CEE9DBB001EDB59 = {
 						CreatedOnToolsVersion = 16.1;
 					};
 					57EA6D4A2C1414A200AE66DD = {
@@ -425,13 +425,13 @@
 			projectRoot = "";
 			targets = (
 				57EA6D4A2C1414A200AE66DD /* MixMate */,
-				576D31062CEE9C68001EDB59 /* WidgetExtension */,
+				576D31222CEE9DBB001EDB59 /* MixMateWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		576D31052CEE9C68001EDB59 /* Resources */ = {
+		576D31212CEE9DBB001EDB59 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -449,7 +449,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		576D31032CEE9C68001EDB59 /* Sources */ = {
+		576D311F2CEE9DBB001EDB59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -508,15 +508,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		576D31182CEE9C69001EDB59 /* PBXTargetDependency */ = {
+		576D31312CEE9DBC001EDB59 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 576D31062CEE9C68001EDB59 /* WidgetExtension */;
-			targetProxy = 576D31172CEE9C69001EDB59 /* PBXContainerItemProxy */;
+			target = 576D31222CEE9DBB001EDB59 /* MixMateWidgetExtension */;
+			targetProxy = 576D31302CEE9DBC001EDB59 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		576D311B2CEE9C69001EDB59 /* Debug */ = {
+		576D31352CEE9DBC001EDB59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -525,8 +525,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 96JYKUR964;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_FILE = MixMateWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MixMateWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,7 +535,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mixmate.MixMateApp.Widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mixmate.MixMateApp.MixMateWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -544,7 +544,7 @@
 			};
 			name = Debug;
 		};
-		576D311C2CEE9C69001EDB59 /* Release */ = {
+		576D31362CEE9DBC001EDB59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -553,8 +553,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 96JYKUR964;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_FILE = MixMateWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MixMateWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -563,7 +563,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mixmate.MixMateApp.Widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mixmate.MixMateApp.MixMateWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -760,11 +760,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		576D311E2CEE9C69001EDB59 /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+		576D31342CEE9DBC001EDB59 /* Build configuration list for PBXNativeTarget "MixMateWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				576D311B2CEE9C69001EDB59 /* Debug */,
-				576D311C2CEE9C69001EDB59 /* Release */,
+				576D31352CEE9DBC001EDB59 /* Debug */,
+				576D31362CEE9DBC001EDB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

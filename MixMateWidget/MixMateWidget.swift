@@ -1,6 +1,6 @@
 //
-//  Widget.swift
-//  Widget
+//  MixMateWidget.swift
+//  MixMateWidget
 //
 //  Created by Victor Ulloa on 2024-11-20.
 //
@@ -43,7 +43,7 @@ struct SimpleEntry: TimelineEntry {
     let emoji: String
 }
 
-struct WidgetEntryView : View {
+struct MixMateWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
@@ -57,16 +57,16 @@ struct WidgetEntryView : View {
     }
 }
 
-struct Widget: Widget {
-    let kind: String = "Widget"
+struct MixMateWidget: Widget {
+    let kind: String = "MixMateWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
-                WidgetEntryView(entry: entry)
+                MixMateWidgetEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
             } else {
-                WidgetEntryView(entry: entry)
+                MixMateWidgetEntryView(entry: entry)
                     .padding()
                     .background()
             }
@@ -77,7 +77,7 @@ struct Widget: Widget {
 }
 
 #Preview(as: .systemSmall) {
-    Widget()
+    MixMateWidget()
 } timeline: {
     SimpleEntry(date: .now, emoji: "😀")
     SimpleEntry(date: .now, emoji: "🤩")
