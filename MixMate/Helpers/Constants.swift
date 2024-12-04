@@ -51,6 +51,7 @@ enum Tags: String, Codable, CaseIterable {
     case vegan
     case tropical
     case frozen
+    case recipeOfTheDay
     
     func getString () -> String {
         switch self {
