@@ -126,11 +126,14 @@ struct UserProfileView: View {
         do {
             var success = await Supabase.shared.updateUserEmail(newEmail: viewModel.email)
             success = await Supabase.shared.updateUserName(newName: viewModel.name)
-            if let data = try await selectedPhoto?.loadTransferable(type: Data.self) {
-                await Supabase.shared.uploadProfilePicture(pictureData: data)
-            }
-            else {
-                success = false
+            
+            if (selectedPhoto != nil) {
+                if let data = try await selectedPhoto!.loadTransferable(type: Data.self) {
+                    await Supabase.shared.uploadProfilePicture(pictureData: data)
+                }
+                else {
+                    success = false
+                }
             }
             return success
         }catch {
