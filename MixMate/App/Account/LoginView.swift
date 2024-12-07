@@ -35,7 +35,7 @@ struct LoginView: View {
                             .foregroundStyle(.gray)
                             .padding(.leading)
                         TextField("email", text: $email)
-                            .keyboardType(.emailAddress)                            
+                            .keyboardType(.emailAddress)
                             .textInputAutocapitalization(.never)
                             .autocorrectionDisabled()
                             .padding()
@@ -60,10 +60,8 @@ struct LoginView: View {
                                 if !authManager.isLoading {
                                     dismiss()
                                 }
-                                
                             }
                         }
-                        
                     } label: {
                         if authManager.isLoading {
                             ProgressView()
@@ -85,7 +83,16 @@ struct LoginView: View {
             .padding(.top, 20)
             .padding(.horizontal, 20)
         }
-        .errorAlert(error: $authManager.error)
+        .alert(isPresented: $authManager.hasError) {
+            Alert(
+                title: Text("Error"),
+                message: Text(authManager.errorMessage ?? "An unknown error occurred."),
+                dismissButton: .default(Text("OK")) {
+                    // Optionally reset any error-related state after alert dismissal
+                    authManager.hasError = false
+                }
+            )
+        }
     }
 }
 
