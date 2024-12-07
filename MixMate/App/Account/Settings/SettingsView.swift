@@ -11,6 +11,7 @@ struct SettingsView: View {
     
     @EnvironmentObject var authManager: AuthenticationManager
     @State var notificationsEnabled: Bool = true
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         List {
@@ -21,6 +22,7 @@ struct SettingsView: View {
             Button("Delete account") {
                 Task {
                     await authManager.deleteUserAccount()
+                    presentationMode.wrappedValue.dismiss()
                 }
             }
             .foregroundStyle(.red)
