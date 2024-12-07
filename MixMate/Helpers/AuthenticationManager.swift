@@ -72,6 +72,27 @@ class AuthenticationManager: ObservableObject {
         }
     }
     
+    @MainActor
+    func deleteUserAccount() async {
+        // Ensure the user is authenticated
+        guard authState == .Signin else {
+            print("User is not authenticated.")
+            return
+        }
+        
+        do {
+            // Call the deleteUser method with the authenticated user's ID
+            try await Supabase.shared.instance.auth.admin.deleteUser(id: Supabase.shared.instance.auth.session.user.id.uuidString)
+            debugPrint("User account deleted successfully.")
+            
+            // Optionally, log the user out after deletion
+            await signOutUser()
+            debugPrint("User has been logged out.")
+        } catch {
+            print("Error deleting user account: \(error.localizedDescription)")
+        }
+    }
+    
     private func handleError(_ error: Error) {
         self.error = error
         self.errorMessage = error.localizedDescription

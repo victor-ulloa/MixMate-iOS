@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @EnvironmentObject var authManager: AuthenticationManager
     @State var notificationsEnabled: Bool = true
     
     var body: some View {
@@ -18,7 +19,9 @@ struct SettingsView: View {
             }
             
             Button("Delete account") {
-                
+                Task {
+                    await authManager.deleteUserAccount()
+                }
             }
             .foregroundStyle(.red)
         }
@@ -27,4 +30,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environmentObject(AuthenticationManager())
 }
