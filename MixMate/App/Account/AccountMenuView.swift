@@ -62,7 +62,8 @@ struct AccountMenuView: View {
                     }
                     
                     NavigationLink {
-                        
+                        SettingsView()
+                            .environmentObject(authManager)
                     } label: {
                         Text("Settings")
                     }
