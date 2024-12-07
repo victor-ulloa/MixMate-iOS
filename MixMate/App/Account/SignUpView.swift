@@ -10,13 +10,13 @@ import SwiftUI
 struct SignUpView: View {
     
     @EnvironmentObject private var authManager: AuthenticationManager
-    
     @StateObject var viewModel = SignUpViewModel()
-    
     @State var email: String = ""
     @State var password: String = ""
     @State var verifyPassword: String = ""
     @State private var isValidEmail: Bool = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         ScrollView(.vertical) {
@@ -30,7 +30,6 @@ struct SignUpView: View {
                 }
                 
                 VStack(spacing: 20) {
-                    
                     VStack(alignment: .leading) {
                         Text("Email")
                             .font(.subheadline)
@@ -69,21 +68,29 @@ struct SignUpView: View {
                     
                     Button {
                         if !viewModel.isEmailValid {
-                            print("Handle invalid email")
+                            alertMessage = "Please enter a valid email."
+                            showAlert.toggle()
                             return
                         }
                         
                         if !viewModel.isPasswordValid {
-                            print("Password not valid")
+                            alertMessage = "Password must contain at least one uppercase letter and one number."
+                            showAlert.toggle()
                             return
                         }
                         
                         if !viewModel.passwordsMatch {
-                            print("Passwords do not match")
+                            alertMessage = "Passwords do not match."
+                            showAlert.toggle()
                             return
                         }
+                        
                         Task {
                             await authManager.signUp(email: email, password: password)
+                            if let error = authManager.error {
+                                alertMessage = error.localizedDescription
+                                showAlert.toggle()
+                            }
                         }
                     } label: {
                         if authManager.isLoading {
@@ -114,7 +121,9 @@ struct SignUpView: View {
             .padding(.vertical, 60)
             .padding(.horizontal, 20)
         }
-        .errorAlert(error: $authManager.error)
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
     }
 }
 
