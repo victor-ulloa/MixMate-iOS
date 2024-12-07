@@ -13,8 +13,7 @@ struct AccountView: View {
     
     var body: some View {
         NavigationStack {
-            
-            Group{
+            Group {
                 switch (authManager.authState) {
                 case .Initial:
                     Text("Loading")

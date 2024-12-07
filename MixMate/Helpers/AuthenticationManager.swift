@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import Auth
 
-
 class AuthenticationManager: ObservableObject {
     
     @Published var email: String = ""
@@ -17,6 +16,8 @@ class AuthenticationManager: ObservableObject {
     @Published var error: Error?
     @Published var authState: AuthState = AuthState.Initial
     @Published var isLoading = false
+    @Published var hasError: Bool = false
+    @Published var errorMessage: String?
     
     @MainActor
     func isUserSignIn() async -> Session? {
@@ -26,6 +27,7 @@ class AuthenticationManager: ObservableObject {
             return session
         } catch {
             authState = AuthState.Signout
+            self.handleError(error)
             return nil
         }
     }
@@ -40,7 +42,7 @@ class AuthenticationManager: ObservableObject {
             authState = AuthState.Signin
             isLoading = false
         } catch let error {
-            self.error = error
+            self.handleError(error)
             isLoading = false
         }
     }
@@ -54,7 +56,7 @@ class AuthenticationManager: ObservableObject {
             isLoading = false
             return true
         } catch let error {
-            self.error = error
+            self.handleError(error)
             isLoading = false
             return false
         }
@@ -66,7 +68,18 @@ class AuthenticationManager: ObservableObject {
             try await Supabase.shared.instance.auth.signOut()
             authState = AuthState.Signout
         } catch let error {
-            self.error = error
+            self.handleError(error)
+        }
+    }
+    
+    private func handleError(_ error: Error) {
+        self.error = error
+        self.errorMessage = error.localizedDescription
+        self.hasError = true
+        
+        // Delay resetting the error state so the alert can be shown
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.hasError = false
         }
     }
 }
